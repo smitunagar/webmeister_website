@@ -1479,12 +1479,34 @@ p {
 .problem-stat:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0,0,0,0.5); border-color: rgba(227,66,52,0.3); border-top-color: #E34234; }
 .problem-stat:hover::before { opacity: 1; }
 
+/* Ghost index watermark — decorative background number */
+.problem-stat::after {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1rem;
+    font-size: 6rem;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    line-height: 1;
+    color: rgba(255,255,255,0.04);
+    font-family: 'Inter', sans-serif;
+    pointer-events: none;
+    z-index: 0;
+}
+.problem-stats .problem-stat:nth-child(1)::after { content: '01'; }
+.problem-stats .problem-stat:nth-child(2)::after { content: '02'; color: rgba(227,66,52,0.08); }
+.problem-stats .problem-stat:nth-child(3)::after { content: '03'; }
+
 /* Featured (middle) card gets accent treatment */
 .problem-stat--featured {
     border-top: 2px solid #E34234;
     background: rgba(227,66,52,0.05);
+    box-shadow: 0 0 60px rgba(227,66,52,0.08), 0 20px 40px rgba(0,0,0,0.4);
 }
-.problem-stat--featured .problem-stat-number { color: #E34234; }
+.problem-stat--featured .problem-stat-number {
+    color: #E34234;
+    text-shadow: 0 0 40px rgba(227,66,52,0.4);
+}
 
 .problem-stat-number {
     font-size: clamp(2.75rem, 5vw, 4rem);
@@ -1510,8 +1532,17 @@ p {
     height: 100%;
     background: linear-gradient(90deg, #E34234, rgba(227,66,52,0.4));
     border-radius: 2px;
+    animation: barDraw 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.6s both;
+    transform-origin: left;
 }
-.problem-stat--featured .problem-stat-bar-fill { background: #E34234; }
+@keyframes barDraw {
+    from { clip-path: inset(0 100% 0 0); }
+    to   { clip-path: inset(0 0% 0 0); }
+}
+.problem-stat--featured .problem-stat-bar-fill {
+    background: linear-gradient(90deg, #E34234, rgba(227,66,52,0.6));
+    animation-delay: 0.8s;
+}
 .problem-stat-label {
     font-size: 0.9rem;
     color: rgba(249,244,232,0.55);
@@ -1528,8 +1559,15 @@ p {
     justify-content: center;
     color: #E34234;
     font-size: 0.875rem;
-    align-self: flex-start;
-    margin-top: auto;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 1;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+.problem-stat:hover .problem-stat-icon {
+    background: rgba(227,66,52,0.2);
+    box-shadow: 0 0 16px rgba(227,66,52,0.3);
 }
 
 /* Bottom strip */
@@ -1753,63 +1791,6 @@ p {
     color: rgba(249, 244, 232, 0.6); /* Muted Brand Cream */
     max-width: 600px;
     margin: 0 auto;
-}
-
-.problem-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: var(--space-2xl);
-    max-width: 1200px; /* Max-width for centered layout */
-    margin: 0 auto; /* Center the grid */
-}
-
-.problem-stat {
-    display: flex;
-    align-items: center;
-    gap: var(--space-lg);
-    padding: var(--space-xl);
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-top: 1px solid rgba(255, 255, 255, 0.14);
-    border-radius: 24px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: var(--transition-normal);
-}
-
-.problem-stat:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.06);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
-    border-color: rgba(227, 66, 52, 0.25);
-    border-top-color: rgba(255, 255, 255, 0.2);
-}
-
-.stat-icon {
-    width: 60px;
-    height: 60px;
-    background: rgba(227, 66, 52, 0.1);
-    box-shadow: 0 0 20px rgba(227, 66, 52, 0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #E34234; /* Brand Red */
-    font-size: 1.5rem;
-    flex-shrink: 0;
-}
-
-.stat-content h3 {
-    font-size: 2rem;
-    font-weight: 700; /* Semi-bold to bold */
-    color: #E34234; /* Brand Red/Coral */
-    margin-bottom: var(--space-sm);
-}
-
-.stat-content p {
-    color: rgba(249, 244, 232, 0.6);
-    font-weight: 500;
 }
 
 /* Solution Section - Elite Bento Grid Design */
