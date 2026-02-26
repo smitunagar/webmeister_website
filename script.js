@@ -602,14 +602,9 @@ function initAnimations() {
 
 // Parallax effects
 function initParallax() {
+    // Hero visual parallax disabled — dashboard is static
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.hero-visual, .dashboard-mockup');
-        
-        parallaxElements.forEach(element => {
-            const speed = 0.5;
-            element.style.transform = `translateY(${scrolled * speed}px)`;
-        });
         
         // Hardware product image parallax - subtle 5% offset for three-dimensional feel
         const hardwareImage = document.querySelector('.hardware-image-placeholder');
@@ -631,24 +626,7 @@ function initParallax() {
             }
         }
         
-        // Gravity Interaction - Footer reveal effect (uncovered by CTA section)
-        const footer = document.querySelector('.footer');
-        if (footer) {
-            const footerRect = footer.getBoundingClientRect();
-            const footerTop = footerRect.top + window.pageYOffset;
-            const revealStart = footerTop - window.innerHeight - 200; // Start revealing 200px before footer enters viewport
-            
-            // Calculate reveal progress as user approaches footer
-            if (scrolled > revealStart) {
-                const revealProgress = Math.min(1, (scrolled - revealStart) / 600); // 600px reveal range
-                const parallaxSpeed = 0.4; /* Footer moves slower than scroll, creating "uncovered" effect */
-                const maxOffset = 150; /* Maximum offset - footer starts 150px below */
-                const offset = maxOffset * (1 - revealProgress) * parallaxSpeed;
-                footer.style.transform = `translateY(${offset}px)`;
-            } else {
-                footer.style.transform = `translateY(${150 * 0.4}px)`; /* Initially positioned below (60px offset) */
-            }
-        }
+        // Footer parallax disabled — no movement on scroll
     });
 }
 
