@@ -1,0 +1,4615 @@
+/* Reset and Base Styles - Updated 2024-12-12 11:35 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure consistent box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Background Scroll-Lock: Body scroll lock when mobile menu is open */
+/* Applied via class .menu-open from script – prevents homepage background from shifting
+   while the user taps a link, ensuring click-state remains perfectly stable */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+}
+
+/* Improve touch targets for mobile */
+button,
+a,
+input,
+select,
+textarea {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile-specific text improvements */
+@media (max-width: 768px) {
+    /* Better text wrapping for German text */
+    .hero-title,
+    .hero-subtitle,
+    .section-header h2,
+    .section-header p,
+    .stat-label,
+    .feature-card h3,
+    .feature-card p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        word-break: break-word;
+    }
+
+    /* Prevent text overflow */
+    .hero-title {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* Better spacing for mobile */
+    .hero-stats {
+        margin: var(--space-lg) 0;
+    }
+
+    .hero-stats .stat {
+        margin: var(--space-xs) 0;
+        text-align: center;
+    }
+
+    /* Improve button layout */
+    .hero-cta {
+        margin-top: var(--space-lg);
+    }
+
+    .cta-button {
+        margin: var(--space-xs) 0;
+    }
+
+    /* Specific improvements for German text */
+    .hero-title br {
+        display: block;
+        margin: 0.2em 0;
+    }
+
+    .hero-subtitle br {
+        display: block;
+        margin: 0.1em 0;
+    }
+
+    /* Better stat labels for mobile */
+    .stat-label {
+        font-size: 0.85rem;
+        line-height: 1.2;
+        padding: 0 var(--space-xs);
+    }
+
+    /* Improve university badge for mobile */
+    .hero-badge {
+        font-size: 0.8rem;
+        padding: var(--space-sm) var(--space-md);
+        margin-bottom: var(--space-lg);
+    }
+
+    .hero-badge span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+}
+
+:root {
+    /* Colors */
+    --primary-green: #10B981;
+    --primary-blue: #3B82F6;
+    --primary-dark: #1F2937;
+    --primary-light: #F3F4F6;
+    --accent-orange: #F59E0B;
+    --accent-red: #EF4444;
+    --text-primary: #111827;
+    --text-secondary: #6B7280;
+    --text-light: #9CA3AF;
+    --white: #FFFFFF;
+    --gray-50: #F9FAFB;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-300: #D1D5DB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-600: #4B5563;
+    --gray-700: #374151;
+    --gray-800: #1F2937;
+    --gray-900: #111827;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+    --gradient-secondary: linear-gradient(135deg, #F59E0B 0%, #EF4444 100%);
+    --gradient-text: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    
+    /* Spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+    --space-4xl: 6rem;
+    
+    /* Border Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    
+    /* Layout Alignment */
+    --alignment-pillar: 10%; /* Invisible Pillar - vertical alignment axis for Logo, Headline, and Primary CTA */
+    
+    /* Transitions */
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.3s ease-in-out;
+    --transition-slow: 0.5s ease-in-out;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 400; /* Regular weight for maximum legibility */
+    line-height: 1.6; /* Maximum readability across all screen sizes */
+    color: var(--text-primary);
+    background-color: var(--white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Standardize body text - Regular weight and line-height for maximum readability */
+p {
+    font-weight: 400; /* Regular weight instead of Light */
+    line-height: 1.6; /* Maximum readability across all screen sizes */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* Navigation */
+/* Navbar - transparent wrapper */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: transparent; /* no background */
+    padding: 0; /* no padding */
+    z-index: 1000;
+    transition: var(--transition-normal);
+}
+
+.navbar.scrolled {
+    background: transparent;
+}
+
+/* INNER ROUNDED CONTAINER - Centered, wraps logo + nav + CTA */
+.nav-container {
+    max-width: 1280px; /* max width 1280px */
+    margin: 14px auto; /* centered horizontally with top margin */
+    padding: 14px 32px; /* padding 14px 32px */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.6); /* semi-transparent white to blend with hero */
+    border-radius: 40px; /* FULL pill shape - 40px border radius */
+    backdrop-filter: blur(6px); /* blur effect for glassmorphic effect */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-left: var(--alignment-pillar); /* Invisible Pillar - aligns with headline and CTA */
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    max-width: 250px;
+    image-rendering: -webkit-optimize-contrast; /* Sharp logo on retina */
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15)) contrast(1.1) brightness(0.95);
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.logo-subtitle {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px; /* 32px spacing between nav items */
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 500; /* Medium weight */
+    letter-spacing: 0.05em; /* tracking-wide for prestige */
+    transition: var(--transition-fast);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-green);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--gradient-primary);
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Language Switcher */
+.language-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 1rem;
+    padding: 0.5rem;
+    background: #F3F4F6;
+    border-radius: 0.5rem;
+}
+
+.lang-link {
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #6B7280;
+    transition: all 0.3s ease;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lang-link:hover {
+    color: var(--primary-green);
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.lang-link.active {
+    color: var(--primary-green);
+    background: rgba(16, 185, 129, 0.15);
+}
+
+.lang-link:focus {
+    outline: 2px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: var(--primary-dark);
+    transition: var(--transition-fast);
+}
+
+/* CTA Buttons - AAA Accessibility Touch Targets */
+.cta-button {
+    padding: var(--space-sm) var(--space-lg);
+    min-height: 48px; /* AAA accessibility standard - minimum touch target */
+    border: none;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center; /* Center content for better touch target */
+    gap: var(--space-sm);
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button.primary {
+    background: #E34234; /* Brand Red/Coral - reserved for primary action buttons */
+    color: #FFFFFF; /* white */
+    box-shadow: var(--shadow-md);
+}
+
+.cta-button.primary:hover {
+    background: #B02E23; /* Darker red on hover */
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: #1F5631; /* dark green */
+    border: 2px solid #1F5631; /* dark green */
+}
+
+.cta-button.secondary:hover {
+    background: #EAF3EC; /* faint green tint */
+    color: #1F5631; /* dark green */
+    transform: translateY(-2px);
+}
+
+.cta-button.large {
+    padding: var(--space-md) var(--space-2xl);
+    min-height: 48px; /* AAA accessibility standard */
+    font-size: 1rem;
+}
+
+/* Hero Section - World-Class SaaS Interface */
+.hero {
+    padding: 120px 0 var(--space-4xl);
+    background: #F9F4E8; /* Brand Cream background */
+    position: relative;
+    overflow: hidden;
+    z-index: 3; /* Highest z-index - light section sits on top */
+}
+
+/* Soft Ambient Glow - Large radial gradient in top-right corner */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 80%;
+    height: 80%;
+    background: radial-gradient(circle at top right, rgba(227, 66, 52, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle texture overlay */
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.03; /* 3% opacity for subtle texture */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-container {
+    max-width: 1320px; /* updated container width */
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+    position: relative;
+    z-index: 2; /* above gradient and texture layers */
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--white);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-lg);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.hero-badge {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #1B3022; /* Brand Dark Green */
+    background: rgba(27, 48, 34, 0.08); /* Light background for badge */
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: var(--space-md);
+    margin-left: var(--alignment-pillar); /* Align with headline */
+    text-transform: uppercase;
+}
+
+.hero-title {
+    font-size: 4.5rem; /* 72px equivalent */
+    font-weight: 800; /* Extra-bold for modern, compact editorial look */
+    line-height: 1.1; /* Compact line-height */
+    letter-spacing: -0.04em; /* Modern, compact spacing */
+    margin-bottom: calc(var(--space-lg) + 10px); /* 8-12px extra spacing (24px + 10px = 34px) */
+    margin-left: var(--alignment-pillar); /* Invisible Pillar - aligns with logo and CTA */
+    color: #1B3022; /* Brand Dark Green */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 1.375rem; /* Slightly increased for better scannability */
+    font-weight: 400; /* Regular weight for legibility */
+    line-height: 1.6; /* Maximum readability */
+    color: rgba(27, 48, 34, 0.7); /* Medium-weight sage green at 70% opacity */
+    margin-bottom: var(--space-xl);
+    font-weight: 500; /* Medium weight */
+}
+
+/* Highlight keywords in hero title - Brand Red/Coral for "Problem" and "Gain" emphasis */
+.hero-title .highlight-keyword {
+    color: #E34234; /* Brand Red/Coral - brightest elements on page */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    display: inline; /* Ensure inline display to prevent spacing issues */
+}
+
+/* Kinetic Reveal - Overflow containers for specific words */
+.hero-title .kinetic-word-wrapper {
+    overflow: hidden;
+    display: inline-block;
+    will-change: transform;
+    vertical-align: baseline; /* Align with baseline to match "Cut" */
+    line-height: inherit;
+    height: 1.2em; /* Ensure wrapper has height to mask properly */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    font-size: inherit; /* Inherit font size to prevent scaling issues */
+}
+
+/* Fix spacing when kinetic-word-wrapper is inside no-break */
+.hero-title .no-break .kinetic-word-wrapper {
+    margin-left: 0; /* Remove left margin to prevent gap after "Cut" */
+    margin-right: 0; /* Remove right margin */
+}
+
+.hero-title .kinetic-word-content {
+    display: inline-block;
+    transform: translateY(40px);
+    will-change: transform;
+    opacity: 0;
+    white-space: pre; /* Preserve spaces */
+    color: #E34234; /* Brand Red/Coral - ensures "Problem" and "Gain" are brightest elements */
+}
+
+/* Kinetic Reveal - When animated in */
+.hero-title .kinetic-word-wrapper.animate-kinetic .kinetic-word-content {
+    animation: kinetic-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Prevent line break - keeps "Cut Food Waste," as single line */
+.hero-title .no-break {
+    white-space: nowrap;
+    display: inline-block; /* Allow kinetic animation to work inside */
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
+    vertical-align: baseline; /* Align with baseline to prevent gaps */
+    font-size: inherit; /* Inherit font size from parent */
+    line-height: inherit; /* Inherit line height from parent */
+    letter-spacing: inherit; /* Inherit letter spacing from parent */
+}
+
+/* Fix spacing within no-break to prevent gaps */
+.hero-title .no-break > * {
+    display: inline; /* Ensure child elements are inline to prevent gaps */
+    vertical-align: baseline; /* Align with baseline */
+}
+
+/* Value Proposition List */
+.hero-value-props {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-2xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.hero-value-props li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 1.25rem; /* 20px */
+    color: #203A2E; /* slightly darker green */
+    line-height: 1.5;
+}
+
+.hero-value-props li i {
+    color: #1F5631; /* dark green */
+    font-size: 1.25rem; /* 20px */
+    flex-shrink: 0;
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: var(--space-2xl);
+}
+
+.stat {
+    text-align: center;
+    flex: 1; /* equal column width */
+    padding: 0 var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat:first-child {
+    padding-left: 0;
+}
+
+.stat:last-child {
+    padding-right: 0;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 60px;
+    background-color: rgba(31, 86, 49, 0.2); /* #1F5631 with 20% opacity (darker) */
+    flex-shrink: 0;
+}
+
+.stat-number {
+    display: block;
+    font-size: 40px; /* 40px bold */
+    font-weight: 700; /* bold */
+    color: #1F5631; /* dark green */
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+.stat-label {
+    font-size: 14px; /* 14px */
+    color: #1F5631; /* green */
+    opacity: 0.6; /* 60% opacity */
+    font-weight: 400;
+    line-height: 1.4;
+    margin-top: 12px; /* 12px margin-top above text labels */
+}
+
+.hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    align-items: center;
+    margin-left: var(--alignment-pillar); /* Invisible Pillar - aligns with logo and headline */
+}
+
+/* Hero section specific CTA button styles */
+.hero-cta .cta-button {
+    padding: 14px 28px;
+    gap: 8px; /* 8px spacing between icon and text */
+}
+
+.hero-cta .cta-button i {
+    font-size: 16px; /* consistent icon size */
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-cta .cta-button.primary {
+    background: #E34234; /* Brand Red/Coral - reserved for primary action buttons */
+    color: #FFFFFF; /* white */
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+    /* CSS custom properties for cursor-tracking radial highlight */
+    --highlight-x: 50%;
+    --highlight-y: 50%;
+}
+
+/* Interactive Signature - Cursor-tracking radial highlight simulates real-world lighting */
+.hero-cta .cta-button.primary::before {
+    content: '';
+    position: absolute;
+    top: var(--highlight-y);
+    left: var(--highlight-x);
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    border-radius: 50%;
+}
+
+.hero-cta .cta-button.primary:hover::before {
+    opacity: 1; /* Show highlight on hover - tracks cursor to simulate real-world lighting */
+}
+
+.hero-cta .cta-button.primary:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Ensure button content appears above shimmer */
+.hero-cta .cta-button.primary > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Secondary Button - Clean Text Link with Play Icon */
+.hero-secondary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: #E34234; /* Brand Red */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: var(--transition-normal);
+    padding: var(--space-sm) 0;
+    position: relative;
+}
+
+.hero-secondary-link i {
+    font-size: 1.125rem;
+    color: #E34234; /* Brand Red */
+}
+
+.hero-secondary-link:hover {
+    text-decoration: none;
+}
+
+/* 2px Brand Red underline on hover */
+.hero-secondary-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #E34234; /* Brand Red */
+    transition: width var(--transition-normal);
+}
+
+.hero-secondary-link:hover::after {
+    width: 100%;
+}
+
+/* Tertiary Link - Video Walkthrough */
+.hero-tertiary-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: rgba(27, 48, 34, 0.7); /* Muted text color */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-normal);
+    padding: var(--space-sm) 0;
+    position: relative;
+}
+
+.hero-tertiary-link i {
+    font-size: 1rem;
+    color: rgba(27, 48, 34, 0.7);
+}
+
+.hero-tertiary-link:hover {
+    color: #1B3022; /* Darker on hover */
+    text-decoration: none;
+}
+
+.hero-tertiary-link:hover i {
+    color: #1B3022;
+}
+
+/* Video Lightbox */
+.video-lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-lightbox-content {
+    position: relative;
+    width: 90%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.video-lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #FFFFFF;
+    font-size: 40px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
+}
+
+.video-lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.video-lightbox-iframe-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-lightbox-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Trust Logos */
+.trust-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px; /* 28-36px spacing - using 32px as middle value */
+    padding-top: 48px; /* 48px padding above logos */
+    padding-bottom: 14px; /* 12-16px padding below - using 14px as middle value */
+    margin-top: 0;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.trust-logos::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: 1px;
+    background-color: #D7D7D7;
+    opacity: 0.2; /* 20% opacity */
+}
+
+.trust-logo {
+    height: 29px; /* 26-32px range - using 29px as middle value */
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+    filter: grayscale(100%); /* Grayscale */
+    mix-blend-mode: multiply; /* Multiply blend mode */
+    opacity: 0.4; /* 40% opacity - visible but doesn't compete with primary CTA */
+    transition: var(--transition-normal);
+    display: block;
+}
+
+.trust-logo:hover {
+    filter: grayscale(0%); /* Full color on hover */
+    mix-blend-mode: normal; /* Normal blend mode on hover */
+    opacity: 0.6; /* Slightly more visible on hover */
+}
+
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-mockup {
+    background: rgba(255, 255, 255, 0.8); /* Glassmorphism background */
+    backdrop-filter: blur(12px); /* 12px backdrop-blur */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border: 2px solid rgba(0, 0, 0, 0.08); /* Layer 1: Sharp 2px border */
+    border-radius: var(--radius-2xl);
+    /* Tri-Layer Shadow System */
+    box-shadow: 
+        0 4px 10px rgba(0, 0, 0, 0.1), /* Layer 2: Medium 10px blur */
+        0 20px 40px rgba(0, 0, 0, 0.05); /* Layer 3: Soft 40px ambient shadow at 5% opacity */
+    padding: var(--space-xl);
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.dashboard-title {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.dashboard-status {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: 0.875rem;
+    color: #1B3022; /* Brand Green for success accents - positive metrics */
+    font-weight: 600;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: #1B3022; /* Brand Green for success indicators */
+    border-radius: 50%;
+    animation: statusPulse 2s ease-in-out infinite;
+}
+
+/* Subtle pulse animation for live indicator */
+@keyframes statusPulse {
+    0%, 100% { 
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(27, 48, 34, 0.7); /* Brand Green glow */
+    }
+    50% { 
+        opacity: 0.8;
+        transform: scale(1.1);
+        box-shadow: 0 0 8px 2px rgba(27, 48, 34, 0.4); /* Brand Green glow */
+    }
+}
+
+.dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+}
+
+.metric-card {
+    text-align: center;
+    padding: var(--space-md);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1B3022; /* Brand Green for positive metrics (e.g., 98% Accuracy) */
+    margin-bottom: var(--space-xs);
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Problem Section */
+.problem-section {
+    padding: 8rem 0; /* py-32 (128px) - uniform vertical padding for cognitive rhythm */
+    /* Deep Gradient Transition - Chromatic Bleed from light to dark */
+    background: linear-gradient(to bottom, #F1F3F2 0%, #F1F3F2 70%, #050B07 100%);
+    position: relative;
+    z-index: 2; /* Higher z-index - light section sits on top */
+}
+
+/* Horizon Line - Subtle divider at midpoint of transition to anchor sections */
+.problem-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(27, 48, 34, 0.1); /* Brand Green at 10% opacity - horizon line */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: var(--space-4xl);
+    max-width: 800px; /* Max-width for readability */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem var(--space-lg) 2rem; /* Added vertical padding for descenders */
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    color: #1B3022; /* Brand Dark Green */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    margin-bottom: var(--space-lg);
+    line-height: 1.3;
+    padding-bottom: 0.5rem; /* Extra space for descenders */
+}
+
+.section-header p {
+    font-size: 1.25rem;
+    font-weight: 400; /* Regular weight for legibility */
+    line-height: 1.6; /* Maximum readability */
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.problem-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+    max-width: 1200px; /* Max-width for centered layout */
+    margin: 0 auto; /* Center the grid */
+}
+
+.problem-stat {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-xl);
+    background: #FFFFFF; /* Pure white background */
+    border: 0.5px solid rgba(27, 48, 34, 0.1); /* 0.5px light gray/green border */
+    border-radius: 24px; /* Standardized to match dashboard in Hero */
+    /* Double-Stacked Shadow - The 1% Secret for expensive, light feel */
+    box-shadow: 
+        0 4px 6px rgba(27, 48, 34, 0.02), /* Layer 1: Close shadow */
+        0 20px 40px rgba(5, 11, 7, 0.1); /* Layer 2: Color-matched glow - helps card "sit" naturally on transitioning background */
+    transition: var(--transition-normal);
+}
+
+.problem-stat:hover {
+    transform: translateY(-8px); /* Responsive and modern hover lift */
+    box-shadow: 
+        0 6px 8px rgba(27, 48, 34, 0.03), /* Enhanced Layer 1 on hover */
+        0 25px 50px rgba(5, 11, 7, 0.15); /* Enhanced color-matched glow on hover */
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(27, 48, 34, 0.05); /* 5% Brand Green - Circular Brand Tint */
+    border-radius: 50%; /* Circular */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1B3022; /* Brand Dark Green - keeps focus on Red numbers */
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.stat-content h3 {
+    font-size: 2rem;
+    font-weight: 700; /* Semi-bold to bold */
+    color: #E34234; /* Brand Red/Coral */
+    margin-bottom: var(--space-sm);
+}
+
+.stat-content p {
+    color: var(--text-secondary);
+    font-weight: 500; /* Medium weight gray */
+}
+
+/* Solution Section - Elite Bento Grid Design */
+.solution-section {
+    padding: 8rem 0; /* py-32 (128px) - uniform vertical padding for cognitive rhythm */
+    background: #050B07; /* Very deep Midnight Green */
+    position: relative;
+    overflow: visible; /* Allow shadow to extend upward */
+    z-index: 1; /* Lower z-index - dark section sits below light sections */
+    /* Atmospheric Spotlight - CSS custom properties for mouse-following effect */
+    --spotlight-x: 50%;
+    --spotlight-y: 20%;
+}
+
+/* Shadow Anchor - Unified Ambient Occlusion at top edge of dark section */
+.solution-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: transparent;
+    box-shadow: 0 -100px 150px rgba(5, 11, 7, 0.5); /* Standardized Ambient Occlusion shadow */
+    pointer-events: none;
+    z-index: 0;
+}
+
+.solution-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1200px;
+    height: 800px;
+    background: radial-gradient(circle at center, rgba(27, 48, 34, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 1;
+    transform: translate(var(--spotlight-x, 0px), var(--spotlight-y, 0px)) translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+.solution-section .container {
+    position: relative;
+    z-index: 2; /* Above shadow anchor (z-index: 0) and spotlight (z-index: 1) */
+}
+
+.solution-header {
+    text-align: center;
+    margin-top: -3rem;
+    margin-bottom: var(--space-4xl);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.5rem var(--space-lg) 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.solution-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    color: #F9F4E8; /* Brand Cream */
+    margin-bottom: 0;
+    letter-spacing: -0.02em; /* tracking-tighter */
+    line-height: 1.3;
+    padding-bottom: 0.5rem;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Strict Bento Box grid - 3 columns */
+    gap: var(--space-xl); /* Consistent gap spacing */
+    max-width: 1200px; /* Standardized max-width */
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Bento Card Base Styles - Premium Glassmorphism */
+.bento-card {
+    background: rgba(255, 255, 255, 0.02); /* More transparent glass surface */
+    backdrop-filter: blur(25px); /* Premium glassmorphism effect - 25px blur */
+    -webkit-backdrop-filter: blur(25px); /* Safari support */
+    border: 1px solid transparent; /* Prepare for gradient border */
+    border-radius: 32px; /* Modern 32px radius */
+    padding: 3rem; /* p-12 equivalent (48px) - content needs room to breathe */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* Subtle, large-spread glow */
+    transition: var(--transition-normal);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    position: relative;
+}
+
+/* Perimeter Stroke - Linear gradient border creating "shimmer" on top edge */
+.bento-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 32px;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.bento-card:hover {
+    background: rgba(255, 255, 255, 0.05); /* Slightly brightened card background on hover */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* Enhanced glow on hover */
+    transform: translateY(-4px);
+}
+
+.bento-card:hover::after {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, transparent 100%); /* Brighter crystal edge on hover */
+}
+
+/* Featured Card - Spans 2 columns */
+.bento-card.featured-card {
+    grid-column: span 2;
+}
+
+/* Bento Card Icon - Soft Red Halo Container */
+.bento-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-sm);
+    position: relative;
+}
+
+/* Soft-Red Halo - 40px circle with glowing light source effect */
+.bento-icon::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(227, 66, 52, 0.1); /* 10% opacity Brand Red/Coral */
+    box-shadow: 0 0 20px rgba(227, 66, 52, 0.2); /* Soft red halo glow - makes brand red feel like a glowing light source */
+    z-index: 0;
+}
+
+.bento-icon i {
+    font-size: 1.75rem;
+    color: #E34234; /* Brand Red/Coral for icons */
+    position: relative;
+    z-index: 1;
+}
+
+/* Bento Card Typography */
+.bento-card h3 {
+    font-size: 1.5rem;
+    font-weight: 600; /* Semi-bold for feature titles */
+    color: #FFFFFF; /* Pure White for feature titles */
+    margin-bottom: var(--space-sm);
+}
+
+.bento-card p {
+    font-size: 0.875rem; /* Slightly smaller text */
+    color: rgba(148, 163, 152, 0.5); /* Muted sage-gray at 50% opacity - makes headings pop more */
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+/* Smart Hardware Section - Feature-Split Layout */
+.hardware-section {
+    padding: 8rem 0; /* py-32 (128px) - uniform vertical padding for cognitive rhythm */
+    background: #030704; /* Very dark Midnight Green */
+    position: relative;
+    overflow: visible; /* Allow shadow to extend upward */
+    z-index: 1; /* Lower z-index - dark section sits below light sections */
+}
+
+/* Compressed Horizon - Sharp but soft fade creates defined horizon line */
+.hardware-section::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px; /* Reduced by 50% from 100px - compressed horizon */
+    background: linear-gradient(to bottom, #030704 90%, rgba(3, 7, 4, 0.4) 95%, transparent 100%); /* Sharp but soft fade - clean break from dark studio to light digital space */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Subtle noise texture for "hardware studio" feel */
+.hardware-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hardware-section .container {
+    position: relative;
+    z-index: 2; /* Above horizon gradient (z-index: 1) and shadow anchor (z-index: 0) */
+}
+
+/* 2-Column Layout */
+.hardware-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Column 1: Hardware Visual */
+.hardware-visual {
+    position: relative;
+}
+
+.hardware-image-placeholder {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 3/4; /* Taller aspect ratio to accommodate full image length */
+    min-height: 600px; /* Increased height to include entire image */
+    border-radius: 32px;
+    overflow: hidden;
+    will-change: transform; /* Optimize for parallax animation */
+}
+
+.hardware-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Show entire image without cropping */
+    border-radius: 32px;
+    z-index: 1; /* Above glow, below gradient overlay */
+}
+
+/* Dark-gray gradient overlay for image */
+.image-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.3) 0%, rgba(45, 45, 45, 0.2) 100%); /* Reduced opacity to show image */
+    border-radius: 32px;
+    z-index: 2; /* Above image, below badges */
+    pointer-events: none;
+}
+
+/* Brand Green radial glow behind image */
+.image-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(27, 48, 34, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0; /* Behind image and gradient */
+}
+
+/* Glass Floating Badges */
+.hardware-badge {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 0.75rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 10;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Top Right: Status Connected Badge */
+.status-badge {
+    top: 1.5rem;
+    right: 1.5rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #1B3022; /* Brand Green */
+    box-shadow: 0 0 12px rgba(27, 48, 34, 0.6); /* Glowing Brand Green Dot */
+    flex-shrink: 0;
+}
+
+.status-badge span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Bottom Left: Live Weight Badge */
+.weight-badge {
+    bottom: 1.5rem;
+    left: 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.weight-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.weight-value {
+    color: #F9F4E8; /* Brand Cream */
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* Column 2: Hardware Text Content */
+.hardware-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.hardware-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #E34234; /* Brand Red */
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: var(--space-xs);
+}
+
+.hardware-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    color: #F9F4E8; /* Brand Cream */
+    margin-bottom: var(--space-md);
+    line-height: 1.2;
+}
+
+.hardware-description {
+    font-size: 1.125rem;
+    color: rgba(148, 163, 152, 0.7);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+}
+
+/* Feature Grid: Micro-Cards */
+.hardware-features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Strict Bento Box grid - 2 columns for hardware micro-cards */
+    gap: var(--space-xl); /* Standardized gap to match Bento Grid */
+    margin-bottom: var(--space-xl);
+}
+
+.hardware-micro-card {
+    background: rgba(255, 255, 255, 0.02); /* 4% White opacity - same as Bento Grid */
+    backdrop-filter: blur(20px); /* 20px blur - same as Bento Grid */
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: var(--space-lg);
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    transition: var(--transition-normal);
+}
+
+.hardware-micro-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    transform: translateY(-2px);
+}
+
+.micro-card-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.micro-card-icon::before {
+    content: '';
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(227, 66, 52, 0.1);
+    box-shadow: 0 0 16px rgba(227, 66, 52, 0.2);
+    z-index: 0;
+}
+
+.micro-card-icon i {
+    font-size: 1.125rem;
+    color: #E34234; /* Brand Red */
+    position: relative;
+    z-index: 1;
+}
+
+.hardware-micro-card span {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Checkmark List */
+.hardware-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.hardware-checklist li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.hardware-checklist li i {
+    color: #1B3022; /* Brand Green for checkmarks - signals stability and success */
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.system-diagram {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+.system-component {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--white);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xs);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: var(--transition-normal);
+    border: 3px solid transparent;
+    text-align: center;
+}
+
+.system-component:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-green);
+}
+
+.system-component span {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.component-subtitle,
+.hub-subtitle {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+/* Central AI Hub */
+.system-component.central-hub {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--gradient-primary);
+    color: var(--white);
+    width: 120px;
+    height: 120px;
+    z-index: 10;
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    50% { box-shadow: 0 0 0 20px rgba(16, 185, 129, 0); }
+}
+
+/* POS System */
+.system-component.pos {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+/* Smart Inventory */
+.system-component.inventory {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: var(--gradient-secondary);
+    color: var(--white);
+}
+
+/* IoT Sensors */
+.system-component.hardware {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+/* Mobile App */
+.system-component.mobile {
+    top: 20px;
+    right: 20px;
+    background: var(--gradient-secondary);
+    color: var(--white);
+}
+
+/* Analytics Dashboard */
+.system-component.dashboard {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--gradient-secondary);
+    color: var(--white);
+}
+
+/* Smart Bins */
+.system-component.waste-bins {
+    bottom: 20px;
+    right: 20px;
+    background: var(--gradient-primary);
+    color: var(--white);
+}
+
+/* Connection Lines */
+.connection-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.connection-line {
+    position: absolute;
+    background: linear-gradient(90deg, var(--primary-green), var(--primary-blue));
+    border-radius: 2px;
+    opacity: 0.6;
+    animation: dataFlow 3s infinite;
+}
+
+.connection-line.pos-to-hub {
+    top: 120px;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translateX(-50%);
+}
+
+.connection-line.inventory-to-hub {
+    top: 50%;
+    left: 120px;
+    width: 80px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.connection-line.sensors-to-hub {
+    top: 50%;
+    right: 120px;
+    width: 80px;
+    height: 2px;
+    transform: translateY(-50%);
+}
+
+.connection-line.mobile-to-hub {
+    top: 120px;
+    right: 120px;
+    width: 2px;
+    height: 80px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+}
+
+.connection-line.dashboard-to-hub {
+    bottom: 120px;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    transform: translateX(-50%);
+}
+
+.connection-line.waste-to-sensors {
+    bottom: 120px;
+    right: 120px;
+    width: 2px;
+    height: 60px;
+    transform: rotate(-45deg);
+    transform-origin: bottom right;
+}
+
+
+/* Data Flow Indicators */
+.data-flow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.flow-arrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 8px solid var(--primary-green);
+    animation: flowMove 2s infinite;
+}
+
+.pos-flow {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.inventory-flow {
+    top: 50%;
+    left: 100px;
+    transform: translateY(-50%) rotate(90deg);
+    animation-delay: 0.5s;
+}
+
+.sensors-flow {
+    top: 50%;
+    right: 100px;
+    transform: translateY(-50%) rotate(-90deg);
+    animation-delay: 1s;
+}
+
+@keyframes dataFlow {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+@keyframes flowMove {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0; }
+    50% { transform: translateX(-50%) translateY(20px); opacity: 1; }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .system-diagram {
+        max-width: 400px;
+        height: 400px;
+    }
+    
+    .system-component {
+        width: 80px;
+        height: 80px;
+        font-size: 0.75rem;
+    }
+    
+    .system-component.central-hub {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .component-subtitle,
+    .hub-subtitle {
+        font-size: 0.7rem;
+    }
+}
+
+/* How It Works */
+.how-it-works {
+    padding: var(--space-4xl) 0;
+    background: var(--white);
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+}
+
+.step {
+    text-align: center;
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0 auto var(--space-lg);
+}
+
+.step-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.step-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Section Bridge - Removed (no vertical spacing) */
+.section-bridge {
+    height: 0; /* Eliminate all vertical spacing */
+    display: none; /* Hide bridge element */
+}
+
+
+/* Features Section */
+.features-section {
+    padding: 8rem 0; /* py-32 (128px) - uniform vertical padding for cognitive rhythm */
+    background: #F9F4E8; /* Brand Cream - creates visual break from dark hardware section */
+    position: relative;
+    overflow: visible; /* Allow heading to overlap horizon */
+    z-index: 2; /* Higher z-index so feature cards appear on top of dark section */
+}
+
+/* Shadow Anchor - Unified Ambient Occlusion for dark-to-light transitions */
+.shadow-anchor {
+    position: absolute;
+    top: 0; /* Directly at the meeting point of the two sections */
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px; /* Minimal height - shadow creates the effect */
+    background: transparent;
+    box-shadow: 0 -100px 150px rgba(5, 11, 7, 0.5); /* Standardized Ambient Occlusion shadow */
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Visual Guide Line - Subtle vertical tether bridges dead space */
+.shadow-anchor::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px; /* 1px wide line */
+    height: 80px; /* 80px tall */
+    background: linear-gradient(to bottom, rgba(27, 48, 34, 0.2) 0%, transparent 100%); /* Gradient stroke from Brand Dark Green to transparent */
+    pointer-events: none;
+    z-index: 2; /* Above shadow */
+}
+
+/* Features Section Container - Above shadow anchor */
+.features-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Features Section Typography - High-end styling */
+.features-section .section-header {
+    position: relative;
+    z-index: 3; /* Above shadow anchor (z-index: 1) and container (z-index: 2) */
+    padding-top: 1.5rem; /* Added padding for descenders */
+    padding-bottom: 2rem; /* Added padding for descenders */
+    margin-top: -40px; /* Pull heading upward to sit closer to shadow anchor - creates "Visual Tension" */
+}
+
+/* Atmospheric Spotlight - Large radial gradient behind "Powerful Features" heading */
+.features-section .section-header::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 400px;
+    background: radial-gradient(circle at center, rgba(3, 7, 4, 0.03) 0%, transparent 70%); /* Midnight Green at 3% opacity - chromatic harmony */
+    pointer-events: none;
+    z-index: -1;
+}
+
+.features-section .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    color: #1B3022; /* Brand Dark Green */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    margin-bottom: var(--space-lg);
+    position: relative;
+    z-index: 1;
+    line-height: 1.3;
+    padding-bottom: 0.5rem; /* Extra space for descenders */
+}
+
+/* Reverse Backlighting - White glow halo behind text prevents "muddy" appearance */
+.features-section .section-header h2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 150%;
+    background: radial-gradient(circle, #FFFFFF 0%, rgba(249, 244, 232, 0) 80%); /* White halo fades to transparent */
+    pointer-events: none;
+    z-index: -1; /* Behind the text */
+}
+
+.features-section .section-header p {
+    font-size: 1.25rem;
+    color: rgba(27, 48, 34, 0.6); /* Muted Brand Dark Green at 60% opacity */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Ensure feature cards handle long text properly */
+
+.features-grid .feature-card {
+    min-width: 0; /* Allow grid items to shrink below their content size */
+    width: 100%;
+}
+
+.features-grid .feature-card p {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+}
+
+/* Specific fix for German long words in feature cards */
+.feature-card p,
+.features-grid .feature-card p {
+    word-wrap: break-word !important;
+    overflow-wrap: anywhere !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 10;
+    -webkit-box-orient: vertical;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Strict Bento Box grid - 3 columns for visual consistency */
+    gap: var(--space-xl); /* Standardized gap to match Bento Grid */
+    padding-top: 3rem; /* py-12 - standard padding, cards begin immediately after sub-heading */
+    margin-top: 0; /* Remove margin to start immediately after sub-heading */
+    position: relative;
+    top: -20px; /* Visual Overlap - cards overlap bottom of Shadow Anchor, eliminating dead space */
+}
+
+.feature-card {
+    background: #FFFFFF; /* Pure white background */
+    border: 0.5px solid rgba(148, 163, 152, 0.3); /* 0.5px light sage green border - Technical Luxury aesthetic */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Rim light - subtle white top border at 10% opacity catches light from Hardware section */
+    padding: var(--space-2xl);
+    border-radius: 24px; /* Standardized to match Bento Grid */
+    /* Multi-Layer Shadow Stack - cards emerge from shadow of Hardware section */
+    box-shadow: 
+        0 2px 4px rgba(27, 48, 34, 0.02), /* Layer 1: Close shadow - subtle definition */
+        0 12px 24px rgba(27, 48, 34, 0.04), /* Layer 2: Medium shadow - depth */
+        0 32px 64px rgba(27, 48, 34, 0.06); /* Layer 3: Ambient shadow - cards appear to emerge from dark section */
+    text-align: center;
+    transition: all 0.3s ease; /* transition-all duration-300 for interactive signature */
+    position: relative; /* For watermark positioning */
+    z-index: 3; /* Higher z-index so cards appear on top of dark section as it emerges */
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    /* Enhanced Multi-Layer Shadow Stack on hover - deeper emergence effect */
+    box-shadow: 
+        0 4px 8px rgba(27, 48, 34, 0.03),
+        0 16px 32px rgba(27, 48, 34, 0.06),
+        0 40px 80px rgba(27, 48, 34, 0.08); /* Deeper ambient shadow on hover */
+    border-color: rgba(227, 66, 52, 0.2); /* 20% Brand Red border on hover - Card Glow */
+    border-top-color: rgba(255, 255, 255, 0.15); /* Slightly brighter rim light on hover */
+}
+
+.feature-card .feature-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(3, 7, 4, 0.08); /* 8% Midnight Green fill - monochromatic harmony */
+    border-radius: 50%; /* Circular container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #030704; /* Midnight Green for icons - architectural feel */
+    font-size: 1.5rem;
+    margin: 0 auto var(--space-lg);
+    transition: transform var(--transition-normal);
+    box-shadow: 0 0 12px rgba(3, 7, 4, 0.1); /* Subtle Midnight Green shadow - no bright glow */
+}
+
+.feature-card:hover .feature-icon {
+    transform: scale(1.1); /* Scale up by 10% on hover */
+}
+
+.feature-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1B3022; /* Brand Dark Green for feature titles */
+    margin-bottom: var(--space-md);
+}
+
+.feature-card p {
+    color: rgba(27, 48, 34, 0.7); /* Dark gray-green for body text */
+    line-height: 1.6; /* Maximum readability */
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+    -ms-hyphens: auto !important;
+    word-break: break-word !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+    white-space: normal !important;
+}
+
+/* Feature Card Watermark - Technical Specs aesthetic */
+.feature-card-number {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    font-size: 0.75rem;
+    font-weight: 300;
+    color: rgba(27, 48, 34, 0.15); /* Very light watermark */
+    letter-spacing: 0.05em;
+    font-family: 'Inter', sans-serif;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* University Section */
+.university-section {
+    padding: var(--space-4xl) 0;
+    background: var(--white);
+}
+
+.university-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.university-logo {
+    text-align: center;
+    padding: var(--space-2xl);
+    background: var(--gray-50);
+    border-radius: var(--radius-2xl);
+    min-width: 200px;
+}
+
+.university-logo i {
+    font-size: 3rem;
+    color: var(--primary-blue);
+    margin-bottom: var(--space-md);
+}
+
+.university-logo h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.university-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.university-text p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-xl);
+}
+
+.university-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.benefit i {
+    color: var(--primary-green);
+    font-size: 1.125rem;
+}
+
+/* Benefits Section */
+.benefits-section {
+    padding: var(--space-4xl) 0;
+    background: var(--gray-50);
+}
+
+.benefits-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.benefits-text h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: var(--space-lg);
+}
+
+.benefits-text p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.6;
+}
+
+.benefit-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+}
+
+.benefit-item {
+    display: flex;
+    gap: var(--space-lg);
+    align-items: flex-start;
+}
+
+.benefit-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.benefit-content h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.benefit-content p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.benefits-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roi-chart {
+    background: var(--white);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    width: 100%;
+    max-width: 400px;
+}
+
+.chart-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.chart-bars {
+    display: flex;
+    align-items: end;
+    gap: var(--space-md);
+    height: 200px;
+}
+
+.bar {
+    flex: 1;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+    padding: var(--space-sm);
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.bar-label {
+    margin-bottom: var(--space-xs);
+}
+
+.bar-value {
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+/* Blog Preview */
+.blog-preview {
+    padding: var(--space-4xl) 0;
+    background: var(--gray-50);
+}
+
+.blog-card {
+    background: var(--white);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0;
+    transition: var(--transition-normal);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+}
+
+.blog-image {
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 3rem;
+}
+
+.blog-content {
+    padding: var(--space-2xl);
+}
+
+.blog-meta {
+    display: flex;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-md);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.blog-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-md);
+    line-height: 1.3;
+}
+
+.blog-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--primary-green);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.read-more:hover {
+    color: var(--primary-blue);
+    gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .blog-image {
+        height: 150px;
+    }
+}
+
+/* Social Proof - High-Impact Finale */
+.social-proof {
+    padding: 8rem 0; /* py-32 (128px) - uniform vertical padding for cognitive rhythm */
+    background: #050B07; /* Deep Brand Dark Green - strong visual stop */
+    position: relative;
+    overflow: visible; /* Allow shadow to extend upward */
+    margin-top: 0; /* Remove negative margin - use transparent overlay shadow instead */
+    z-index: 1;
+}
+
+/* Shadow Anchor - Unified Ambient Occlusion for dark-to-light transitions */
+.horizon-shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px; /* Minimal height - shadow creates the effect */
+    background: transparent;
+    box-shadow: 0 -100px 150px rgba(5, 11, 7, 0.5); /* Standardized Ambient Occlusion shadow */
+    pointer-events: none;
+    z-index: 0; /* Below content but visible */
+}
+
+/* Vertical Narrative Guide - Bridges cream background and dark section through 128px gap */
+.horizon-shadow::after {
+    content: '';
+    position: absolute;
+    top: -128px; /* Extends 128px (8rem) upward into cream background to match spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px; /* 1px centered line */
+    height: 128px; /* 128px (8rem) tall - spans the exact gap between grid and dark section */
+    background: linear-gradient(to bottom, rgba(27, 48, 34, 0.3) 0%, #E34234 100%); /* Gradient shifts from Brand Dark Green at top to Brand Red as it enters dark zone */
+    pointer-events: none;
+    z-index: 1; /* Above shadow */
+}
+
+/* Subtle Brand Red/Coral gradient in bottom right corner for warmth and energy */
+.social-proof::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 60%;
+    height: 60%;
+    background: radial-gradient(circle at bottom right, rgba(227, 66, 52, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.social-proof .container {
+    position: relative;
+    z-index: 50; /* High z-index to ensure content appears above shadows */
+}
+
+/* Social Proof Typography - High-end contrast */
+.social-proof .section-header {
+    min-height: 200px; /* First 200px of dark section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center heading within first 200px */
+    padding-top: 1.5rem; /* Added padding for descenders */
+    padding-bottom: 4rem; /* py-16 - tight spacing to proof-stats for immediate transition from Features to Impact */
+    margin-bottom: 0; /* Remove default margin */
+    position: relative;
+    z-index: 50; /* High z-index to appear above shadows and overlays */
+}
+
+.social-proof .section-header h2 {
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    color: #F9F4E8; /* Brand Cream - high contrast pierces through dark shadows for 100% legibility */
+    position: relative;
+    z-index: 51; /* Higher z-index than section-header to ensure visibility */
+    text-shadow: 0 2px 8px rgba(5, 11, 7, 0.3); /* Subtle shadow enhances contrast against dark backgrounds */
+    overflow: visible; /* Changed from hidden to visible to show descenders */
+    line-height: 1.3;
+    padding-bottom: 0.5rem; /* Extra space for descenders */
+}
+
+/* Chromatic "Glance" - Brand Red Glow Sweep for "Join the Movement" heading */
+.social-proof .section-header h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 20%,
+        rgba(227, 66, 52, 0.15) 45%,
+        rgba(227, 66, 52, 0.25) 50%,
+        rgba(227, 66, 52, 0.15) 55%,
+        transparent 80%,
+        transparent 100%
+    );
+    mix-blend-mode: screen; /* Creates brightness increase effect (5% brightness boost) */
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Trigger sweep only after heading is revealed */
+.social-proof .section-header h2.animate-in::after {
+    animation: brand-red-sweep 1.2s ease-in-out forwards;
+    animation-delay: 1.2s; /* Trigger after reveal animation completes (0.8s reveal + 0.4s buffer) */
+}
+
+.social-proof .section-header p {
+    color: rgba(249, 244, 232, 0.6); /* Brand Cream at 60% opacity to maintain hierarchy */
+    position: relative;
+    z-index: 51; /* Higher z-index than section-header to ensure visibility */
+}
+
+.proof-stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    margin-top: -2rem; /* Position metrics higher - immediate visual anchor after heading */
+    margin-bottom: var(--space-4xl);
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 50; /* High z-index to appear above shadows */
+}
+
+.proof-stat {
+    text-align: center;
+    padding: 0 var(--space-2xl);
+    position: relative;
+    flex: 1;
+    min-width: 150px;
+}
+
+/* Vertical divider between metrics - Brand Cream at 10% opacity */
+.proof-stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0.5px; /* Very subtle divider */
+    height: 60%;
+    background: rgba(249, 244, 232, 0.1); /* Brand Cream at 10% opacity */
+}
+
+.proof-stat .stat-number {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #E34234; /* Brand Red/Coral for large numbers */
+    letter-spacing: -0.05em; /* Modern, data-heavy look */
+    display: block;
+    margin-bottom: var(--space-sm);
+    line-height: 1.2;
+    position: relative;
+    z-index: 1; /* Above glow background */
+}
+
+/* Brand Red Glow - Subtle illuminated appearance behind numbers */
+.proof-stat .stat-number::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(227, 66, 52, 0.1) 0%, transparent 70%); /* Subtle Brand Red glow */
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1; /* Behind the number */
+}
+
+.proof-stat .stat-label {
+    color: rgba(249, 244, 232, 0.6); /* Muted Brand Cream at 60% opacity */
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.industry-insights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-2xl);
+    margin-top: var(--space-2xl);
+}
+
+.insight-card {
+    background: rgba(255, 255, 255, 0.03); /* Glassmorphism - same as Bento Grid */
+    backdrop-filter: blur(20px); /* 20px backdrop-blur */
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    /* Variable border - Studio Light from top-left */
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+    border-right: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    text-align: center;
+    transition: var(--transition-normal);
+    position: relative;
+}
+
+.insight-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05); /* Slightly brighter on hover */
+}
+
+.insight-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+    position: relative;
+}
+
+/* Enhanced Brand Red glow container - 48px circular with center-aligned glow */
+.insight-icon::before {
+    content: '';
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Circular background */
+    background: rgba(227, 66, 52, 0.15); /* Brand Red at 15% opacity */
+    box-shadow: 0 0 15px rgba(227, 66, 52, 0.3); /* Center-aligned red glow */
+    z-index: 0;
+}
+
+.insight-icon i {
+    font-size: 1.25rem; /* Adjusted for 48px container */
+    color: #E34234; /* Brand Red for icons */
+    position: relative;
+    z-index: 1;
+}
+
+.insight-content h4 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #F9F4E8; /* Brand Cream for headings on dark background */
+    margin-bottom: var(--space-md);
+}
+
+.insight-content p {
+    color: rgba(249, 244, 232, 0.7); /* Muted Brand Cream for text */
+    line-height: 1.6;
+}
+
+/* Final Call CTA - High-Impact Action Area */
+.final-cta {
+    text-align: center;
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-4xl);
+    padding-bottom: 120px; /* Generous 120px vertical space before footer to prevent cluttered finish */
+    position: relative;
+}
+
+.final-cta h2 {
+    font-size: 2.5rem;
+    font-weight: 800; /* Bold weight for high-impact editorial look */
+    letter-spacing: -0.04em; /* tracking-tighter for modern editorial look */
+    color: #F9F4E8; /* Brand Cream */
+    margin-bottom: var(--space-2xl);
+    line-height: 1.2;
+    position: relative;
+    overflow: hidden; /* Contain the sweep effect */
+}
+
+/* Chromatic "Glance" - Brand Red Glow Sweep for "Ready to Transform" heading */
+.final-cta h2::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        transparent 20%,
+        rgba(227, 66, 52, 0.15) 45%,
+        rgba(227, 66, 52, 0.25) 50%,
+        rgba(227, 66, 52, 0.15) 55%,
+        transparent 80%,
+        transparent 100%
+    );
+    mix-blend-mode: screen; /* Creates brightness increase effect (5% brightness boost) */
+    pointer-events: none;
+    opacity: 0;
+    z-index: 1;
+}
+
+/* Trigger sweep only after heading is revealed */
+.final-cta h2.animate-in::after {
+    animation: brand-red-sweep 1.2s ease-in-out forwards;
+    animation-delay: 1.2s; /* Trigger after reveal animation completes (0.8s reveal + 0.4s buffer) */
+}
+
+.final-cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #E34234 0%, #B02E23 100%); /* Linear gradient from Brand Red to darker red */
+    color: #FFFFFF; /* White text */
+    padding: 1.25rem 3rem; /* Large, bold button */
+    font-size: 1.125rem;
+    font-weight: 700;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: transform var(--transition-normal), box-shadow 0.3s ease; /* Transition for glow intensity */
+    box-shadow: 0 0 80px rgba(227, 66, 52, 0.25); /* Larger, softer radial glow behind button */
+    position: relative;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Pulse animation for the CTA button */
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 80px rgba(227, 66, 52, 0.25); /* Larger, softer radial glow */
+    }
+    50% {
+        box-shadow: 0 0 100px rgba(227, 66, 52, 0.3); /* Slightly increased glow */
+    }
+}
+
+.final-cta-button:hover {
+    transform: scale(1.05); /* Scale up on hover - most interactive element */
+    box-shadow: 0 0 120px rgba(227, 66, 52, 0.4); /* Increased glow intensity on hover - button feels like active light source */
+}
+
+.testimonials {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: var(--space-2xl);
+}
+
+.testimonial {
+    background: var(--gray-50);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+    position: relative;
+}
+
+.testimonial::before {
+    content: '"';
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+    font-size: 4rem;
+    color: var(--primary-green);
+    font-weight: 800;
+    line-height: 1;
+}
+
+.testimonial-content {
+    margin-bottom: var(--space-lg);
+    padding-left: var(--space-xl);
+}
+
+.testimonial-content p {
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding-left: var(--space-xl);
+}
+
+.author-info h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.author-info span {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: var(--space-4xl) 0;
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-align: center;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: var(--space-lg);
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-2xl);
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--space-lg);
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+}
+
+.cta-section .cta-button.primary {
+    background: var(--white);
+    color: var(--primary-green);
+}
+
+.cta-section .cta-button.secondary {
+    background: transparent;
+    color: var(--white);
+    border-color: var(--white);
+}
+
+.cta-section .cta-button.secondary:hover {
+    background: var(--white);
+    color: var(--primary-green);
+}
+
+.cta-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    font-size: 0.875rem;
+    opacity: 0.8;
+}
+
+/* Footer */
+.footer {
+    background: #050B07; /* Exact same Midnight Green as CTA section - unified base */
+    color: var(--white);
+    padding: var(--space-4xl) 0 var(--space-xl);
+    position: relative;
+    z-index: 1;
+    will-change: transform; /* Optimize for parallax animation */
+    transform: translateY(0); /* Initial position - will be animated by parallax */
+}
+
+/* Horizon Divider - Thin horizontal line between CTA button area and footer links */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05); /* Thin 1px horizontal line across full width */
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-2xl);
+    position: relative;
+    z-index: 2; /* Above horizon divider */
+}
+
+.footer-logo h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: var(--space-sm);
+}
+
+.footer-logo span {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+.footer-section h4 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: var(--space-lg);
+    color: rgba(249, 244, 232, 0.7); /* Brand Cream at 70% opacity */
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--space-sm);
+}
+
+.footer-section ul li a {
+    color: rgba(249, 244, 232, 0.5); /* Brand Cream at 50% opacity */
+    text-decoration: none;
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Transition for interactive lift */
+    display: inline-block; /* Required for transform */
+}
+
+.footer-section ul li a:hover {
+    color: rgba(249, 244, 232, 1); /* Brand Cream at 100% opacity on hover */
+    transform: translateX(2px); /* Interactive lift - move 2px to the right */
+}
+
+.social-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1); /* 10% white opacity - Glass container */
+    backdrop-filter: blur(12px); /* 12px blur to match Bento card aesthetic */
+    -webkit-backdrop-filter: blur(12px); /* Safari support */
+    border-radius: 12px; /* Rounded-square (not fully circular) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(249, 244, 232, 0.7); /* Brand Cream at 70% opacity */
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for glass effect */
+}
+
+.social-links a:hover {
+    background: rgba(255, 255, 255, 0.15); /* Slightly brighter on hover */
+    color: rgba(249, 244, 232, 1); /* Full opacity on hover */
+    transform: translateY(-2px); /* Subtle lift on hover */
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle divider */
+    padding-top: var(--space-xl);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+}
+
+/* Muted Logo - Bottom-left placement, doesn't distract from navigation */
+.footer-logo-muted {
+    opacity: 0.3; /* Muted version - 30% opacity */
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo-muted:hover {
+    opacity: 0.5; /* Slightly more visible on hover */
+}
+
+.footer-logo-image {
+    height: 32px; /* Appropriate size for footer */
+    width: auto;
+    image-rendering: -webkit-optimize-contrast; /* Sharp logo */
+    filter: grayscale(100%); /* Grayscale for muted effect */
+    opacity: 1; /* Full opacity within the muted container */
+}
+
+/* Legal Strip - Fine print styling */
+.footer-legal {
+    flex: 1;
+    text-align: right; /* Right-aligned for sophisticated look */
+}
+
+.footer-legal p {
+    font-size: 12px; /* 12px font size for fine print */
+    letter-spacing: 0.1em; /* Wide letter-spacing for sophisticated look */
+    color: rgba(249, 244, 232, 0.5); /* Brand Cream at 50% opacity */
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; /* Fallback for older browsers */
+    height: 100dvh; /* Dynamic viewport height - accounts for mobile browser address bars */
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    /* Frosted Studio Effect - Glassmorphism */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent white for glassmorphism */
+    backdrop-filter: blur(20px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(20px); /* Safari support */
+    
+    /* Brand Anchor - Brand Dark Green top border */
+    border-top: 4px solid #1B3022; /* Brand Dark Green - anchors modal to site palette */
+    
+    /* Viewport-Aware Positioning - Perfect Centering (Static Position) */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Perfect center anchor - static position */
+    
+    /* Fixed Height Container - 90vh maximum */
+    max-height: 90vh; /* Never exceeds viewport height */
+    width: 90%;
+    max-width: 500px;
+    
+    /* Flex Column Layout - Fixed Header + Scrollable Body */
+    display: flex;
+    flex-direction: column;
+    
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden; /* Contain scrollable content */
+    
+    /* Ensure modal appears in center immediately - no animation */
+    opacity: 1;
+    will-change: auto; /* Remove will-change to prevent animation */
+    animation: none !important; /* Disable any animations */
+    transition: none; /* Disable transitions that might cause movement */
+}
+
+/* Override fade-in-up animation for modal - modal should always be centered */
+.modal-content.fade-in-up {
+    animation: none !important;
+    transform: translate(-50%, -50%) !important; /* Always maintain center position */
+    opacity: 1 !important;
+}
+
+.close {
+    color: var(--gray-400);
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    top: var(--space-lg);
+    right: var(--space-lg);
+    z-index: 10; /* Above form content */
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+/* Form Container - Scrollable Body */
+#form-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden; /* Prevent outer scroll, inner scroll handles it */
+    padding: var(--space-2xl);
+    padding-top: calc(var(--space-2xl) + 40px); /* Space for close button */
+    padding-bottom: 0; /* No bottom padding - sticky footer handles it */
+    min-height: 0; /* Allow flex child to shrink */
+}
+
+/* Progress Bar - Thin Horizontal Indicator at Top */
+.form-progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px; /* Ultra-thin progress bar */
+    background: rgba(27, 48, 34, 0.1); /* Light Brand Dark Green track */
+    z-index: 15; /* Above close button */
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0; /* Match modal top radius */
+    overflow: hidden;
+}
+
+.form-progress-fill {
+    height: 100%;
+    width: 0%; /* Start at 0% */
+    background: #E34234; /* Brand Red */
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth fill animation */
+    border-radius: var(--radius-2xl) 0 0 0;
+}
+
+/* Form Header - Fixed at Top */
+.form-header {
+    flex-shrink: 0; /* Prevent header from shrinking */
+    margin-bottom: var(--space-xl);
+    padding-right: 40px; /* Space for close button */
+    margin-top: 3px; /* Space for progress bar */
+    position: relative; /* For z-index stacking */
+    z-index: 5;
+}
+
+.form-header h2 {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1B3022; /* Brand Dark Green */
+    margin-bottom: var(--space-sm);
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+    padding-bottom: 0.5rem; /* Extra space for descenders */
+}
+
+.form-header p {
+    font-size: 1rem;
+    color: rgba(27, 48, 34, 0.7); /* Brand Dark Green at 70% opacity */
+    line-height: 1.5;
+}
+
+/* Form Body - Scrollable Content */
+#form-container form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0; /* Allow flex child to shrink */
+    gap: 0; /* Gap handled by form-fields-scroll padding */
+    overflow: visible; /* Allow sticky footer to work */
+    position: relative; /* For sticky positioning context */
+}
+
+/* Internal "Silent" Scroll-Area - Wrapper for form fields */
+.form-fields-scroll {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 100%;
+    padding-right: var(--space-md); /* Space for custom scrollbar */
+    margin-right: calc(-1 * var(--space-md)); /* Offset padding to align content */
+    
+    /* Hide default scrollbar */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.form-fields-scroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+
+/* Custom Ultra-Thin Brand Red Scrollbar - Appears on Interaction */
+.form-fields-scroll:hover,
+.form-fields-scroll.scrolling {
+    scrollbar-width: thin; /* Show on hover or when scrolling - Firefox */
+}
+
+.form-fields-scroll:hover::-webkit-scrollbar,
+.form-fields-scroll.scrolling::-webkit-scrollbar {
+    display: block; /* Show on hover or when scrolling - Chrome, Safari, Opera */
+    width: 4px; /* Ultra-thin scrollbar */
+}
+
+.form-fields-scroll:hover::-webkit-scrollbar-track,
+.form-fields-scroll.scrolling::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+.form-fields-scroll:hover::-webkit-scrollbar-thumb,
+.form-fields-scroll.scrolling::-webkit-scrollbar-thumb {
+    background: #E34234; /* Brand Red */
+    border-radius: 2px;
+    transition: background 0.2s ease;
+}
+
+.form-fields-scroll:hover::-webkit-scrollbar-thumb:hover,
+.form-fields-scroll.scrolling::-webkit-scrollbar-thumb:hover {
+    background: #C7362A; /* Darker Brand Red on hover */
+}
+
+/* Firefox custom scrollbar styling */
+.form-fields-scroll:hover,
+.form-fields-scroll.scrolling {
+    scrollbar-width: thin;
+    scrollbar-color: #E34234 transparent; /* Brand Red thumb, transparent track */
+}
+
+/* Form Fields Container - Scrollable */
+.form-fields-scroll .form-group {
+    flex-shrink: 0; /* Prevent fields from shrinking */
+    margin-bottom: var(--space-lg); /* Spacing between fields */
+}
+
+.form-fields-scroll .form-group:last-child {
+    margin-bottom: var(--space-lg); /* Add spacing before sticky footer */
+}
+
+
+.close:hover {
+    color: var(--text-primary);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 0; /* Gap handled by form flex gap */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-md);
+    border: 2px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Form Field Error State */
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+    border-color: #E34234; /* Brand Red for errors */
+    box-shadow: 0 0 0 3px rgba(227, 66, 52, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Form Step Styling */
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+.step-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1B3022; /* Brand Dark Green */
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.01em;
+}
+
+/* Sticky Footer Action Bar */
+.form-navigation {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+    background: #F9F4E8; /* Brand Cream background */
+    z-index: 10; /* Above scrollable content */
+    flex-shrink: 0;
+    
+    /* Subtle upward gradient - Brand Cream to transparent */
+    background: linear-gradient(to top, #F9F4E8 0%, rgba(249, 244, 232, 0.95) 60%, rgba(249, 244, 232, 0) 100%);
+    margin-left: calc(-1 * var(--space-2xl)); /* Extend to modal edges */
+    margin-right: calc(-1 * var(--space-2xl));
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+    margin-bottom: calc(-1 * var(--space-2xl)); /* Extend to modal bottom */
+    padding-bottom: calc(var(--space-lg) + var(--space-2xl));
+}
+
+.form-nav-btn {
+    flex: 1;
+    padding: var(--space-md) var(--space-lg);
+    border: 2px solid #1B3022; /* Brand Dark Green */
+    background: transparent;
+    color: #1B3022;
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+}
+
+.form-nav-btn:hover {
+    background: #1B3022;
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+.form-nav-btn:active {
+    transform: translateY(0);
+}
+
+.form-submit {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: #E34234; /* Brand Red */
+    color: var(--white);
+    border: none;
+    border-radius: var(--radius-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    flex-shrink: 0; /* Prevent button from shrinking */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    box-shadow: 0 4px 12px rgba(227, 66, 52, 0.3); /* Brand Red shadow */
+}
+
+.form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(227, 66, 52, 0.4); /* Enhanced shadow on hover */
+    background: #C7362A; /* Darker Brand Red on hover */
+}
+
+.form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Responsive Design */
+
+/* Large screens (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 4.5rem; /* 72px equivalent */
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+    }
+    
+    .section-header h2 {
+        font-size: 3rem;
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+    }
+}
+
+/* Desktop and large tablets (1024px to 1199px) */
+@media (max-width: 1199px) and (min-width: 1024px) {
+    .container {
+        padding: 0 var(--space-xl);
+    }
+    
+    .hero-title {
+        font-size: 4rem; /* 64px equivalent */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+        font-weight: 800; /* Extra-bold */
+        color: #1B3022; /* Brand Dark Green */
+        margin-bottom: calc(var(--space-lg) + 10px);
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+}
+
+/* Tablets and small laptops (768px to 1023px) */
+@media (max-width: 1023px) and (min-width: 769px) {
+    .container {
+        padding: 0 var(--space-xl);
+    }
+    
+    .hero-title {
+        font-size: 3.5rem; /* 56px equivalent */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+        font-weight: 800; /* Extra-bold */
+        color: #1B3022; /* Brand Dark Green */
+        margin-bottom: calc(var(--space-lg) + 8px);
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+}
+
+/* Tablets and small laptops (768px to 1199px) - legacy support */
+@media (max-width: 1199px) and (min-width: 769px) {
+    .hero-title {
+        font-size: 3.875rem; /* 62px equivalent */
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+    }
+    
+    .system-diagram {
+        max-width: 500px;
+        height: 500px;
+    }
+    
+    .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .founders-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Medium screens - adjust navbar container */
+@media (max-width: 1024px) {
+    .nav-container {
+        max-width: calc(100% - 40px); /* add some margin on sides */
+        padding: 14px 24px; /* slightly reduce horizontal padding */
+    }
+    
+    .nav-menu {
+        gap: 24px; /* reduce spacing on medium screens */
+    }
+    
+    /* Bento Grid - 2 columns on tablets */
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+    
+    .bento-card.featured-card {
+        grid-column: span 2; /* Featured card still spans full width on tablets */
+    }
+    
+    .bento-card {
+        padding: 3rem; /* Maintain p-12 equivalent (48px) on tablets */
+    }
+
+    /* Hardware Section - Tablet Responsive */
+    .hardware-content {
+        gap: var(--space-3xl);
+    }
+
+    .hardware-text h2 {
+        font-size: 2.25rem;
+    }
+
+    /* Features Grid - 2 columns on tablets */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile and tablets (768px and below) */
+@media (max-width: 768px) {
+    /* When mobile menu is open, navbar stack must sit above sticky CTA (9998) */
+    .navbar:has(.nav-menu.active) {
+        z-index: 10050;
+    }
+    
+    /* Pointer-Event Enablement: parent containers must not disable interactivity */
+    .navbar,
+    .nav-container {
+        pointer-events: auto; /* Do not apply pointer-events: none – keeps entire menu interactive */
+    }
+    
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .hero {
+        padding: 100px 0 60px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-xl);
+        padding: 0 var(--space-sm);
+    }
+    
+    .nav-container {
+        max-width: calc(100% - 20px); /* smaller margin on mobile */
+        padding: 12px 20px; /* reduce padding on mobile */
+        border-radius: 30px; /* slightly less rounded on mobile */
+    }
+    
+    /* Mobile Navigation - Right-Side Hamburger with Glassmorphism */
+    .nav-container {
+        max-width: calc(100% - 20px);
+        padding: 12px 20px;
+        border-radius: 30px;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        background: rgba(255, 255, 255, 0.7); /* Glassmorphism background */
+    }
+    
+    /* Ensure nav-container doesn't blur menu when open */
+    .nav-container:has(+ .nav-menu.active) {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    /* Global Stacking Priority - Mobile Menu Container */
+    /* Clarity Restoration: No backdrop-filter on menu – blur is exclusively on the overlay div below. */
+    /* Pointer-Event Enablement: parent container has pointer-events: auto so menu stays interactive */
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 0;
+        width: 280px;
+        height: 100vh;
+        flex-direction: column;
+        background: #FFFFFF !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        box-shadow: -4px 0 24px rgba(0, 0, 0, 0.15);
+        padding: 80px 24px 24px;
+        z-index: 9999;
+        isolation: isolate;
+        gap: 0;
+        align-items: stretch; /* Menu items span full width for centered content */
+        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        border-left: 0.5px solid rgba(255, 255, 255, 0.2);
+        overflow-y: auto;
+        pointer-events: auto !important;
+        touch-action: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    
+    /* Ensure no blur on menu content; do not set pointer-events on * (links use auto below) */
+    .nav-menu * {
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+    
+    /* Touch-Target Ergonomics: py-6 (24px) vertical padding, min 48px height, Thumb Zone accessibility */
+    /* Spacing: links centered horizontally for professional, adaptive symmetry */
+    .nav-menu .nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px; /* AAA minimum touch target */
+        padding: 24px 0; /* py-6 – comfortable Thumb Zone */
+        width: 100%; /* Full width so content is centered within menu */
+        text-align: center;
+        font-size: 1.125rem;
+        font-weight: 600;
+        color: #1B3022 !important;
+        opacity: 1 !important;
+        background: transparent !important;
+        border-bottom: 0.5px solid rgba(27, 48, 34, 0.1);
+        transition: color 0.3s ease, background-color 0.2s ease, transform 0.2s ease;
+        position: relative;
+        z-index: 10000;
+        cursor: pointer;
+        pointer-events: auto !important;
+        text-decoration: none;
+        -webkit-tap-highlight-color: rgba(27, 48, 34, 0.15);
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    
+    /* Interactive "Red-i" Navigation Signature - Brand Red "i" in mobile menu */
+    .nav-menu .nav-link .brand-i {
+        color: #E34234; /* Brand Red - signature color */
+        font-weight: 600; /* Match link weight */
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .nav-menu .nav-link:hover {
+        background-color: rgba(27, 48, 34, 0.05); /* Subtle bg on hover only */
+        color: #1B3022 !important; /* Brand Dark Green – piercing contrast */
+        opacity: 1 !important; /* text-opacity-100 */
+    }
+    
+    /* Pulse animation for Brand Red "i" on tap - confirms interaction */
+    @keyframes nav-i-pulse {
+        0% {
+            transform: scale(1);
+            color: #E34234; /* Brand Red */
+        }
+        50% {
+            transform: scale(1.3); /* Pulse scale */
+            color: #E34234; /* Maintain Brand Red */
+            text-shadow: 0 0 8px rgba(227, 66, 52, 0.6); /* Subtle glow */
+        }
+        100% {
+            transform: scale(1);
+            color: #E34234; /* Return to Brand Red */
+        }
+    }
+    
+    /* Apply pulse animation when link is tapped */
+    .nav-menu .nav-link.tapped .brand-i {
+        animation: nav-i-pulse 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-menu .nav-link:active {
+        color: #E34234; /* Brand Red on tap */
+        opacity: 1 !important; /* text-opacity-100 */
+        background: transparent !important; /* bg-transparent */
+        transform: scale(0.98);
+    }
+    
+    /* Language switcher – py-6 spacing, min 48px, centered for adaptive symmetry */
+    .nav-menu .language-switcher {
+        padding: 24px 0; /* py-6 – Thumb Zone ergonomics */
+        min-height: 48px;
+        border-bottom: 0.5px solid rgba(27, 48, 34, 0.1);
+        display: flex;
+        gap: 12px;
+        justify-content: center; /* Center horizontally – professional symmetry */
+        align-items: center;
+        position: relative;
+        z-index: 10000;
+        background: transparent !important;
+        pointer-events: auto !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    
+    /* Lang links – min 48px touch target, py-6 ergonomics, centered */
+    .nav-menu .language-switcher .lang-link {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 16px; /* py-6 equivalent vertical (12px each) – Thumb Zone */
+        position: relative;
+        z-index: 10001;
+        cursor: pointer;
+        pointer-events: auto !important; /* All navigation link elements – enablement */
+        text-decoration: none;
+        font-weight: 600;
+        color: #1B3022 !important; /* Brand Dark Green – pierce through background */
+        opacity: 1 !important; /* text-opacity-100 */
+        background: transparent !important; /* bg-transparent */
+        -webkit-tap-highlight-color: rgba(27, 48, 34, 0.15);
+        transition: color 0.2s ease, background-color 0.2s ease;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+        filter: none !important;
+        -webkit-filter: none !important;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+    
+    .nav-menu .language-switcher .lang-link:hover,
+    .nav-menu .language-switcher .lang-link.active {
+        background-color: rgba(27, 48, 34, 0.1);
+        color: #1B3022 !important; /* Brand Dark Green – piercing contrast */
+        opacity: 1 !important; /* text-opacity-100 */
+    }
+    
+    /* Hide CTA from mobile menu; when visible elsewhere, keep interactive */
+    .nav-menu .nav-cta {
+        display: none;
+        pointer-events: auto !important;
+    }
+
+    /* Hamburger - top of mobile stack so it always receives touch */
+    .hamburger {
+        display: flex;
+        position: relative;
+        z-index: 10002; /* Above menu (9999) and links (10000/10001) */
+    }
+    
+    /* Hamburger bars - Brand Dark Green */
+    .hamburger .bar {
+        background: #1B3022; /* Brand Dark Green */
+        width: 24px;
+        height: 2.5px;
+    }
+    
+    /* Blur applied exclusively to this overlay – not to the menu or links */
+    .nav-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(4px); /* Blur effect exclusively on background overlay div */
+        -webkit-backdrop-filter: blur(4px);
+        filter: none !important;
+        -webkit-filter: none !important;
+        z-index: 9000;
+        opacity: 0;
+        transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+    }
+    
+    .nav-menu-overlay.active {
+        display: block;
+        opacity: 1;
+        pointer-events: auto !important; /* Clickable to close menu when visible */
+        touch-action: auto;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+    
+    /* Mobile Sticky Footer - "Join Waitlist" Button */
+    .mobile-sticky-cta {
+        display: block; /* Shown on mobile (inside @media query) */
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 16px 20px;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 0.5px solid rgba(27, 48, 34, 0.1);
+        box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.1);
+        z-index: 9998; /* Below hamburger, above content */
+    }
+    
+    .mobile-sticky-cta .cta-button {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px; /* AAA accessibility standard */
+        padding: 14px 24px; /* Adjusted to ensure 48px minimum height */
+        font-size: 1rem;
+        font-weight: 600;
+        background: #E34234; /* Brand Red */
+        color: #FFFFFF;
+        border-radius: 16px;
+        box-shadow: 0 4px 12px rgba(227, 66, 52, 0.3);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .mobile-sticky-cta .cta-button:active {
+        transform: scale(0.98);
+        box-shadow: 0 2px 8px rgba(227, 66, 52, 0.3);
+    }
+    
+    /* Add bottom padding to body to prevent content from being hidden behind sticky footer */
+    body {
+        padding-bottom: 80px; /* Space for sticky footer */
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-md);
+        align-items: center;
+    }
+
+    .hero-stats .stat {
+        min-width: 120px;
+        padding: var(--space-sm);
+        width: 100%;
+    }
+
+    .hero-stats .stat:first-child,
+    .hero-stats .stat:last-child {
+        padding: var(--space-sm);
+    }
+
+    .hero-stats .stat-divider {
+        width: 80%;
+        height: 1px;
+        margin: var(--space-sm) 0;
+    }
+
+    /* Fluid Typography Scaling - Reduce text-6xl to text-4xl on mobile */
+    .hero-title {
+        font-size: 2.25rem; /* text-4xl equivalent (36px) - reduced from 72px */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+        margin-bottom: calc(var(--space-lg) + 8px); /* 8px extra spacing on mobile */
+    }
+    
+    /* Maintain Brand Red "i" signature in mobile headings */
+    .hero-title .highlight-keyword,
+    .hero-title .kinetic-word-content {
+        color: #E34234; /* Brand Red - maintained on mobile */
+    }
+
+    .hero-subtitle {
+        font-size: 1.125rem; /* Slightly increased for mobile */
+        color: rgba(27, 48, 34, 0.7); /* Medium-weight sage green at 70% opacity */
+        line-height: 1.5;
+        font-weight: 500; /* Medium weight */
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .hero-value-props {
+        margin-bottom: var(--space-xl);
+        gap: var(--space-sm);
+    }
+
+    .hero-value-props li {
+        font-size: 1.125rem; /* 18px on mobile */
+    }
+
+    .hero-value-props li i {
+        font-size: 1.125rem; /* 18px on mobile */
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        gap: var(--space-md);
+        align-items: center;
+    }
+
+    .trust-logos {
+        gap: 28px; /* slightly smaller spacing on mobile */
+        padding-top: 48px;
+        padding-bottom: 12px;
+    }
+
+    .trust-logo {
+        height: 26px; /* smaller on mobile */
+        max-width: 120px;
+    }
+
+    /* AAA Accessibility - Minimum 48px touch target height */
+    .cta-button {
+        width: 100%;
+        max-width: 280px;
+        min-height: 48px; /* AAA accessibility standard */
+        padding: 12px 24px; /* Ensure adequate padding for 48px height */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .cta-button.large {
+        min-height: 48px; /* Ensure large buttons also meet AAA standard */
+        padding: 14px 28px; /* Slightly more padding for large buttons */
+    }
+
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+    
+    .bento-card.featured-card {
+        grid-column: span 1; /* Featured card takes full width on mobile */
+    }
+    
+    .solution-header h2 {
+        font-size: 2rem;
+        letter-spacing: -0.02em;
+    }
+    
+    /* Card Refinement - Reduce padding from p-10 to p-6 on mobile */
+    .bento-card {
+        padding: 1.5rem; /* p-6 equivalent (24px) - reduced from 3rem (48px) */
+        border-radius: 32px;
+    }
+    
+    .bento-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .bento-card p {
+        font-size: 0.875rem; /* Maintain text-sm on mobile */
+    }
+
+    /* Hardware Section - Mobile Responsive */
+    .hardware-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .hardware-text h2 {
+        font-size: 2rem;
+    }
+
+    .hardware-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Media & Atmosphere Optimization - Hardware Image Mobile Crop */
+    .hardware-image-placeholder {
+        max-width: 100%;
+        min-height: 300px; /* Reduced from 600px for faster LCP */
+        aspect-ratio: 1/1; /* Square aspect ratio for center-aligned crop on mobile */
+        display: flex;
+        align-items: center; /* Center-align image vertically */
+        justify-content: center; /* Center-align image horizontally */
+    }
+    
+    .hardware-image {
+        object-fit: cover; /* Center-aligned crop instead of contain */
+        object-position: center; /* Center the crop */
+        width: 100%;
+        height: 100%;
+    }
+    
+    /* Gradient Management - Reduce Atmospheric Shadow Heights by 30% on Mobile */
+    .hardware-section::after {
+        height: 35px; /* Reduced by 30% from 50px (50px * 0.7 = 35px) */
+    }
+    
+    /* Shadow Anchor - Reduce Atmospheric Shadow by 30% */
+    .shadow-anchor {
+        box-shadow: 0 -70px 105px rgba(5, 11, 7, 0.5); /* Reduced by 30%: 100px->70px, 150px->105px */
+    }
+    
+    .shadow-anchor::after {
+        height: 56px; /* Reduced by 30% from 80px (80px * 0.7 = 56px) */
+    }
+    
+    .horizon-shadow {
+        box-shadow: 0 -70px 105px rgba(5, 11, 7, 0.5); /* Reduced by 30%: 100px->70px, 150px->105px */
+    }
+    
+    .horizon-shadow::after {
+        height: 90px; /* Reduced by 30% from 128px (128px * 0.7 = 90px) */
+        top: -90px; /* Adjusted to match new height */
+    }
+    
+    /* Solution Section Shadow Anchor - Reduce by 30% on Mobile */
+    .solution-section::after {
+        box-shadow: 0 -70px 105px rgba(5, 11, 7, 0.5); /* Reduced by 30% from 100px/150px */
+    }
+    
+    /* Atmospheric Spotlight - Reduce Radial Gradient Size by 30% on Mobile */
+    .features-section .section-header::before {
+        width: 560px; /* Reduced by 30% from 800px (800px * 0.7 = 560px) */
+        height: 280px; /* Reduced by 30% from 400px (400px * 0.7 = 280px) */
+    }
+    
+    /* Hero Ambient Glow - Reduce by 30% on Mobile */
+    .hero::before {
+        width: 56%; /* Reduced by 30% from 80% (80% * 0.7 = 56%) */
+        height: 56%; /* Reduced by 30% from 80% (80% * 0.7 = 56%) */
+    }
+    
+    /* Social Proof Gradient - Reduce by 30% on Mobile */
+    .social-proof::before {
+        width: 42%; /* Reduced by 30% from 60% (60% * 0.7 = 42%) */
+        height: 42%; /* Reduced by 30% from 60% (60% * 0.7 = 42%) */
+    }
+
+    .hardware-badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+
+    .weight-value {
+        font-size: 1.25rem;
+    }
+
+    .university-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .benefits-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-xl);
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-md);
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    /* Bento-to-Stack Transformation - Single Column with gap-6 */
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem; /* gap-6 equivalent */
+    }
+    
+    /* Card Refinement - Reduce padding from p-10 to p-6 on mobile */
+    .feature-card {
+        padding: 1.5rem; /* p-6 equivalent (24px) - reduced from var(--space-2xl) */
+    }
+    
+    /* Fluid Typography Scaling - Section Headers */
+    .section-header h2 {
+        font-size: 1.875rem; /* text-3xl equivalent (30px) - reduced from 2.5rem (40px) */
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+    }
+    
+    .features-section .section-header h2 {
+        font-size: 1.875rem; /* text-3xl equivalent (30px) - reduced from 2.5rem (40px) */
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+    }
+    
+    .social-proof .section-header h2 {
+        font-size: 1.875rem; /* text-3xl equivalent (30px) - maintain hierarchy */
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+    }
+    
+    /* Maintain Brand Red "i" signature in all mobile headings */
+    .section-header h2 .brand-i,
+    .features-section .section-header h2 .brand-i,
+    .social-proof .section-header h2 .brand-i {
+        color: #E34234; /* Brand Red - maintained on mobile */
+    }
+
+    .testimonials {
+        grid-template-columns: 1fr;
+    }
+
+    .proof-stats {
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+    }
+
+    .proof-stat {
+        padding: 0 var(--space-lg);
+        min-width: 120px;
+    }
+
+    .proof-stat:not(:last-child)::after {
+        display: none; /* Hide dividers on tablets */
+    }
+
+    .industry-insights {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    /* Final CTA - Mobile Responsive */
+    .final-cta {
+        margin-top: var(--space-3xl);
+        padding-top: var(--space-3xl);
+    }
+
+    .final-cta h2 {
+        font-size: 2rem;
+    }
+
+    .final-cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .founders-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+
+    .language-switcher {
+        margin: var(--space-sm) 0;
+        justify-content: center;
+    }
+
+    .nav-menu .language-switcher {
+        margin: var(--space-md) 0;
+    }
+}
+
+/* Small mobile devices (480px and below) */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 var(--space-md);
+    }
+
+    .hero-title {
+        font-size: 2.375rem; /* 38px equivalent */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        padding: 0 var(--space-sm);
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+    }
+
+    .hero-subtitle {
+        font-size: 1rem; /* Slightly increased for small mobile */
+        color: rgba(27, 48, 34, 0.7); /* Medium-weight sage green at 70% opacity */
+        font-weight: 500; /* Medium weight */
+        line-height: 1.5;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        padding: 0 var(--space-sm);
+    }
+
+    .hero-value-props li {
+        font-size: 1.125rem; /* 18px on small mobile */
+    }
+
+    .hero-value-props li i {
+        font-size: 1.125rem; /* 18px on small mobile */
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+    .hero-stats {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+
+    .hero-stats .stat {
+        padding: var(--space-md);
+        width: 100%;
+    }
+
+    .hero-stats .stat:first-child,
+    .hero-stats .stat:last-child {
+        padding: var(--space-md);
+    }
+
+    .hero-stats .stat-divider {
+        width: 80%;
+        height: 1px;
+        margin: var(--space-sm) 0;
+    }
+
+    .proof-stats {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .proof-stat {
+        padding: 0;
+        width: 100%;
+    }
+
+    .proof-stat:not(:last-child)::after {
+        display: none; /* Hide dividers on mobile */
+    }
+
+    .proof-stat .stat-number {
+        font-size: 2.5rem;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .modal-content {
+        /* Maintain Frosted Studio Effect on Mobile */
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-top: 4px solid #1B3022; /* Brand Anchor maintained on mobile */
+        
+        /* Mobile Dynamic Height Adjustment - Dynamic Viewport Height */
+        height: 100dvh; /* Dynamic viewport height - accounts for mobile browser bars */
+        max-height: 100dvh; /* Never exceeds dynamic viewport height */
+        
+        /* Viewport-Aware Positioning - Full Screen on Mobile */
+        position: fixed;
+        top: 0; /* Start from top on mobile */
+        left: 50%;
+        transform: translateX(-50%); /* Center horizontally only */
+        width: 100%; /* Full width on mobile */
+        max-width: 100%;
+        margin: 0; /* Remove auto margins */
+        border-radius: 0; /* Full screen on mobile - no rounded corners */
+        
+        /* Flex Column Layout - Fixed Header + Scrollable Body */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+    
+    /* Mobile Form Container - Scrollable Body */
+    #form-container {
+        padding: var(--space-lg);
+        padding-top: calc(var(--space-lg) + 40px); /* Space for close button */
+        padding-bottom: 0; /* No bottom padding - sticky footer handles it */
+        overflow: hidden; /* Prevent outer scroll on mobile */
+        height: 100%; /* Fill available height */
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Mobile Form Fields Scroll Area */
+    .form-fields-scroll {
+        /* Custom scrollbar works on mobile too */
+        padding-right: var(--space-sm);
+        margin-right: calc(-1 * var(--space-sm));
+    }
+    
+    /* Mobile Sticky Footer Action Bar */
+    .form-navigation {
+        margin-left: calc(-1 * var(--space-lg)); /* Extend to modal edges on mobile */
+        margin-right: calc(-1 * var(--space-lg));
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+        margin-bottom: calc(-1 * var(--space-lg));
+        padding-bottom: calc(var(--space-lg) + var(--space-lg));
+    }
+    
+    .form-header h2 {
+        font-size: 1.5rem; /* Slightly smaller on mobile */
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+    }
+    
+    .form-header p {
+        font-size: 0.9rem; /* Slightly smaller on mobile */
+    }
+
+    .cta-button {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 0.9rem;
+    }
+
+    .cta-button.large {
+        padding: var(--space-lg) var(--space-xl);
+        font-size: 1rem;
+    }
+
+    .feature-card {
+        padding: var(--space-lg);
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        word-break: break-word;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .expertise-card {
+        padding: var(--space-xl) var(--space-lg);
+    }
+
+    .founder-card {
+        padding: var(--space-lg);
+    }
+
+    .system-diagram {
+        max-width: 300px;
+        height: 300px;
+    }
+
+    .system-component {
+        width: 60px;
+        height: 60px;
+        font-size: 0.7rem;
+    }
+
+    .system-component.central-hub {
+        width: 80px;
+        height: 80px;
+    }
+
+    .component-subtitle,
+    .hub-subtitle {
+        font-size: 0.6rem;
+    }
+
+    .language-switcher {
+        padding: var(--space-sm);
+        gap: var(--space-xs);
+    }
+
+    .lang-link {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 0.8rem;
+    }
+}
+
+/* Extra small devices (360px and below) */
+@media (max-width: 360px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+
+    .hero {
+        padding: 80px 0 40px;
+    }
+
+    .hero-container {
+        padding: 0 var(--space-xs);
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+        margin-bottom: var(--space-sm);
+        margin-left: 0; /* Remove alignment pillar on mobile */
+    }
+
+    .hero-title {
+        font-size: 2.375rem; /* 38px equivalent */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+        margin-left: 0; /* Remove alignment pillar on mobile */
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem; /* Slightly increased for extra small devices */
+        color: rgba(27, 48, 34, 0.7); /* Medium-weight sage green at 70% opacity */
+        font-weight: 500; /* Medium weight */
+        line-height: 1.4;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        padding-bottom: 0.5rem; /* Extra space for descenders */
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .cta-content h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .hero-stats .stat-number {
+        font-size: 1.8rem;
+    }
+
+    .hero-stats .stat-label {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        word-wrap: break-word;
+        hyphens: auto;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+    }
+
+    .proof-stat .stat-number {
+        font-size: 2rem;
+    }
+
+    .system-diagram {
+        max-width: 250px;
+        height: 250px;
+    }
+
+    .system-component {
+        width: 50px;
+        height: 50px;
+        font-size: 0.6rem;
+    }
+
+    .system-component.central-hub {
+        width: 70px;
+        height: 70px;
+    }
+
+    .cta-button {
+        padding: var(--space-sm) var(--space-md);
+        font-size: 0.85rem;
+    }
+
+    .cta-button.large {
+        padding: var(--space-md) var(--space-lg);
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape orientation for mobile devices */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        padding: 80px 0 40px;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+    }
+
+    .hero-title {
+        font-size: 2.5rem; /* 40px equivalent */
+        color: #1B3022; /* Brand Dark Green */
+        font-weight: 800; /* Extra-bold */
+        line-height: 1.1; /* Compact line-height */
+        letter-spacing: -0.04em; /* Modern, compact spacing */
+    }
+
+    .hero-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .hero-stats .stat-divider {
+        width: 1px;
+        height: 60px;
+    }
+
+    .section-header {
+        margin-bottom: var(--space-lg);
+    }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero-visual,
+    .dashboard-mockup,
+    .system-diagram {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .hamburger,
+    .cta-section,
+    .footer {
+        display: none;
+    }
+
+    .hero {
+        padding: 0;
+    }
+
+    .container {
+        max-width: none;
+        padding: 0;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    .hero-title {
+        font-size: 24pt;
+    }
+
+    .section-header h2 {
+        font-size: 18pt;
+    }
+}
+
+/* Animations */
+/* Global Animation Keyframes - Unified High-End Animation System */
+@keyframes heading-reveal {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Kinetic Reveal Animation - Masked Vertical Slide */
+@keyframes kinetic-reveal {
+    0% {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Chromatic "Glance" - Brand Red Glow Sweep */
+@keyframes brand-red-sweep {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    10% {
+        opacity: 1; /* Fade in as sweep begins */
+    }
+    90% {
+        opacity: 1; /* Maintain opacity during sweep */
+    }
+    100% {
+        opacity: 0; /* Fade out as sweep ends */
+        transform: translateX(100%);
+    }
+}
+
+/* Line-by-Line Masking - Words rise out of the page */
+.heading-word-wrapper {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    line-height: inherit; /* Maintain line height from parent */
+    height: 1.2em; /* Ensure wrapper has height to mask properly */
+    will-change: transform;
+}
+
+.heading-word {
+    display: inline-block;
+    white-space: pre; /* Preserve spaces between words */
+    opacity: 0; /* Start hidden - animation will reveal */
+    transform: translateY(30px);
+    will-change: transform;
+}
+
+/* Scroll-triggered animation - only plays when element is 20% into viewport */
+.heading-word.animate-in {
+    animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 0ms; /* Main heading: 0ms delay - first to appear */
+}
+
+/* Staggered Narrative Hierarchy - Subheadings (150ms delay) */
+.section-header p,
+.hero-subtitle,
+.solution-header p,
+.hardware-description,
+.features-section .section-header p,
+.social-proof .section-header p {
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px);
+    will-change: transform;
+}
+
+.section-header p.animate-in,
+.hero-subtitle.animate-in,
+.solution-header p.animate-in,
+.hardware-description.animate-in,
+.features-section .section-header p.animate-in,
+.social-proof .section-header p.animate-in {
+    animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 150ms; /* Subheading/Description: 150ms delay - guides eye after heading */
+}
+
+/* Staggered Narrative Hierarchy - CTA Buttons & Cards (300ms delay) */
+.cta-button,
+.feature-card,
+.bento-card,
+.final-cta-button,
+.proof-stat,
+.insight-card {
+    opacity: 0; /* Start hidden */
+    transform: translateY(30px);
+    will-change: transform;
+}
+
+.cta-button.animate-in,
+.feature-card.animate-in,
+.bento-card.animate-in,
+.final-cta-button.animate-in,
+.proof-stat.animate-in,
+.insight-card.animate-in {
+    animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: 300ms; /* CTA Buttons/Cards: 300ms delay - final elements to appear */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    /* Animation disabled - modal opens directly in center */
+    /* animation: fadeInUp 0.6s ease-out; */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Success states */
+.success {
+    color: var(--primary-green);
+    font-weight: 600;
+}
+
+/* Error states */
+.error {
+    color: var(--accent-red);
+    font-weight: 600;
+}
+
+/* Mobile Sticky Footer CTA - Hidden on desktop */
+.mobile-sticky-cta {
+    display: none; /* Hidden on desktop */
+}

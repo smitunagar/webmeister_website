@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Impressum - WebMeister360 | IOMS Rechtliche Informationen</title>
+    <meta name="description" content="Rechtliche Informationen und Kontaktdaten für WebMeister360 IOMS - Integriertes Operations Management System für die Lebensmittel- und Getränkeindustrie.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Impressum page specific styles */
+        .impressum-hero {
+            background: linear-gradient(135deg, #1F2937 0%, #374151 100%);
+            color: white;
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .impressum-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            color: #059669;
+        }
+        
+        .impressum-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .impressum-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #10B981;
+            padding-left: 1rem;
+        }
+        
+        .impressum-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin: 2rem 0 1rem;
+        }
+        
+        .impressum-content p {
+            margin-bottom: 1.5rem;
+            color: #4B5563;
+            font-size: 1.125rem;
+        }
+        
+        .contact-info {
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-info h3 {
+            color: #1F2937;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .contact-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .contact-item .icon {
+            font-size: 2rem;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item .label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+        }
+        
+        .contact-item .value {
+            font-size: 1rem;
+            color: #1F2937;
+            font-weight: 600;
+        }
+        
+        .legal-notice {
+            background: #F0FDF4;
+            border-left: 4px solid #10B981;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+        
+        .legal-notice h4 {
+            color: #1F2937;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .legal-notice p {
+            color: #374151;
+            margin: 0;
+            font-size: 1rem;
+        }
+        
+        .b2b-notice {
+            background: #FEF3C7;
+            border: 2px solid #F59E0B;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .b2b-notice .icon {
+            font-size: 2rem;
+            color: #F59E0B;
+            margin-bottom: 1rem;
+        }
+        
+        .b2b-notice h4 {
+            color: #92400E;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .b2b-notice p {
+            color: #92400E;
+            margin: 0;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .impressum-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .impressum-content {
+                padding: 2rem 1rem;
+            }
+            
+            .contact-details {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index-de.html" class="nav-link">Start</a>
+                <a href="index-de.html#solution" class="nav-link">Lösung</a>
+                <a href="index-de.html#features" class="nav-link">Funktionen</a>
+                <a href="about-de.html" class="nav-link">Über uns</a>
+                <a href="blog-de.html" class="nav-link">Blog</a>
+                <div class="language-switcher">
+                    <a href="impressum.html" class="lang-link">EN</a>
+                    <a href="impressum-de.html" class="lang-link active">DE</a>
+                </div>
+                <a href="waitlist-de.html" target="_blank" class="cta-button nav-cta" style="text-decoration: none; display: inline-flex; align-items: center;">Warteliste beitreten</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Impressum Hero -->
+    <section class="impressum-hero">
+        <div class="container">
+            <h1>Impressum</h1>
+            <p>Rechtliche Informationen und Kontaktdaten für WebMeister360 IOMS</p>
+        </div>
+    </section>
+
+    <!-- Impressum Content -->
+    <article class="impressum-content">
+        <div class="container">
+            <h2>Anbieterinformationen</h2>
+            <p><strong>Anbieter:</strong> WebMeister360</p>
+            <p><strong>Adresse:</strong> Alteburgstraße 150, 72762 Reutlingen, Deutschland</p>
+            <p><strong>Vertreten durch:</strong> Sampoorna Sahoo</p>
+            
+            <div class="contact-info">
+                <h3>Kontaktinformationen</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-phone"></i></div>
+                        <div class="label">Telefon</div>
+                        <div class="value">+49 152 18970777</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-envelope"></i></div>
+                        <div class="label">E-Mail</div>
+                        <div class="value">webmeister360@gmail.com</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="label">Adresse</div>
+                        <div class="value">Alteburgstraße 150<br>72762 Reutlingen</div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Rechtliche Informationen</h2>
+            
+            <div class="legal-notice">
+                <h4>Verantwortlich für den Inhalt nach § 18(2) MStV:</h4>
+                <p>WebMeister360</p>
+            </div>
+
+            <h2>Geschäftsinformationen</h2>
+            
+            <div class="b2b-notice">
+                <div class="icon"><i class="fas fa-building"></i></div>
+                <h4>Business-to-Business Fokus</h4>
+                <p>Diese Website richtet sich ausschließlich an Geschäftskunden (B2B).</p>
+            </div>
+
+            <h2>Zusätzliche Informationen</h2>
+            <p>WebMeister360 entwickelt IOMS (Integriertes Operations Management System) in Partnerschaft mit der Reutlingen University. Unsere Lösung konzentriert sich auf intelligentes Abfallmanagement für die Lebensmittel- und Getränkeindustrie und hilft Restaurants dabei, Lebensmittelabfälle durch integrierte Kassensysteme, intelligente Warenwirtschaft und IoT-Sensortechnologie um bis zu 40% zu reduzieren.</p>
+            
+            <p>Für weitere Informationen über unsere Produkte und Dienstleistungen besuchen Sie bitte unsere <a href="index-de.html" style="color: #10B981; text-decoration: none; font-weight: 600;">Hauptwebsite</a> oder kontaktieren Sie uns direkt über die oben angegebenen Informationen.</p>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transformation der Gastronomie durch intelligente Abfallmanagement-Technologie.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="index-de.html#features">Funktionen</a></li>
+                        <li><a href="index-de.html#solution">Wie es funktioniert</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="about-de.html">Über uns</a></li>
+                        <li><a href="#">Partnerschaft</a></li>
+                        <li><a href="#">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="blog-de.html">Blog</a></li>
+                        <li><a href="#">Fallstudien</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum-de.html">Impressum</a></li>
+                        <li><a href="privacy-policy-de.html">Datenschutzerklärung</a></li>
+                        <li><a href="terms-of-use-de.html">Nutzungsbedingungen</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. Alle Rechte vorbehalten. | In Partnerschaft mit der Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forms Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <div id="form-container">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

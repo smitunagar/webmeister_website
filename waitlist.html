@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Join Our Waitlist - WebMeister360 | IOMS Early Access</title>
+    <meta name="description" content="Join the WebMeister360 IOMS waitlist and be among the first to experience the future of smart waste management and kitchen automation.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Waitlist Page Specific Styles */
+        .waitlist-hero {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .waitlist-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .waitlist-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .waitlist-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .waitlist-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        
+        .waitlist-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .benefit-item i {
+            font-size: 2rem;
+            color: #FCD34D;
+        }
+        
+        .benefit-item span {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .waitlist-form-section {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #F9FAFB 0%, #FFFFFF 100%);
+            min-height: calc(100vh - 400px);
+        }
+        
+        .waitlist-form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .form-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .form-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .form-header p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        .form-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .form-group label i {
+            color: var(--primary-green);
+            font-size: 1.125rem;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url('data:image/svg+xml,<svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L6 6L11 1" stroke="%236B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 3rem;
+        }
+        
+        .product-options {
+            display: grid;
+            gap: 0.5rem;
+        }
+        
+        .product-option {
+            padding: 0.25rem 0;
+        }
+        
+        .submit-section {
+            margin-top: 3rem;
+            text-align: center;
+        }
+        
+        .submit-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1.25rem 3rem;
+            font-size: 1.125rem;
+            font-weight: 700;
+            border-radius: var(--radius-xl);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+        
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+        }
+        
+        .submit-button:active {
+            transform: translateY(0);
+        }
+        
+        .submit-button i {
+            font-size: 1.25rem;
+        }
+        
+        .privacy-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        
+        .privacy-note a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .privacy-note a:hover {
+            text-decoration: underline;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: var(--radius-2xl);
+            text-align: center;
+            animation: fadeInUp 0.5s ease;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            animation: scaleIn 0.5s ease;
+        }
+        
+        .success-message h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .success-message p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+        
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .success-button {
+            background: white;
+            color: var(--primary-green);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .success-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .waitlist-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .waitlist-hero p {
+                font-size: 1.125rem;
+            }
+            
+            .form-card {
+                padding: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-header h2 {
+                font-size: 2rem;
+            }
+            
+            .waitlist-benefits {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#solution" class="nav-link">Solut<span class="brand-i">i</span>on</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <div class="language-switcher">
+                    <a href="waitlist.html" class="lang-link active">EN</a>
+                    <a href="waitlist-de.html" class="lang-link">DE</a>
+                </div>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-menu-overlay" id="nav-menu-overlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="waitlist-hero">
+        <div class="waitlist-hero-content">
+            <h1>Join Our Waitlist</h1>
+            <p>Be among the first to experience the future of smart waste management and kitchen automation</p>
+            
+            <div class="waitlist-benefits">
+                <div class="benefit-item">
+                    <i class="fas fa-star"></i>
+                    <span>Early Access</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-percent"></i>
+                    <span>Exclusive Discounts</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-users"></i>
+                    <span>Priority Support</span>
+                </div>
+                <div class="benefit-item">
+                    <i class="fas fa-gift"></i>
+                    <span>Special Perks</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Form Section -->
+    <section class="waitlist-form-section">
+        <div class="waitlist-form-container">
+            <div class="form-card" id="form-card">
+                <div class="form-header">
+                    <h2>Get Early Access to IOMS</h2>
+                    <p>Fill in your details below and we'll keep you updated on our launch and exclusive offers</p>
+                </div>
+
+                <form id="waitlist-form" onsubmit="handleWaitlistSubmit(event)">
+                    <div class="form-grid">
+                        <!-- Row 1: Name and Email -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="fas fa-user"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" id="name" name="name" placeholder="Enter your full name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="fas fa-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Phone and Company -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">
+                                    <i class="fas fa-phone"></i>
+                                    Phone Number
+                                </label>
+                                <input type="tel" id="phone" name="phone" placeholder="+49 123 456 7890">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">
+                                    <i class="fas fa-building"></i>
+                                    Company/Organization
+                                </label>
+                                <input type="text" id="company" name="company" placeholder="Your company name (optional)">
+                            </div>
+                        </div>
+
+                        <!-- Row 3: Customer Type and Product Interest -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="customer_type">
+                                    <i class="fas fa-user-tag"></i>
+                                    I am a
+                                </label>
+                                <select id="customer_type" name="customer_type">
+                                    <option value="">Select customer type</option>
+                                    <option value="business">Business Customer</option>
+                                    <option value="home">Home/Individual Customer</option>
+                                    <option value="distributor">Distributor/Partner</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product_interest">
+                                    <i class="fas fa-box-open"></i>
+                                    Which product are you interested in?
+                                </label>
+                                <select id="product_interest" name="product_interest">
+                                    <option value="">Select a product</option>
+                                    <option value="ioms_business">IOMS Business</option>
+                                    <option value="ioms_home">IOMS Home</option>
+                                    <option value="wastewatchdog">WasteWatchDog</option>
+                                    <option value="smartchefbot">SmartChefbot</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 4: Industry and Business Size -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="industry">
+                                    <i class="fas fa-briefcase"></i>
+                                    Industry/Sector
+                                </label>
+                                <select id="industry" name="industry">
+                                    <option value="">Select your industry</option>
+                                    <option value="restaurant">Restaurant</option>
+                                    <option value="hotel">Hotel & Hospitality</option>
+                                    <option value="catering">Catering Service</option>
+                                    <option value="foodservice">Food Service</option>
+                                    <option value="retail">Retail</option>
+                                    <option value="healthcare">Healthcare</option>
+                                    <option value="education">Education</option>
+                                    <option value="home">Home Use</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="business_size">
+                                    <i class="fas fa-chart-line"></i>
+                                    Business Size
+                                </label>
+                                <select id="business_size" name="business_size">
+                                    <option value="">Select business size</option>
+                                    <option value="individual">Individual/Home</option>
+                                    <option value="small">Small (1-10 employees)</option>
+                                    <option value="medium">Medium (11-50 employees)</option>
+                                    <option value="large">Large (51-200 employees)</option>
+                                    <option value="enterprise">Enterprise (200+ employees)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Row 5: Country and City -->
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="country">
+                                    <i class="fas fa-globe"></i>
+                                    Country
+                                </label>
+                                <input type="text" id="country" name="country" placeholder="Germany">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="city">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    City
+                                </label>
+                                <input type="text" id="city" name="city" placeholder="Reutlingen">
+                            </div>
+                        </div>
+
+                        <!-- Full Width: Additional Information -->
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="fas fa-comment-dots"></i>
+                                Tell us more about your needs (Optional)
+                            </label>
+                            <textarea id="message" name="message" placeholder="Share any specific requirements, questions, or how IOMS can help your business..."></textarea>
+                        </div>
+
+                        <!-- Newsletter Opt-in -->
+                        <div class="form-group">
+                            <label style="flex-direction: row; cursor: pointer;">
+                                <input type="checkbox" name="newsletter" id="newsletter" style="width: auto; margin-right: 0.5rem;">
+                                <span>Yes, I'd like to receive updates, industry insights, and exclusive offers</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="submit-section">
+                        <button type="submit" class="submit-button">
+                            <i class="fas fa-rocket"></i>
+                            Join the Waitlist
+                        </button>
+                        
+                        <div class="privacy-note">
+                            By joining our waitlist, you agree to our <a href="privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="terms-of-use.html" target="_blank">Terms of Use</a>.<br>
+                            We respect your privacy and will never share your information.
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transforming the Food & Beverage industry through smart waste management technology.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#solution">How it Works</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Partnership</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. All rights reserved. | In partnership with Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // IMPORTANT: Replace this URL with your Google Apps Script Web App URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxnJp_ARhTmPylasxVCQe3us_eb9V0za8oPyglOYodUnORB-jN_Glt37gvIsHxyxZKmtg/exec';
+        
+        // Handle form submission
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Add metadata
+            data.timestamp = new Date().toISOString();
+            data.source = 'waitlist_page';
+            data.language = 'en';
+            
+            // Show loading state
+            const submitBtn = form.querySelector('.submit-button');
+            const originalHTML = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            // Send data to Google Sheets
+            fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Important for Google Apps Script
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                console.log('Waitlist submission sent:', data);
+                
+                // Show success message (we assume it worked since no-cors mode)
+                document.getElementById('form-card').innerHTML = `
+                    <div class="success-message">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>Welcome to the Waitlist!</h2>
+                        <p>Thank you for joining us! We've received your information and you're now on our exclusive waitlist. We'll keep you updated on our launch and special offers.</p>
+                        <div class="success-actions">
+                            <a href="about.html" class="success-button">
+                                <i class="fas fa-info-circle"></i>
+                                Learn More About Us
+                            </a>
+                        </div>
+                    </div>
+                `;
+                
+                // Scroll to top to see success message
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Reset form
+                form.reset();
+            })
+            .catch(error => {
+                console.error('Network error:', error);
+                
+                // Show error message (but still reset button)
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.disabled = false;
+                
+                // Optional: Show user-friendly error message
+                alert('There was an issue submitting your form. Please try again or contact us directly at webmeister360@gmail.com');
+            });
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

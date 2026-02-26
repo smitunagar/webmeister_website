@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>WebMeister360 - IOMS | Smart Waste Management for Food & Beverage</title>
+    <meta name="description" content="Transform your Food & Beverage business with IOMS - the integrated POS and inventory system with real-time waste tracking. Reduce food waste by up to 40%.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#solution" class="nav-link">Solut<span class="brand-i">i</span>on</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <div class="language-switcher">
+                    <a href="index.html" class="lang-link active">EN</a>
+                    <a href="index-de.html" class="lang-link">DE</a>
+                </div>
+                <button class="cta-button nav-cta" onclick="openForm('roi')" style="text-decoration: none; display: inline-flex; align-items: center;">
+                    <i class="fas fa-calculator"></i>
+                    Get a Savings Estimate
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-menu-overlay" id="nav-menu-overlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Built for large-scale kitchens in Germany</div>
+                <h1 class="hero-title">
+                    Turn food waste into measurable savings.
+                </h1>
+                <h2 class="hero-subtitle">
+                    IOMS captures waste automatically with smart hardware, turns it into demand predictions, and triggers inventory and ordering workflows, so kitchens cut costs without extra admin.
+                </h2>
+                <ul class="hero-value-props">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Track and classify waste with AI hardware</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Automate inventory and ordering workflows</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Generate real-time sustainability insights</span>
+                    </li>
+                </ul>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Less Food Waste</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Less Manual Logging Time</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">AI Classification Accuracy</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="cta-button primary" onclick="openForm('roi')">
+                        <i class="fas fa-calculator"></i>
+                        Get a Savings Estimate
+                    </button>
+                    <button class="cta-button secondary" onclick="openForm('demo')">
+                        <i class="fas fa-calendar-check"></i>
+                        Book a 15-min Demo
+                    </button>
+                    <a href="#" class="hero-tertiary-link" onclick="openVideoLightbox(event)">
+                        <i class="fas fa-play-circle"></i>
+                        Watch 90-sec Walkthrough
+                    </a>
+                </div>
+                <div class="trust-logos">
+                    <img src="public/Stadt_reutlingen.webp" alt="Stadt Reutlingen" class="trust-logo">
+                    <img src="public/AI_Express.webp" alt="AI Express" class="trust-logo">
+                    <img src="public/HS_Reutlingen_Logo.webp" alt="HS Reutlingen" class="trust-logo">
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">IOMS Dashboard</div>
+                        <div class="dashboard-status">
+                            <span class="status-dot"></span>
+                            Live Monitoring
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric-card">
+                            <div class="metric-value">-32%</div>
+                            <div class="metric-label">Waste Reduction</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">€2,450</div>
+                            <div class="metric-label">Monthly Savings</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">98%</div>
+                            <div class="metric-label">Accuracy</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Hidden Cost of Food Waste</h2>
+                <p>Food waste is not just an environmental issue—it's a massive financial burden on your business.</p>
+            </div>
+            <div class="problem-stats">
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>4-10%</h3>
+                        <p>of food purchased is wasted by restaurants</p>
+                    </div>
+                </div>
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>€143B</h3>
+                        <p>annual cost to the food service industry</p>
+                    </div>
+                </div>
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>40%</h3>
+                        <p>of food waste is preventable with better tracking</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Overview -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="solution-header">
+                <h2>Everything You Need to Run Operations Smoothly</h2>
+            </div>
+            <div class="bento-grid">
+                <!-- Featured Card: Workflow Automation (spans 2 columns) -->
+                <div class="bento-card featured-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Workflow Automation</h3>
+                    <p>AI-powered automation that streamlines your entire operation, from order processing to waste tracking, reducing manual tasks and human error</p>
+                </div>
+                
+                <!-- POS System -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <h3>Complete POS System</h3>
+                    <p>Our own advanced POS software with integrated payment processing and order management</p>
+                </div>
+                
+                <!-- Smart Inventory -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Smart Inventory Management</h3>
+                    <p>Real-time tracking, predictive analytics, and automated alerts for optimal stock control</p>
+                </div>
+                
+                <!-- IoT Sensors -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>IoT Hardware Integration</h3>
+                    <p>Smart sensors for precise waste measurement and environmental monitoring</p>
+                </div>
+                
+                <!-- Analytics Dashboard -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Actionable insights and comprehensive reporting for data-driven decisions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Hardware Section -->
+    <section class="hardware-section">
+        <div class="container">
+            <div class="hardware-content">
+                <!-- Column 1: Visual -->
+                <div class="hardware-visual">
+                    <div class="hardware-image-placeholder">
+                        <!-- Hardware product image -->
+                        <img src="public/hardware.webp" alt="IOMS Smart Hardware" class="hardware-image" loading="lazy" fetchpriority="low">
+                        <!-- Image gradient overlay -->
+                        <div class="image-gradient"></div>
+                        <!-- Brand Green radial glow behind -->
+                        <div class="image-glow"></div>
+                        
+                        <!-- Top Right Badge: Status Connected -->
+                        <div class="hardware-badge status-badge">
+                            <div class="status-dot"></div>
+                            <span>Status: Connected</span>
+                        </div>
+                        
+                        <!-- Bottom Left Badge: Live Weight -->
+                        <div class="hardware-badge weight-badge">
+                            <span class="weight-label">Live Weight</span>
+                            <span class="weight-value">12.4 kg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Content -->
+                <div class="hardware-text">
+                    <div class="hardware-category">HARDWARE</div>
+                    <h2>Smart Hardware, Smarter Insights.</h2>
+                    <p class="hardware-description">
+                        Our precision-engineered IoT sensors provide real-time waste tracking with industry-leading accuracy. 
+                        Every measurement feeds directly into your IOMS dashboard, giving you complete visibility into your operations.
+                    </p>
+                    
+                    <!-- Feature Grid: Micro-Cards -->
+                    <div class="hardware-features-grid">
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <span>WiFi Enabled</span>
+                        </div>
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <span>72h Battery</span>
+                        </div>
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <span>0.1g Precision</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Checkmark List -->
+                    <ul class="hardware-checklist">
+                        <li><i class="fas fa-check"></i> Real-time data synchronization</li>
+                        <li><i class="fas fa-check"></i> Weather-resistant housing</li>
+                        <li><i class="fas fa-check"></i> Easy installation and setup</li>
+                        <li><i class="fas fa-check"></i> Enterprise-grade reliability</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chromatic Gradient Bridge -->
+    <div class="section-bridge">
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <!-- Shadow Anchor - Large Ambient Shadow at meeting point -->
+        <div class="shadow-anchor"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Powerful Features for Modern Restaurants</h2>
+                <p>Everything you need to manage waste and optimize operations</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-card-number">01</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI-Powered Analytics</h3>
+                    <p>Machine learning algorithms predict waste patterns and suggest optimal ordering quantities</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">02</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Manage your restaurant on the go with our intuitive mobile application</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">03</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud-Based</h3>
+                    <p>Access your data anywhere with secure cloud storage and real-time synchronization</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">04</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Compliant</h3>
+                    <p>Enterprise-grade security with full compliance to food safety regulations</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">05</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Smart Alerts</h3>
+                    <p>Get notified about low inventory, waste spikes, and optimization opportunities</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">06</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>ROI Tracking</h3>
+                    <p>Monitor your savings and return on investment with detailed financial reports</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <!-- Horizon Ambient Shadow - Saturated Ambient Occlusion at top edge -->
+        <div class="horizon-shadow"></div>
+        <div class="container">
+            <div class="section-header">
+                <h2>Join the Movement Against Food Waste</h2>
+                <p>Understanding the scale of the problem and our innovative solution</p>
+            </div>
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <div class="stat-number">88M</div>
+                    <div class="stat-label">Tonnes EU Food Waste/Year</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">14%</div>
+                    <div class="stat-label">F&B Industry Waste Share</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">€15K</div>
+                    <div class="stat-label">Avg Annual Loss per Restaurant</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">2030</div>
+                    <div class="stat-label">EU Waste Reduction Target</div>
+                </div>
+            </div>
+            <div class="industry-insights">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Industry Challenge</h4>
+                        <p>Restaurants waste 4-10% of food purchased, costing the industry billions annually</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Our Solution</h4>
+                        <p>IOMS provides complete POS and inventory software with integrated IoT sensors and AI analytics to tackle waste at its source</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Research Backed</h4>
+                        <p>Developed in partnership with Reutlingen University using cutting-edge research</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final Call CTA -->
+            <div class="final-cta">
+                <h2>Ready to Transform Waste to Wealth?</h2>
+                <a href="waitlist.html" class="final-cta-button">
+                    Get Started Today
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transforming the Food & Beverage industry through smart waste management technology.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#solution">How it Works</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Partnership</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. All rights reserved. | In partnership with Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forms Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <div id="form-container">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Sticky Footer CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="waitlist.html" target="_blank" class="cta-button primary" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-rocket"></i>
+            Join Our Waitlist
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

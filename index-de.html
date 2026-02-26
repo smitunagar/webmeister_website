@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>WebMeister360 - IOMS | Intelligentes Abfallmanagement für Lebensmittel & Getränke</title>
+    <meta name="description" content="Transformieren Sie Ihr Lebensmittel- und Getränkeunternehmen mit IOMS - dem integrierten POS- und Inventarsystem mit Echtzeit-Abfallverfolgung. Reduzieren Sie Lebensmittelabfälle um bis zu 40%.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Start</a>
+                <a href="#solution" class="nav-link">Lösung</a>
+                <a href="#features" class="nav-link">Funktionen</a>
+                <a href="about-de.html" class="nav-link">Über uns</a>
+                <a href="blog-de.html" class="nav-link">Blog</a>
+                <div class="language-switcher">
+                    <a href="index.html" class="lang-link">EN</a>
+                    <a href="index-de.html" class="lang-link active">DE</a>
+                </div>
+                <button class="cta-button nav-cta" onclick="openForm('roi')" style="text-decoration: none; display: inline-flex; align-items: center;">
+                    <i class="fas fa-calculator"></i>
+                    Einsparungen berechnen
+                </button>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">Entwickelt für Großküchen in Deutschland</div>
+                <h1 class="hero-title">
+                    Lebensmittelabfälle in messbare Einsparungen verwandeln.
+                </h1>
+                <h2 class="hero-subtitle">
+                    IOMS erfasst Abfälle automatisch mit smarter Hardware, verwandelt sie in Bedarfsprognosen und löst Bestell- und Lagerprozesse aus – so senken Küchen Kosten ohne zusätzlichen Verwaltungsaufwand.
+                </h2>
+                <ul class="hero-value-props">
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Abfälle mit KI-Hardware erfassen und klassifizieren</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Bestell- und Lagerprozesse automatisieren</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-check-circle"></i>
+                        <span>Nachhaltigkeits-Insights in Echtzeit generieren</span>
+                    </li>
+                </ul>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">40%</span>
+                        <span class="stat-label">Weniger Lebensmittelabfall</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Weniger manuelle Erfassungszeit</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">KI-Klassifizierungsgenauigkeit</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <button class="cta-button primary" onclick="openForm('roi')">
+                        <i class="fas fa-calculator"></i>
+                        Einsparungen berechnen
+                    </button>
+                    <button class="cta-button secondary" onclick="openForm('demo')">
+                        <i class="fas fa-calendar-check"></i>
+                        15-Min Demo buchen
+                    </button>
+                    <a href="#" class="hero-tertiary-link" onclick="openVideoLightbox(event)">
+                        <i class="fas fa-play-circle"></i>
+                        90-Sek Walkthrough ansehen
+                    </a>
+                </div>
+                <div class="trust-logos">
+                    <img src="public/Stadt_reutlingen.webp" alt="Stadt Reutlingen" class="trust-logo">
+                    <img src="public/AI_Express.webp" alt="AI Express" class="trust-logo">
+                    <img src="public/HS_Reutlingen_Logo.webp" alt="HS Reutlingen" class="trust-logo">
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="dashboard-mockup">
+                    <div class="dashboard-header">
+                        <div class="dashboard-title">IOMS Dashboard</div>
+                        <div class="dashboard-status">
+                            <span class="status-dot"></span>
+                            Live-Monitoring
+                        </div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric-card">
+                            <div class="metric-value">-32%</div>
+                            <div class="metric-label">Abfallreduzierung</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">€2.450</div>
+                            <div class="metric-label">Monatliche Einsparungen</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">98%</div>
+                            <div class="metric-label">Genauigkeit</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Die versteckten Kosten der Lebensmittelverschwendung</h2>
+                <p>Lebensmittelverschwendung ist nicht nur ein Umweltproblem—sondern eine massive finanzielle Belastung für Ihr Unternehmen.</p>
+            </div>
+            <div class="problem-stats">
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>4-10%</h3>
+                        <p>der eingekauften Lebensmittel landen im Müll</p>
+                    </div>
+                </div>
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-euro-sign"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>€143B</h3>
+                        <p>Jahreskosten für die Gastronomie</p>
+                    </div>
+                </div>
+                <div class="problem-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="stat-content">
+                        <h3>40%</h3>
+                        <p>der Verschwendung ist durch bessere Kontrolle vermeidbar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Overview -->
+    <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="solution-header">
+                <h2>Alles, was Sie für reibungslose Abläufe benötigen</h2>
+            </div>
+            <div class="bento-grid">
+                <!-- Featured Card: Workflow Automation (spans 2 columns) -->
+                <div class="bento-card featured-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Workflow-Automatisierung</h3>
+                    <p>KI-gestützte Automatisierung, die Ihren gesamten Betrieb optimiert, von der Bestellabwicklung bis zur Abfallverfolgung, und manuelle Aufgaben sowie menschliche Fehler reduziert</p>
+                </div>
+                
+                <!-- POS System -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-cash-register"></i>
+                    </div>
+                    <h3>Komplettes Kassensystem</h3>
+                    <p>Unsere eigene moderne Kassensoftware mit integrierter Zahlungsabwicklung und Bestellverwaltung</p>
+                </div>
+                
+                <!-- Smart Inventory -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Intelligente Warenwirtschaft</h3>
+                    <p>Echtzeitverfolgung, Vorhersageanalysen und automatische Benachrichtigungen für optimale Bestandskontrolle</p>
+                </div>
+                
+                <!-- IoT Sensors -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3>IoT-Sensor-Integration</h3>
+                    <p>Intelligente Sensoren für präzise Abfallmessung und Umweltüberwachung</p>
+                </div>
+                
+                <!-- Analytics Dashboard -->
+                <div class="bento-card">
+                    <div class="bento-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Analytics-Dashboard</h3>
+                    <p>Praktische Erkenntnisse und umfassende Berichte für datenbasierte Entscheidungen</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Smart Hardware Section -->
+    <section class="hardware-section">
+        <div class="container">
+            <div class="hardware-content">
+                <!-- Column 1: Visual -->
+                <div class="hardware-visual">
+                    <div class="hardware-image-placeholder">
+                        <!-- Hardware product image -->
+                        <img src="public/hardware.webp" alt="IOMS Smart Hardware" class="hardware-image" loading="lazy" fetchpriority="low">
+                        <!-- Image gradient overlay -->
+                        <div class="image-gradient"></div>
+                        <!-- Brand Green radial glow behind -->
+                        <div class="image-glow"></div>
+                        
+                        <!-- Top Right Badge: Status Connected -->
+                        <div class="hardware-badge status-badge">
+                            <div class="status-dot"></div>
+                            <span>Status: Verbunden</span>
+                        </div>
+                        
+                        <!-- Bottom Left Badge: Live Weight -->
+                        <div class="hardware-badge weight-badge">
+                            <span class="weight-label">Live Gewicht</span>
+                            <span class="weight-value">12,4 kg</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Column 2: Content -->
+                <div class="hardware-text">
+                    <div class="hardware-category">HARDWARE</div>
+                    <h2>Intelligente Hardware, intelligentere Erkenntnisse.</h2>
+                    <p class="hardware-description">
+                        Unsere präzisionsgefertigten IoT-Sensoren bieten Echtzeit-Abfallverfolgung mit branchenführender Genauigkeit. 
+                        Jede Messung fließt direkt in Ihr IOMS-Dashboard ein und gibt Ihnen vollständige Transparenz über Ihre Abläufe.
+                    </p>
+                    
+                    <!-- Feature Grid: Micro-Cards -->
+                    <div class="hardware-features-grid">
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-wifi"></i>
+                            </div>
+                            <span>WLAN-fähig</span>
+                        </div>
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-battery-full"></i>
+                            </div>
+                            <span>72h Akku</span>
+                        </div>
+                        <div class="hardware-micro-card">
+                            <div class="micro-card-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <span>0,1g Präzision</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Checkmark List -->
+                    <ul class="hardware-checklist">
+                        <li><i class="fas fa-check"></i> Echtzeit-Datensynchronisation</li>
+                        <li><i class="fas fa-check"></i> Wetterfeste Gehäuse</li>
+                        <li><i class="fas fa-check"></i> Einfache Installation und Einrichtung</li>
+                        <li><i class="fas fa-check"></i> Unternehmensklasse Zuverlässigkeit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Leistungsstarke Funktionen für moderne Restaurants</h2>
+                <p>Alles, was Sie brauchen, um Abfälle zu verwalten und Abläufe zu optimieren</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-card-number">01</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>KI-gestützte Analytik</h3>
+                    <p>Machine Learning Algorithmen prognostizieren Abfallmuster und schlagen optimale Bestellmengen vor</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">02</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App</h3>
+                    <p>Verwalten Sie Ihr Restaurant unterwegs mit unserer intuitiven mobilen Anwendung</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">03</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud-basiert</h3>
+                    <p>Greifen Sie überall auf Ihre Daten zu mit sicherer Cloud-Speicherung und Echtzeit-Synchronisation</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">04</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Sicher & Konform</h3>
+                    <p>Unternehmensklasse Sicherheit mit vollständiger Einhaltung der Lebensmittelsicherheitsvorschriften</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">05</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Intelligente Benachrichtigungen</h3>
+                    <p>Erhalten Sie Warnungen bei niedrigen Lagerbeständen, Abfallspitzen und Optimierungsmöglichkeiten</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-card-number">06</span>
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>ROI-Verfolgung</h3>
+                    <p>Überwachen Sie Ihre Einsparungen und Rendite mit detaillierten Finanzberichten</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="social-proof">
+        <div class="container">
+            <div class="section-header">
+                <h2>Werden Sie Teil der Bewegung gegen Lebensmittelverschwendung</h2>
+                <p>Verstehen Sie das Ausmaß des Problems und unsere innovative Lösung</p>
+            </div>
+            <div class="proof-stats">
+                <div class="proof-stat">
+                    <div class="stat-number">88M</div>
+                    <div class="stat-label">Tonnen EU-Lebensmittelabfall/Jahr</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">14%</div>
+                    <div class="stat-label">F&B-Branchenabfallanteil</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">€15K</div>
+                    <div class="stat-label">Durchschnittlicher Jahresverlust pro Restaurant</div>
+                </div>
+                <div class="proof-stat">
+                    <div class="stat-number">2030</div>
+                    <div class="stat-label">EU-Abfallreduktionsziel</div>
+                </div>
+            </div>
+            <div class="industry-insights">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Branchenherausforderung</h4>
+                        <p>Restaurants verschwenden 4-10% der eingekauften Lebensmittel und kosten die Branche jährlich Milliarden</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Unsere Lösung</h4>
+                        <p>IOMS bietet komplettes Kassensystem und Warenwirtschaftssystem mit integrierten IoT-Sensoren und KI-Analytik zur Bekämpfung von Abfällen an der Quelle</p>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="insight-content">
+                        <h4>Forschungsunterstützt</h4>
+                        <p>Entwickelt in Partnerschaft mit der Reutlingen University basierend auf neuesten Forschungsergebnissen</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Final Call CTA -->
+            <div class="final-cta">
+                <h2>Bereit, Abfall in Wohlstand zu verwandeln?</h2>
+                <a href="waitlist-de.html" class="final-cta-button">
+                    Jetzt starten
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transformation der Gastronomie durch intelligente Abfallmanagement-Technologie.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="#features">Funktionen</a></li>
+                        <li><a href="#solution">Wie es funktioniert</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="about-de.html">Über uns</a></li>
+                        <li><a href="#">Partnerschaft</a></li>
+                        <li><a href="#">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="blog-de.html">Blog</a></li>
+                        <li><a href="#">Fallstudien</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum-de.html">Impressum</a></li>
+                        <li><a href="privacy-policy-de.html">Datenschutzerklärung</a></li>
+                        <li><a href="terms-of-use-de.html">Nutzungsbedingungen</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. Alle Rechte vorbehalten. | In Partnerschaft mit der Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forms Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <div id="form-container">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

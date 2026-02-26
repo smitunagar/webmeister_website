@@ -1,0 +1,3029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>About Us - WebMeister360 | IOMS Leadership Team</title>
+    <meta name="description" content="Meet the IOMS leadership team - three founders with complementary strengths across Market & Delivery, Product & Technology, and Operations & Finance.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* About page specific styles */
+        .about-hero {
+            background: #F9F4E8; /* Brand Cream background */
+            color: #1B3022; /* Brand Dark Green */
+            padding: 128px 0 80px; /* pt-32 (128px) top padding for Executive Whitespace */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Contain watermark */
+        }
+        
+        /* IOMS Image Watermark - Large, subtle texture at 3% opacity */
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            max-width: 800px;
+            max-height: 800px;
+            background-image: url('public/ioms.webp'); /* IOMS image as watermark */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.03; /* 3% opacity for subtle texture */
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .about-hero .container {
+            max-width: 680px; /* max width of text container */
+            margin: 0 auto;
+            position: relative;
+            z-index: 1; /* Above watermark */
+        }
+        
+        .about-hero h1 {
+            font-size: 64px; /* 54-64px desktop - using 64px */
+            font-weight: 800; /* Bold, condensed weight */
+            letter-spacing: -0.04em; /* Condensed spacing for premium look */
+            margin-bottom: 24px; /* 18-24px spacing */
+            line-height: 1.2;
+            color: #1B3022; /* Brand Dark Green */
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Color Threading - "Intelligence" in Brand Red/Coral */
+        .about-hero h1 .intelligence-highlight {
+            color: #E34234; /* Brand Red/Coral - draws eye to core value */
+        }
+        
+        .about-hero p {
+            font-size: 20px; /* 20px font size */
+            color: rgba(27, 48, 34, 0.7); /* Brand Dark Green at 70% opacity */
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease-out 0.2s both; /* fade-in with delay */
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Fade Up In Animation Keyframes - for advisor cards and other elements */
+        @keyframes fadeUpIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Masked Vertical Slide - GPU: opacity and transform only */
+        @keyframes heading-reveal {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #1F5631; /* deep green to match theme */
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 24px; /* 18-24px spacing */
+            transition: color 0.3s ease;
+            opacity: 0.8;
+        }
+        
+        .back-to-home:hover {
+            color: #1F5631;
+            opacity: 1;
+        }
+        
+        /* IOMS Brief History Section */
+        .history-section {
+            padding: 70px 0; /* 60-80px padding - using 70px */
+            background: 
+                radial-gradient(circle at top, rgba(27, 48, 34, 0.03) 0%, transparent 70%),
+                linear-gradient(to bottom, #F4EEDF 0%, #F1E4D9 100%); /* Chromatic elevation overlay + match landing page gradient */
+            position: relative;
+            overflow: visible; /* Allow guide line to be visible */
+            display: block !important; /* Force section to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Lead-In Path - GPU: scaleY instead of height */
+        .history-section::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%) scaleY(0);
+            transform-origin: top;
+            width: 1px;
+            height: 180px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                rgba(27, 48, 34, 0.2) 0px,
+                rgba(27, 48, 34, 0.2) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        
+        .history-section.animate-path::before {
+            transform: translateX(-50%) scaleY(1);
+        }
+        
+        /* Subtle background illustration - moved to ::after to avoid conflict with guide line */
+        .history-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="circle-pattern" width="60" height="60" patternUnits="userSpaceOnUse"><circle cx="30" cy="30" r="2" fill="%231F5631" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23circle-pattern)"/></svg>');
+            opacity: 0.06; /* 5-8% opacity - using 6% */
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .history-section .container {
+            max-width: 1000px; /* Increased for milestone timeline layout */
+            margin: 0 auto;
+            padding: 0 24px; /* Use explicit padding instead of CSS variable */
+            position: relative;
+            z-index: 1;
+            display: block !important; /* Force container to display */
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        .history-section h2 {
+            font-size: 40px; /* 36-40px - using 40px */
+            font-weight: 700; /* bold */
+            margin-bottom: 48px; /* mb-12 equivalent (12 * 4px = 48px) */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Container for line-by-line masking */
+        }
+        
+        /* Heading wrapper for masked vertical reveal (iOMS section - will-change) */
+        .history-section h2 .heading-reveal-wrapper {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            line-height: inherit;
+            will-change: transform;
+        }
+        
+        .history-section h2 .heading-reveal-text {
+            display: inline-block;
+            opacity: 1;
+            transform: translateY(0);
+            will-change: transform;
+        }
+        
+        .history-section h2 .heading-reveal-text.animate-in {
+            animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Brand coloring: lowercase "i" in Brand Red */
+        .history-section h2 .brand-i {
+            color: #E34234; /* Brand Red/Coral */
+            font-weight: 700; /* Same weight as rest for unified signature */
+        }
+        
+        /* Brand coloring: "OMS" and rest in Brand Dark Green */
+        .history-section h2 .brand-oms {
+            color: #1B3022; /* Brand Dark Green */
+        }
+        
+        /* Milestone Timeline Container - Two Column Staggered Grid */
+        .milestone-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0 20px; /* Reduced bottom padding for compact fit */
+            display: block !important; /* Force timeline to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Central Timeline Thread - Animated Gradient Path (GPU: will-change) */
+        .timeline-thread {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 2px;
+            background: linear-gradient(to bottom, 
+                rgba(27, 48, 34, 0.1) 0%,
+                rgba(27, 48, 34, 0.1) 100%);
+            z-index: 0;
+            overflow: hidden;
+            visibility: visible !important;
+            opacity: 1 !important;
+            display: block !important;
+            will-change: transform;
+        }
+        
+        /* Animated fill gradient - GPU: scaleY instead of height */
+        .timeline-thread::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            transform-origin: top;
+            transform: scaleY(0);
+            background: linear-gradient(to bottom, 
+                #1B3022 0%,
+                #1B3022 100%);
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+            will-change: transform;
+        }
+        
+        .timeline-thread.animate-fill::before {
+            transform: scaleY(1);
+        }
+        
+        /* Milestone Card Base Styles - Glassmorphism */
+        .milestone-card {
+            position: relative;
+            width: calc(50% - 40px); /* 50% width minus gap for timeline */
+            margin-bottom: 64px; /* Reduced vertical spacing to 64px */
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white for glassmorphism */
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 0.5px solid rgba(27, 48, 34, 0.15);
+            border-radius: 16px;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 4px 16px rgba(0, 0, 0, 0.02);
+            opacity: 1 !important; /* Make visible by default - animation will enhance entrance */
+            z-index: 2; /* Above timeline thread */
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        /* Award-Winning Highlight - Brand Red Glow */
+        .milestone-card.award-milestone {
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 4px 16px rgba(0, 0, 0, 0.02),
+                0 0 0 2px rgba(227, 66, 52, 0.2), /* Brand Red glow border */
+                0 0 20px rgba(227, 66, 52, 0.15), /* Outer glow */
+                0 0 40px rgba(227, 66, 52, 0.1); /* Extended glow for peak effect */
+            border-color: rgba(227, 66, 52, 0.3); /* Slight red tint on border */
+        }
+        
+        /* Left Column Milestones - Fade in from left */
+        .milestone-left {
+            margin-right: auto;
+            margin-left: 0;
+            transform: translateX(0) !important; /* Start at normal position - animation will enhance entrance */
+        }
+        
+        /* Right Column Milestones - Fade in from right */
+        .milestone-right {
+            margin-left: auto;
+            margin-right: 0;
+            transform: translateX(0) !important; /* Start at normal position - animation will enhance entrance */
+        }
+        
+        /* Animate cards in from sides */
+        .milestone-left.animate-in {
+            transform: translateX(0); /* Slide to final position */
+        }
+        
+        .milestone-right.animate-in {
+            transform: translateX(0); /* Slide to final position */
+        }
+        
+        /* Timeline Dot Connection */
+        .milestone-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 16px; /* Slightly larger to accommodate icon */
+            height: 16px;
+            background-color: #1B3022; /* Brand Green */
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.3); /* Light border for visibility on glassmorphism */
+            z-index: 3; /* Above card content */
+            transform: translateY(-50%);
+            box-shadow: 0 0 0 2px rgba(27, 48, 34, 0.2); /* Subtle glow for depth */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .milestone-left::before {
+            right: -48px; /* Position to align with timeline thread */
+        }
+        
+        .milestone-right::before {
+            left: -48px; /* Position to align with timeline thread */
+        }
+        
+        /* Micro-Icon inside timeline dot */
+        .milestone-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 8px;
+            height: 8px;
+            z-index: 4; /* Above dot background */
+            transform: translateY(-50%);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.9;
+        }
+        
+        .milestone-left::after {
+            right: -44px; /* Position icon inside dot */
+        }
+        
+        .milestone-right::after {
+            left: -44px; /* Position icon inside dot */
+        }
+        
+        /* Icon assignments for each milestone phase */
+        .milestone-card[data-phase="arrival"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="experience"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="digital"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-5 14H4v-4h11v4zm0-5H4V9h11v4zm5 5h-4V9h4v9z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="pattern"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="waste"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="inefficiency"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="award"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="birth"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="evolution"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E");
+        }
+        
+        .milestone-card[data-phase="today"]::after {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFFFFF'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z'/%3E%3C/svg%3E");
+        }
+        
+        /* Large Bold Date in Brand Red */
+        .milestone-date {
+            font-size: 14px;
+            font-weight: 700;
+            color: #E34234 !important; /* Brand Red - force visibility */
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 8px;
+            line-height: 1.2;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Milestone Content */
+        .milestone-content {
+            font-size: 15px;
+            line-height: 1.6;
+            color: rgba(0, 0, 0, 0.7) !important; /* Force visibility */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Animate in milestone cards - opacity only, transform handled by left/right classes */
+        .milestone-card.animate-in {
+            opacity: 1;
+        }
+        
+        /* Staggered animation delays for milestone cards - with 150ms base delay */
+        .milestone-card:nth-child(2).animate-in { transition-delay: 250ms; } /* 150ms base + 100ms */
+        .milestone-card:nth-child(3).animate-in { transition-delay: 350ms; } /* 150ms base + 200ms */
+        .milestone-card:nth-child(4).animate-in { transition-delay: 450ms; } /* 150ms base + 300ms */
+        .milestone-card:nth-child(5).animate-in { transition-delay: 550ms; } /* 150ms base + 400ms */
+        .milestone-card:nth-child(6).animate-in { transition-delay: 650ms; } /* 150ms base + 500ms */
+        .milestone-card:nth-child(7).animate-in { transition-delay: 750ms; } /* 150ms base + 600ms */
+        .milestone-card:nth-child(8).animate-in { transition-delay: 850ms; } /* 150ms base + 700ms */
+        .milestone-card:nth-child(9).animate-in { transition-delay: 950ms; } /* 150ms base + 800ms */
+        .milestone-card:nth-child(10).animate-in { transition-delay: 1050ms; } /* 150ms base + 900ms */
+        .milestone-card:nth-child(11).animate-in { transition-delay: 1150ms; } /* 150ms base + 1000ms */
+        
+        /* First timeline dot - synchronized with Lead-In path end */
+        .milestone-card:first-of-type::before {
+            background-color: #1B3022; /* Brand Dark Green */
+            transform: translateY(-50%) scale(1);
+        }
+        
+        /* Brand Green Pulse animation for first dot when line reaches it */
+        @keyframes timeline-dot-pulse {
+            0% {
+                transform: translateY(-50%) scale(1);
+                box-shadow: 0 0 0 0 rgba(27, 48, 34, 0.4);
+            }
+            50% {
+                transform: translateY(-50%) scale(1.25); /* scale-125 */
+                box-shadow: 0 0 0 8px rgba(27, 48, 34, 0);
+            }
+            100% {
+                transform: translateY(-50%) scale(1);
+                box-shadow: 0 0 0 0 rgba(27, 48, 34, 0);
+            }
+        }
+        
+        .milestone-card:first-of-type.anchor-reached::before {
+            animation: timeline-dot-pulse 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Problem + Context Section */
+        .problem-context-section {
+            padding: 70px 0; /* match spacing with Brief History section */
+            background: #F4EEDF; /* light cream background matching landing page */
+            display: block !important; /* Force section to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .problem-context-section .container {
+            max-width: 1100px; /* max-content container width */
+            margin: 0 auto;
+            padding: 0 24px; /* Use explicit padding instead of CSS variable */
+            display: block !important; /* Force container to display */
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        .problem-context-section h2 {
+            font-size: 44px; /* 40-48px - using 44px */
+            font-weight: 700; /* bold */
+            color: #1F5631 !important; /* brand deep green - force visibility */
+            margin-bottom: 1rem;
+            text-align: center;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        .problem-context-section .subheading {
+            font-size: 20px; /* 20px */
+            color: rgba(0, 0, 0, 0.7); /* 70% opacity black */
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Founder insight quote - Emotional Anchor */
+        .founder-quote {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+            display: block !important; /* Force display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Oversized opening quotation mark in Brand Red at 10% opacity behind text */
+        .founder-quote::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 120px; /* Oversized quotation mark */
+            font-weight: 300;
+            color: rgba(227, 66, 52, 0.1); /* Brand Red at 10% opacity */
+            line-height: 1;
+            z-index: 0;
+            font-family: Georgia, serif; /* Classic quotation mark styling */
+        }
+        
+        .founder-quote p {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: 500; /* Medium weight */
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+            margin: 0;
+            line-height: 1.6;
+            position: relative;
+            z-index: 1; /* Above the quotation mark */
+        }
+        
+        /* Remove old quotation marks */
+        .founder-quote p::before,
+        .founder-quote p::after {
+            display: none;
+        }
+        
+        .problem-cards-wrapper {
+            position: relative;
+            display: block !important; /* Force display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Staggered Bento Grid - Chaos-to-Order Layout */
+        .problem-cards-grid {
+            display: grid !important; /* Force grid display */
+            grid-template-columns: repeat(12, 1fr); /* 12-column grid for flexible Bento layout */
+            gap: 20px; /* Tighter spacing for fragmented feel */
+            position: relative;
+            z-index: 1;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Staggered Bento Grid Layout - Fragmented pattern */
+        .problem-cards-grid .problem-card:nth-child(1) {
+            grid-column: 1 / span 5; /* Large card on left */
+            grid-row: 1;
+        }
+        
+        .problem-cards-grid .problem-card:nth-child(2) {
+            grid-column: 6 / span 4; /* Medium card on right */
+            grid-row: 1;
+        }
+        
+        .problem-cards-grid .problem-card:nth-child(3) {
+            grid-column: 10 / span 3; /* Small card on far right */
+            grid-row: 1;
+        }
+        
+        .problem-cards-grid .problem-card:nth-child(4) {
+            grid-column: 1 / span 4; /* Medium card on left */
+            grid-row: 2;
+        }
+        
+        .problem-cards-grid .problem-card:nth-child(5) {
+            grid-column: 5 / span 8; /* Large card spanning right */
+            grid-row: 2;
+        }
+        
+        .problem-card {
+            background: #FFFFFF !important; /* Force white background */
+            border: 0.5px solid rgba(27, 48, 34, 0.1); /* Thin stroke in Brand Dark Green */
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 
+                0 2px 8px rgba(0, 0, 0, 0.04),
+                0 4px 16px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            opacity: 1 !important; /* Make visible by default - animation will enhance entrance */
+            position: relative;
+            visibility: visible !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Jitter/Shiver Entrance Animation - Signals Instability/Error */
+        @keyframes problem-card-jitter {
+            0% {
+                opacity: 0;
+                transform: translateY(20px) translateX(0) rotate(0deg);
+            }
+            10% {
+                transform: translateY(15px) translateX(-2px) rotate(-0.5deg);
+            }
+            20% {
+                transform: translateY(12px) translateX(2px) rotate(0.5deg);
+            }
+            30% {
+                transform: translateY(8px) translateX(-1px) rotate(-0.3deg);
+            }
+            40% {
+                transform: translateY(5px) translateX(1px) rotate(0.3deg);
+            }
+            50% {
+                transform: translateY(3px) translateX(-0.5px) rotate(-0.2deg);
+            }
+            60% {
+                transform: translateY(1px) translateX(0.5px) rotate(0.2deg);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+        }
+        
+        /* Animate on scroll - jitter entrance */
+        .problem-card.animate {
+            animation: problem-card-jitter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(27, 48, 34, 0.2); /* Slightly darker border on hover */
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                0 8px 24px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Staggered animation delays for jitter effect */
+        .problem-card.animate:nth-child(1) { animation-delay: 0ms; }
+        .problem-card.animate:nth-child(2) { animation-delay: 100ms; }
+        .problem-card.animate:nth-child(3) { animation-delay: 200ms; }
+        .problem-card.animate:nth-child(4) { animation-delay: 300ms; }
+        .problem-card.animate:nth-child(5) { animation-delay: 400ms; }
+        
+        .problem-card-header {
+            display: flex !important; /* Force flex display */
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 12px; /* 8-12px spacing - using 12px */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .problem-icon {
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+            color: #E34234 !important; /* Brand Red/Coral - force visibility */
+            font-size: 1.25rem;
+            display: flex !important; /* Force flex display */
+            align-items: center;
+            justify-content: center;
+            background: transparent; /* No background for technical line icons */
+            border-radius: 0; /* Square/rectangular for technical icons */
+            transition: transform 0.3s ease, color 0.3s ease;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .problem-card:hover .problem-icon {
+            transform: scale(1.1);
+            color: #E34234; /* Maintain Brand Red on hover */
+        }
+        
+        .problem-card h3 {
+            font-size: 20px; /* Slightly reduced for Bento grid */
+            font-weight: 700; /* bold */
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+            margin: 0;
+            line-height: 1.3;
+            letter-spacing: -0.02em; /* tracking-tighter for editorial feel */
+        }
+        
+        .problem-card p {
+            font-size: 16px; /* Slightly reduced for Bento grid */
+            font-weight: 400; /* Regular weight for accessibility against cream background */
+            color: rgba(0, 0, 0, 0.7) !important; /* Force visibility */
+            line-height: 1.6;
+            margin: 0;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* IOMS Philosophy Section */
+        .philosophy-section {
+            padding: 70px 0; /* 60-80px spacing - using 70px */
+            background: linear-gradient(180deg, #F4EEDF 0%, #FFFFFF 100%); /* subtle vertical gradient */
+            position: relative;
+            overflow: visible; /* Allow guide line to be visible */
+            display: block !important; /* Force section to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Dashed Vertical Thread - Connects History timeline to Philosophy heading */
+        .philosophy-section::before {
+            content: '';
+            position: absolute;
+            top: -120px; /* Extends upward to connect with History section */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 120px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                rgba(27, 48, 34, 0.2) 0px,
+                rgba(27, 48, 34, 0.2) 2px, /* 2px dash */
+                transparent 2px,
+                transparent 6px /* 4px gap (2px dash + 4px gap = 6px total) */
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .philosophy-section .container {
+            max-width: 1100px; /* max width 1100px, centered */
+            margin: 0 auto;
+            padding: 0 24px; /* Use explicit padding instead of CSS variable */
+            position: relative;
+            z-index: 1;
+            display: block !important; /* Force container to display */
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        .philosophy-section h2 {
+            font-size: 40px; /* Match Brief History heading size */
+            font-weight: 700; /* bold */
+            margin-bottom: 48px; /* mb-12 equivalent (12 * 4px = 48px) */
+            text-align: center;
+            position: relative;
+            overflow: hidden; /* Container for line-by-line masking */
+        }
+        
+        /* Heading wrapper for masked vertical reveal */
+        .philosophy-section h2 .heading-reveal-wrapper {
+            display: inline-block;
+            overflow: hidden;
+            vertical-align: bottom;
+            line-height: inherit;
+        }
+        
+        /* Heading text with initial state for animation */
+        .philosophy-section h2 .heading-reveal-text {
+            display: inline-block;
+            opacity: 1;
+            transform: translateY(0);
+            will-change: transform;
+        }
+        
+        /* Animate heading reveal */
+        .philosophy-section h2 .heading-reveal-text.animate-in {
+            animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Brand coloring: lowercase "i" in Brand Red */
+        .philosophy-section h2 .brand-i {
+            color: #E34234 !important; /* Brand Red/Coral - force visibility */
+            font-weight: 700; /* Same weight as rest for unified signature */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Brand coloring: "OMS" and rest in Brand Dark Green */
+        .philosophy-section h2 .brand-oms {
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .philosophy-pillars {
+            display: grid !important; /* Force grid display */
+            grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+            gap: 2rem 2rem; /* horizontal and vertical spacing */
+            row-gap: 18px; /* 16-20px vertical spacing between rows - using 18px */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .philosophy-pillar {
+            background: #F3EEE3 !important; /* Satin Cream - more perceived weight than problem cards - force visibility */
+            border-radius: 18px; /* 16-20px - using 18px */
+            padding: 32px; /* Slightly increased padding for solid feel */
+            box-shadow: 
+                0 4px 12px rgba(0, 0, 0, 0.06),
+                0 8px 24px rgba(0, 0, 0, 0.04); /* Multi-layer shadow for depth */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 1 !important; /* Make visible by default - animation will enhance entrance */
+            transform: translateX(0) !important; /* Start at normal position - animation will enhance entrance */
+            visibility: visible !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Staggered Horizontal Slide-In Animation (Left-to-Right) */
+        @keyframes philosophy-slide-in {
+            0% {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        .philosophy-pillar.animate {
+            animation: philosophy-slide-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .philosophy-pillar:hover {
+            transform: translateY(-4px);
+            box-shadow: 
+                0 6px 16px rgba(0, 0, 0, 0.08),
+                0 12px 32px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* Staggered animation delays - simulates logical workflow order */
+        .philosophy-pillar:nth-child(1).animate { animation-delay: 200ms; } /* Connect first */
+        .philosophy-pillar:nth-child(2).animate { animation-delay: 400ms; } /* Standardize second */
+        .philosophy-pillar:nth-child(3).animate { animation-delay: 600ms; } /* Automate third */
+        
+        .philosophy-icon {
+            width: 64px; /* Slightly larger for solid feel */
+            height: 64px;
+            margin: 0 auto 24px; /* 24px spacing between icon and heading */
+            display: flex !important; /* Force flex display */
+            align-items: center;
+            justify-content: center;
+            background: #1B3022 !important; /* Solid Brand Dark Green circular container - force visibility */
+            border-radius: 50%;
+            color: #FFFFFF !important; /* White icon on dark green background - force visibility */
+            font-size: 1.5rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .philosophy-pillar:hover .philosophy-icon {
+            transform: scale(1.1);
+            background-color: #0F2418; /* Slightly darker on hover */
+        }
+        
+        .philosophy-pillar h3 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            margin-bottom: 24px; /* 24px spacing between heading and text */
+            line-height: 1.3;
+            letter-spacing: -0.02em; /* tracking-tighter for editorial feel */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        .philosophy-pillar p {
+            font-size: 18px;
+            font-weight: 400; /* Regular weight for accessibility against cream background */
+            color: rgba(0, 0, 0, 0.7) !important; /* Force visibility */
+            line-height: 1.6;
+            margin: 0;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Founders & Advisors Section */
+        .founders-advisors-section {
+            padding: 80px 0; /* 80px top and bottom padding */
+            background: #F9F4E8; /* Brand Cream for color continuity */
+            display: block !important; /* Force section to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .founders-advisors-section .container {
+            max-width: 1240px; /* centered max-width wrapper */
+            margin: 0 auto;
+            padding: 0 24px; /* Use explicit padding instead of CSS variable */
+            display: block !important; /* Force container to display */
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        .founders-advisors-section h2 {
+            font-size: 44px;
+            font-weight: 700;
+            color: #1B3022; /* Brand Dark Green for consistency */
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .founders-advisors-section .subheading {
+            font-size: 20px;
+            font-weight: 400;
+            color: #4E5A52;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 60px; /* bottom margin 60px */
+            line-height: 1.6;
+        }
+        
+        /* Founder Cards Grid - Bento Box Layout */
+        .founders-grid-new {
+            display: grid !important; /* Force grid display */
+            grid-template-columns: repeat(3, 1fr); /* 3-column grid for desktop */
+            gap: 32px; /* Use explicit gap value instead of CSS variable */
+            max-width: 1240px;
+            margin: 0 auto;
+            visibility: visible !important; /* Ensure grid is visible */
+            opacity: 1 !important; /* Ensure grid is visible */
+        }
+        
+        .founder-card-new {
+            background: #FFFFFF !important; /* Pure white background - force visibility */
+            border: 0.5px solid rgba(27, 48, 34, 0.2); /* 0.5px border in light sage green */
+            border-radius: 24px; /* Match homepage card radius */
+            padding: 32px; /* 32px padding inside */
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            opacity: 1 !important; /* Make visible by default - force visibility */
+            transform: translateY(0) !important; /* Start at normal position - force visibility */
+            max-width: 380px; /* max-width per column */
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Subtle shadow */
+            position: relative; /* For LinkedIn icon positioning */
+            visibility: visible !important; /* Force visibility */
+            min-height: 200px; /* Ensure minimum height so cards are visible */
+            width: 100%; /* Ensure cards take full grid cell width */
+        }
+        
+        .founder-card-new.animate {
+            animation: fadeUpIn 0.5s ease-out forwards;
+        }
+        
+        .founder-card-new:hover {
+            transform: translateY(-6px) scale(1.05); /* scale-105 hover effect */
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12); /* increased shadow on hover */
+            border-color: rgba(227, 66, 52, 0.2); /* Brand Red at 20% opacity on hover */
+        }
+        
+        /* Staggered animation delays */
+        .founder-card-new:nth-child(1).animate { animation-delay: 0ms; }
+        .founder-card-new:nth-child(2).animate { animation-delay: 100ms; }
+        .founder-card-new:nth-child(3).animate { animation-delay: 200ms; }
+        
+        .founder-profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* Oval/Circular shape so images fit completely */
+            margin: 0 auto 16px; /* center aligned, bottom margin 16px */
+            background: linear-gradient(135deg, #1F5631, #2F4734);
+            display: flex !important; /* Force flex display */
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            object-fit: cover;
+            position: relative;
+            overflow: hidden; /* Ensure images stay within circular bounds */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            /* Subtle inner-glow shadow for 3D effect */
+            box-shadow: 
+                inset 0 2px 8px rgba(0, 0, 0, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .founder-profile-image img {
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 50%; /* Circular to match container */
+            object-fit: cover;
+            display: block !important; /* Force image display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .founder-profile-placeholder {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%; /* Oval/Circular shape so images fit completely */
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, #1F5631, #2F4734);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden; /* Ensure content stays within circular bounds */
+            /* Subtle inner-glow shadow for 3D effect */
+            box-shadow: 
+                inset 0 2px 8px rgba(0, 0, 0, 0.15),
+                0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .founder-name-new {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            margin-bottom: 4px;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        .founder-role-new {
+            font-size: 16px;
+            font-weight: 500;
+            color: rgba(227, 66, 52, 0.8) !important; /* Brand Red at 80% opacity - force visibility */
+            text-transform: uppercase; /* Uppercase titles */
+            letter-spacing: 0.1em; /* 0.1em letter-spacing for technical, high-end feel */
+            margin-bottom: 14px;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        .founder-bio-new {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #3D463F !important; /* Force visibility */
+            margin-bottom: 12px;
+            display: -webkit-box;
+            -webkit-line-clamp: 6; /* max 6 lines visible */
+            line-clamp: 6; /* standard property for compatibility */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .founder-bio-new.expanded {
+            display: block;
+            -webkit-line-clamp: unset;
+            line-clamp: unset;
+        }
+        
+        .read-more-toggle {
+            font-size: 14px;
+            color: #1F5631;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .founder-quote-new {
+            font-size: 14px;
+            color: #58655A;
+            margin-top: 12px;
+            font-style: italic;
+            line-height: 1.5;
+        }
+        
+        /* LinkedIn Icon - Minimalist, appears only on hover */
+        .founder-linkedin {
+            position: absolute;
+            bottom: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border: 0.5px solid rgba(27, 48, 34, 0.1);
+            opacity: 0;
+            transform: scale(0.8);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 10;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        .founder-card-new:hover .founder-linkedin {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        .founder-linkedin i {
+            font-size: 16px;
+            color: #1B3022; /* Brand Dark Green */
+            transition: color 0.3s ease;
+        }
+        
+        .founder-linkedin:hover {
+            background: rgba(255, 255, 255, 1);
+            border-color: rgba(227, 66, 52, 0.3); /* Brand Red on icon hover */
+        }
+        
+        .founder-linkedin:hover i {
+            color: #E34234; /* Brand Red on icon hover */
+        }
+        
+        /* Mission Anchor - Transition Card */
+        .mission-anchor {
+            width: 100%;
+            max-width: 1240px;
+            margin: 48px auto 0; /* 48px top margin, auto horizontal */
+            padding: 40px 48px; /* Generous padding for premium feel */
+            background: #030704; /* Deep Midnight Green */
+            border-radius: 24px; /* Match card radius */
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Vertical Guide Line - Connects Leadership to Advisor section */
+        .mission-anchor::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; /* Extends below Mission Anchor into Advisor section */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px; /* 1px vertical guide line */
+            height: 160px; /* Spans the gap between sections */
+            background: linear-gradient(to bottom, rgba(27, 48, 34, 0.2) 0%, rgba(27, 48, 34, 0.1) 50%, transparent 100%); /* Muted green to transparent */
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .mission-anchor p {
+            font-size: 24px;
+            font-weight: 600;
+            color: #F9F4E8; /* Brand Cream text */
+            line-height: 1.4;
+            margin: 0;
+            letter-spacing: -0.02em; /* Slight condensing for premium look */
+        }
+        
+        /* Advisors & Industry Mentors Section */
+        .advisors-section {
+            padding: 80px 0; /* 80px top and bottom */
+            background: #F3EEE3; /* Satin Cream - slightly deeper than Brand Cream to distinguish from Leadership section */
+            position: relative; /* For vertical guide line positioning */
+            overflow: visible; /* Ensure heading text is not clipped */
+            display: block !important; /* Force section to display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Lead-In Path - GPU: scaleY instead of height */
+        .advisors-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleY(0);
+            transform-origin: bottom;
+            width: 1px;
+            height: 120px;
+            background-image: repeating-linear-gradient(
+                to bottom,
+                rgba(27, 48, 34, 0.2) 0px,
+                rgba(27, 48, 34, 0.2) 2px,
+                transparent 2px,
+                transparent 6px
+            );
+            pointer-events: none;
+            z-index: 1;
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: transform;
+        }
+        
+        .advisors-section.animate-path::after {
+            transform: translateX(-50%) scaleY(1);
+        }
+        
+        /* Vertical Guide Line Continuation - Extends into Advisor section */
+        .advisors-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px; /* 1px vertical guide line */
+            height: 80px; /* Extends into top of Advisor section */
+            background: linear-gradient(to bottom, rgba(27, 48, 34, 0.15) 0%, transparent 100%); /* Muted green fading to transparent */
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .advisors-section .container {
+            max-width: 1240px; /* content wrapper max-width */
+            margin: 0 auto;
+            padding: 60px 24px 0; /* Use explicit padding instead of CSS variable - Increased top padding to move heading up and prevent text cutoff */
+            display: block !important; /* Force container to display */
+            visibility: visible !important; /* Force visibility */
+        }
+        
+        .advisors-section h2 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #1B3022; /* Brand Dark Green */
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 16px;
+            position: relative;
+            padding-top: 0;
+            line-height: 1.3; /* Increased line-height to ensure descenders (like 'y') are visible */
+        }
+        
+        /* Masked Vertical Slide Animation for Advisors Heading */
+        .advisors-section h2 .heading-word-wrapper {
+            display: inline-block;
+            overflow: visible; /* Changed to visible to prevent descender cutoff */
+            vertical-align: bottom;
+            line-height: inherit;
+            height: 1.4em; /* Increased height to accommodate descenders like 'y' */
+        }
+        
+        .advisors-section h2 .heading-word {
+            display: inline-block;
+            white-space: pre;
+            opacity: 1;
+            transform: translateY(0);
+            will-change: transform;
+        }
+        
+        .advisors-section h2 .heading-word.animate-in {
+            animation: heading-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        .advisors-section .subheading {
+            font-size: 18px;
+            color: #4E5A52;
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+            line-height: 1.6;
+        }
+        
+        .advisors-grid {
+            display: grid !important; /* Force grid display */
+            grid-template-columns: repeat(3, 1fr); /* 3 columns desktop */
+            gap: 32px; /* 32px gap between cards */
+            visibility: visible !important; /* Ensure grid is visible */
+            opacity: 1 !important; /* Ensure grid is visible */
+        }
+        
+        .advisor-card {
+            background: #FFFFFF !important; /* Pure white background - force visibility */
+            border: 0.5px solid rgba(27, 48, 34, 0.1); /* Ultra-thin border in light sage green */
+            border-radius: 24px; /* Match homepage card radius */
+            padding: 32px; /* 32px padding */
+            text-align: center;
+            transition: transform 0.25s ease-out, box-shadow 0.25s ease-out, border-color 0.25s ease-out;
+            opacity: 1 !important; /* Make visible by default - force visibility */
+            transform: translateY(0) !important; /* Start at normal position - force visibility */
+            position: relative; /* For accent line and bio overlay positioning */
+            overflow: hidden; /* Contain the accent line and bio overlay */
+            z-index: 1; /* Ensure cards are above background elements */
+            visibility: visible !important; /* Force visibility */
+            min-height: 200px; /* Ensure minimum height so cards are visible */
+            width: 100%; /* Ensure cards take full grid cell width */
+            /* Deeper Ambient Occlusion shadow - suggests deeper foundation than Leadership cards */
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.08),
+                0 12px 40px rgba(0, 0, 0, 0.06); /* Multi-layer shadow for depth */
+        }
+        
+        /* Brand Red Accent Line - Expands from center-bottom on hover */
+        .advisor-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: #E34234; /* Brand Red/Coral */
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+        
+        .advisor-card.animate {
+            animation: fadeUpIn 0.5s ease-out forwards;
+        }
+        
+        .advisor-card:hover {
+            transform: translateY(-6px); /* hover effect */
+            border-color: rgba(27, 48, 34, 0.15); /* Slightly darker border on hover */
+            /* Enhanced Ambient Occlusion on hover */
+            box-shadow: 
+                0 8px 24px rgba(0, 0, 0, 0.12),
+                0 20px 60px rgba(0, 0, 0, 0.08); /* Deeper multi-layer shadow on hover */
+        }
+        
+        /* Expand accent line on hover */
+        .advisor-card:hover::after {
+            width: 60%; /* Expands to 60% of card width from center */
+        }
+        
+        /* Staggered animation delays */
+        .advisor-card:nth-child(1).animate { animation-delay: 0.0s; }
+        .advisor-card:nth-child(2).animate { animation-delay: 0.1s; }
+        .advisor-card:nth-child(3).animate { animation-delay: 0.2s; }
+        
+        /* Oval image container */
+        .advisor-image-container {
+            width: 180px;
+            height: 220px;
+            border-radius: 50% / 60%; /* oval shape */
+            overflow: hidden;
+            margin: 0 auto 16px auto;
+            background: linear-gradient(135deg, #1F5631, #2F4734);
+            display: flex !important; /* Force flex display */
+            align-items: center;
+            justify-content: center;
+            position: relative; /* For image zoom effect */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        .advisor-image-container img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smooth zoom transition */
+            display: block !important; /* Force image display */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+        }
+        
+        /* Portrait zoom effect and Glassmorphism Backlighting on card hover */
+        .advisor-card:hover .advisor-image-container {
+            backdrop-filter: blur(12px); /* Glassmorphism backlighting - studio effect */
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .advisor-card:hover .advisor-image-container img {
+            transform: scale(1.05); /* Subtle zoom in (scale-105) */
+            filter: blur(8px); /* Blur the portrait image for studio effect - keeps face visible but artistic */
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .advisor-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .advisor-name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1B3022 !important; /* Brand Dark Green - force visibility */
+            margin-bottom: 6px;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        .advisor-tagline {
+            font-size: 0.75rem; /* 0.75rem for Technical Tag style */
+            text-transform: uppercase; /* Uppercase for high-level expertise emphasis */
+            color: #E34234 !important; /* Brand Red/Coral - force visibility */
+            font-weight: 600;
+            margin-bottom: 12px;
+            letter-spacing: 0.05em; /* Slight letter spacing for technical feel */
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            display: block !important; /* Force display */
+        }
+        
+        /* Peek-a-Boo Bio Container - First 2 lines visible */
+        .advisor-bio {
+            font-size: 15px;
+            line-height: 1.6; /* Elegant line-height */
+            color: #4A5447 !important; /* Force visibility */
+            max-width: 90%;
+            margin: 0 auto;
+            position: relative;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Display first 2 lines as static text */
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            visibility: visible !important; /* Force visibility */
+            opacity: 1 !important; /* Force visibility */
+            /* Gradient Fade-Out at bottom for perfect symmetry */
+            mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 0%, black 80%, transparent 100%);
+        }
+        
+        /* Alternative gradient fade-out using pseudo-element for better browser support */
+        .advisor-bio::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1.6em; /* Approximately 1 line (1.6 line-height) */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            pointer-events: none;
+        }
+        
+        /* "Read More" Visual Cue - Brand Red indicator */
+        .advisor-read-bio {
+            font-size: 13px;
+            font-weight: 600;
+            color: #E34234; /* Brand Red/Coral */
+            margin-top: 8px;
+            text-align: center;
+            opacity: 1;
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            letter-spacing: 0.05em;
+        }
+        
+        /* Fade out "Read Bio +" on card hover as overlay slides up */
+        .advisor-card:hover .advisor-read-bio {
+            opacity: 0; /* Fades out smoothly during overlay transition */
+        }
+        
+        /* Bio Overlay - Hidden div at top: 100% containing full biography */
+        .advisor-bio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #1B3022; /* Brand Dark Green - high-contrast Active State */
+            padding: 32px; /* Match card padding */
+            border-radius: 24px; /* Match card border radius */
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(100%); /* GPU: slide up from below */
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 10;
+            overflow-y: auto; /* Allow scrolling if content is very long - prevents breaking grid rhythm */
+            display: flex;
+            align-items: center; /* Vertically center content */
+            /* Firefox scrollbar styling */
+            scrollbar-width: thin; /* Thin scrollbar */
+            scrollbar-color: #E34234 rgba(27, 48, 34, 0.2); /* Brand Red thumb, muted green track */
+        }
+        
+        /* Custom Thin Scrollbar in Brand Red - Tactile Scroll Integration */
+        .advisor-bio-overlay::-webkit-scrollbar {
+            width: 4px; /* Thin scrollbar width */
+        }
+        
+        .advisor-bio-overlay::-webkit-scrollbar-track {
+            background: rgba(27, 48, 34, 0.2); /* Subtle track in muted Brand Dark Green */
+            border-radius: 2px;
+        }
+        
+        .advisor-bio-overlay::-webkit-scrollbar-thumb {
+            background: #E34234; /* Brand Red/Coral */
+            border-radius: 2px;
+            transition: background 0.3s ease;
+        }
+        
+        .advisor-bio-overlay::-webkit-scrollbar-thumb:hover {
+            background: rgba(227, 66, 52, 0.8); /* Slightly transparent on hover */
+        }
+        
+        .advisor-bio-overlay .advisor-bio-full {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #F9F4E8; /* Brand Cream text - high contrast on dark background */
+            max-width: 90%;
+            margin: 0 auto;
+            text-align: left; /* Left-align for better readability of long text */
+        }
+        
+        /* Vertical Slide-Up on card hover (GPU: transform only) */
+        .advisor-card:hover .advisor-bio-overlay {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .advisor-read-more {
+            font-size: 14px;
+            color: #1F5631;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-top: 8px;
+            display: inline-block;
+        }
+        
+        .advisor-quote {
+            font-size: 14px;
+            font-style: italic;
+            color: rgba(27, 48, 34, 0.6); /* Muted sage green - Brand Dark Green at 60% opacity */
+            margin-top: 16px;
+            margin-bottom: 0;
+            line-height: 1.6;
+            position: relative;
+            padding-bottom: 20px; /* Space for visual connection to timeline */
+            text-align: center;
+        }
+        
+        /* Visual "pointing" element - subtle line connecting quote to timeline below */
+        .advisor-quote::after {
+            content: '';
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 12px;
+            background: linear-gradient(to bottom, rgba(27, 48, 34, 0.3) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        .what-we-do-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .what-we-do-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1.5" fill="%2310B981" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .expertise-card {
+            background: var(--white);
+            padding: 3rem 2rem;
+            border-radius: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.1);
+        }
+        
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(16, 185, 129, 0.1), transparent);
+            transform: translateX(-100%); /* GPU: shine sweep */
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .expertise-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .expertise-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+            border-color: var(--primary-green);
+        }
+        
+        .expertise-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            margin: 0 auto 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+        
+        .expertise-card:hover .expertise-icon {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(16, 185, 129, 0.4);
+        }
+        
+        .expertise-icon::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--primary-green);
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .expertise-card:hover .expertise-icon::after {
+            opacity: 0.3;
+            transform: scale(1.1);
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .expertise-card:hover h3 {
+            color: var(--primary-green);
+        }
+        
+        .expertise-card p {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .expertise-card:hover p {
+            color: var(--text-primary);
+        }
+        
+        /* Staggered animation for cards */
+        .expertise-card:nth-child(1) { animation-delay: 0.1s; }
+        .expertise-card:nth-child(2) { animation-delay: 0.2s; }
+        .expertise-card:nth-child(3) { animation-delay: 0.3s; }
+        .expertise-card:nth-child(4) { animation-delay: 0.4s; }
+        .expertise-card:nth-child(5) { animation-delay: 0.5s; }
+        .expertise-card:nth-child(6) { animation-delay: 0.6s; }
+        
+        .expertise-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease forwards;
+        }
+        
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Floating elements */
+        .floating-element {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 20%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 20%;
+            left: 8%;
+            animation-delay: 4s;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .overview-section {
+            padding: 4rem 0;
+            background: var(--white);
+        }
+        
+        .overview-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .overview-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+        
+        .overview-content p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 3rem;
+        }
+        
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .founder-card {
+            background: var(--white);
+            border-radius: 1rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: var(--transition-normal);
+            border: 1px solid var(--gray-200);
+        }
+        
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .founder-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .founder-info {
+            flex: 1;
+        }
+        
+        .founder-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            position: relative;
+        }
+        
+        .founder-name::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-green);
+        }
+        
+        .founder-role {
+            background: var(--gray-100);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+        
+        .founder-details {
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .founder-detail-item i {
+            margin-right: 0.5rem;
+            color: var(--primary-green);
+            width: 16px;
+        }
+        
+        .founder-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .founder-about h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .founder-about p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+        }
+        
+        .founder-footer {
+            text-align: center;
+        }
+        
+        .view-profile-btn {
+            background: var(--primary-green);
+            color: var(--white);
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .view-profile-btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-2px);
+        }
+        
+        .responsibilities-section {
+            padding: 4rem 0;
+            background: var(--gray-50);
+        }
+        
+        .responsibilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .responsibility-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+        
+        .responsibility-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .responsibility-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .responsibility-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+        }
+        
+        .responsibility-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        
+        .responsibility-lead {
+            color: var(--primary-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .responsibility-deputy {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+        
+        .responsibility-details {
+            margin-top: 1rem;
+        }
+        
+        .responsibility-details ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .responsibility-details li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-200);
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .responsibility-details li:last-child {
+            border-bottom: none;
+        }
+        
+        .university-section {
+            padding: 4rem 0;
+            background: var(--white);
+            text-align: center;
+        }
+        
+        .university-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .university-logo {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 2rem;
+            margin: 0 auto 2rem;
+        }
+        
+        .university-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .university-content p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .university-address {
+            background: var(--gray-50);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+        
+        /* Tablet breakpoint */
+        @media (max-width: 1024px) and (min-width: 769px) {
+            .founders-grid-new {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+                gap: 28px;
+            }
+            
+            .advisors-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+            }
+            
+            .advisor-image-container {
+                height: 180px; /* reduce oval height to 180px on tablet */
+            }
+            
+            .advisor-name {
+                font-size: 18px; /* reduce name font to 18px on tablet */
+            }
+            
+            .advisor-card {
+                padding: 24px; /* reduce padding from 32px to 24px on tablet */
+            }
+            
+            /* Milestone Timeline - Tablet adjustments */
+            .milestone-card {
+                width: calc(50% - 30px); /* Slightly narrower on tablet */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 80px 0 60px; /* reduced padding on mobile */
+            }
+            
+            /* Fluid Typography Scaling - Reduce large headlines on mobile */
+            .about-hero h1 {
+                font-size: 1.875rem; /* text-3xl equivalent (30px) - reduced from 34px to prevent awkward word-breaking */
+                margin-bottom: 20px; /* adjusted spacing */
+            }
+            
+            /* Maintain Brand Red "i" signature in mobile headings */
+            .about-hero h1 .intelligence-highlight {
+                color: #E34234; /* Brand Red - maintained on mobile */
+            }
+            
+            .history-section h2 .brand-i,
+            .philosophy-section h2 .brand-i {
+                color: #E34234; /* Brand Red - maintained on mobile */
+            }
+            
+            .about-hero p {
+                font-size: 18px; /* slightly smaller on mobile */
+            }
+            
+            .history-section {
+                padding: 60px 0; /* maintain spacing on mobile */
+            }
+            
+            /* Fluid Typography Scaling - History Section Heading */
+            .history-section h2 {
+                font-size: 1.875rem; /* text-3xl equivalent (30px) - reduced from 32px to prevent awkward word-breaking */
+            }
+            
+            /* Milestone Timeline - Mobile adjustments */
+            .milestone-timeline {
+                padding: 30px 0;
+            }
+            
+            .timeline-thread {
+                left: 20px; /* Position timeline on left for mobile */
+            }
+            
+            .milestone-card {
+                width: calc(100% - 60px); /* Full width minus timeline space */
+                margin-left: 50px; /* Space for timeline on left */
+                margin-right: 0;
+                margin-bottom: 48px; /* Reduced spacing on mobile (64px would be too much) */
+                padding: 16px 20px;
+            }
+            
+            .milestone-left,
+            .milestone-right {
+                margin-left: 50px; /* Align all cards to right of timeline */
+                margin-right: 0;
+            }
+            
+            .milestone-left::before,
+            .milestone-right::before {
+                left: -46px; /* Position dots to align with timeline */
+                right: auto;
+            }
+            
+            .milestone-date {
+                font-size: 12px;
+            }
+            
+            .milestone-content {
+                font-size: 14px;
+            }
+            
+            .problem-context-section {
+                padding: 60px 0; /* maintain spacing on mobile */
+            }
+            
+            .problem-context-section h2 {
+                font-size: 32px; /* smaller on mobile */
+            }
+            
+            .problem-context-section .subheading {
+                font-size: 18px;
+                margin-bottom: 2rem;
+            }
+            
+            /* Problem Cards Bento Grid - Mobile: Stack vertically */
+            .problem-cards-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 20px;
+            }
+            
+            .problem-cards-grid .problem-card:nth-child(n) {
+                grid-column: 1; /* All cards span full width */
+                grid-row: auto; /* Natural row flow */
+            }
+            
+            .problem-card {
+                padding: 20px; /* Slightly reduced padding on mobile */
+            }
+            
+            /* Advisors Grid - Bento-to-Stack Transformation */
+            .advisors-grid {
+                grid-template-columns: 1fr; /* Single column on mobile */
+                gap: 1.5rem; /* gap-6 equivalent */
+            }
+            
+            /* Advisor Card Refinement - Reduce padding from p-10 to p-6 */
+            .advisor-card {
+                padding: 1.5rem; /* p-6 equivalent (24px) - reduced from 32px */
+            }
+            
+            .problem-card {
+                padding: 24px; /* slightly less padding on mobile */
+            }
+            
+            .problem-card h3 {
+                font-size: 20px; /* slightly smaller on mobile */
+            }
+            
+            .problem-card p {
+                font-size: 16px; /* 16-18px - using 16px for readability */
+            }
+            
+            .philosophy-section {
+                padding: 60px 0; /* maintain spacing on mobile */
+            }
+            
+            /* Fluid Typography Scaling - Philosophy Section Heading */
+            .philosophy-section h2 {
+                font-size: 1.875rem; /* text-3xl equivalent (30px) - reduced to prevent awkward word-breaking */
+                margin-bottom: 2rem;
+            }
+            
+            .philosophy-pillars {
+                grid-template-columns: 1fr; /* stack vertically on mobile */
+                gap: 28px; /* 24-32px spacing - using 28px */
+            }
+            
+            .philosophy-pillar {
+                padding: 24px; /* slightly less padding on mobile */
+            }
+            
+            .philosophy-pillar h3 {
+                font-size: 22px; /* slightly smaller on mobile */
+            }
+            
+            .philosophy-pillar p {
+                font-size: 16px; /* slightly smaller on mobile */
+            }
+            
+            .founders-advisors-section {
+                padding: 60px 0; /* reduced padding on mobile */
+            }
+            
+            .founders-advisors-section h2 {
+                font-size: 32px; /* smaller on mobile */
+            }
+            
+            .founders-advisors-section .subheading {
+                font-size: 18px;
+                margin-bottom: 2rem;
+            }
+            
+            .founders-grid-new {
+                grid-template-columns: 1fr; /* stack vertically on mobile */
+                gap: 24px; /* 24px spacing on mobile */
+            }
+            
+            .founder-card-new {
+                max-width: 100%; /* full width on mobile */
+            }
+            
+            /* Interactive "Slide-Up" Logic for Mobile - Tap-to-Expand */
+            /* Disable hover effects on mobile */
+            .advisor-card:hover {
+                transform: none; /* Disable hover transform on mobile */
+                border-color: rgba(27, 48, 34, 0.1); /* Keep original border */
+                box-shadow: 
+                    0 4px 16px rgba(0, 0, 0, 0.08),
+                    0 12px 40px rgba(0, 0, 0, 0.06); /* Keep original shadow */
+            }
+            
+            .advisor-card:hover::after {
+                width: 0; /* Disable accent line expansion on hover for mobile */
+            }
+            
+            .advisor-card:hover .advisor-image-container img {
+                transform: none; /* Disable image zoom on hover for mobile */
+                filter: none; /* Disable blur on hover for mobile */
+            }
+            
+            .advisor-card:hover .advisor-read-bio {
+                opacity: 1; /* Keep "Read Bio +" visible on mobile hover */
+            }
+            
+            /* Make "Read Bio +" clickable on mobile */
+            .advisor-read-bio {
+                cursor: pointer; /* Indicate it's clickable */
+                user-select: none; /* Prevent text selection on tap */
+                -webkit-tap-highlight-color: rgba(227, 66, 52, 0.2); /* Brand Red tap highlight */
+            }
+            
+            /* Haptic-style 100ms transition for mobile (GPU: transform only) */
+            .advisor-bio-overlay {
+                transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                           opacity 0.1s cubic-bezier(0.4, 0, 0.2, 1),
+                           visibility 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .advisor-card.bio-expanded .advisor-bio-overlay {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .advisor-card.bio-expanded .advisor-read-bio {
+                opacity: 0; /* Hide "Read Bio +" when expanded */
+            }
+            
+            .advisor-card.bio-expanded::after {
+                width: 80%; /* Expand accent line when bio is expanded */
+            }
+            
+            /* Close button for mobile bio overlay */
+            .advisor-bio-close {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                width: 36px;
+                height: 36px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 28px;
+                line-height: 1;
+                color: #F9F4E8; /* Brand Cream */
+                cursor: pointer;
+                user-select: none;
+                z-index: 11;
+                border: none;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                transition: background 0.1s ease, transform 0.1s ease;
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+                min-height: 48px; /* AAA accessibility touch target */
+                min-width: 48px;
+            }
+            
+            .advisor-bio-close:active {
+                background: rgba(255, 255, 255, 0.2);
+                transform: scale(0.95);
+            }
+            
+            .founder-profile-image,
+            .founder-profile-placeholder {
+                width: 120px;
+                height: 120px;
+                font-size: 2rem;
+            }
+            
+            .advisors-section {
+                padding: 60px 0; /* reduced padding on mobile */
+            }
+            
+            .advisors-section h2 {
+                font-size: 32px; /* smaller on mobile */
+            }
+            
+            .advisors-section .subheading {
+                font-size: 16px;
+                margin-bottom: 2rem;
+            }
+            
+            .advisors-grid {
+                grid-template-columns: 1fr; /* stack cards vertically on mobile */
+                gap: 24px; /* 24px spacing between stacked cards */
+            }
+            
+            .advisor-image-container {
+                height: 150px; /* reduce oval height to 150px on mobile */
+            }
+            
+            .advisor-name {
+                font-size: 18px; /* Name: 18px on mobile */
+            }
+            
+            .advisor-tagline {
+                font-size: 15px; /* Tagline: 15px on mobile */
+            }
+            
+            .advisor-bio {
+                font-size: 14px; /* Bio: 14px on mobile */
+            }
+            
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .responsibilities-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .founder-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="index.html#solution" class="nav-link">Solut<span class="brand-i">i</span>on</a>
+                <a href="index.html#features" class="nav-link">Features</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <div class="language-switcher">
+                    <a href="about.html" class="lang-link active">EN</a>
+                    <a href="about-de.html" class="lang-link">DE</a>
+                </div>
+                <a href="waitlist.html" target="_blank" class="cta-button nav-cta" style="text-decoration: none; display: inline-flex; align-items: center;">Join Our Waitlist</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>The Team Behind the <span class="intelligence-highlight">Intelligence</span> of IOMS</h1>
+            <p>We exist to eliminate food waste at the source using AI-driven automation and sustainability intelligence.</p>
+        </div>
+    </section>
+
+    <!-- Founders & Advisors Section -->
+    <section class="founders-advisors-section">
+        <div class="container">
+            <h2>Founders & Leadership Team</h2>
+            <p class="subheading">The people building the intelligence behind IOMS.</p>
+            
+            <div class="founders-grid-new">
+                <!-- Sampoorna Sahoo -->
+                <div class="founder-card-new">
+                    <div class="founder-profile-image">
+                        <img src="public/Sam.webp" alt="Sampoorna Sahoo, Founder & CEO" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>SS</span>'; this.parentElement.className='founder-profile-placeholder';">
+                    </div>
+                    <h3 class="founder-name-new">Sampoorna Sahoo</h3>
+                    <p class="founder-role-new">Founder & CEO — Go-to-Market Strategy & Enterprise Sales</p>
+                    <p class="founder-bio-new">Sampoorna brings 8+ years of experience in ServiceNow/ITSM strategy, enterprise sales, and large-scale stakeholder management across automotive, banking, aerospace, pharma, and IT services. She specializes in GTM strategy, solution positioning, and leading cross-functional delivery for complex B2B environments. MBA, ESB Business School Reutlingen.</p>
+                    <p class="founder-quote-new">"Digital transformation only works when people, processes, and technology align."</p>
+                    <a href="https://www.linkedin.com/in/sampoorna-sahoo" target="_blank" rel="noopener noreferrer" class="founder-linkedin" aria-label="Sampoorna Sahoo LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                
+                <!-- Nishant Chaturvedi -->
+                <div class="founder-card-new">
+                    <div class="founder-profile-image">
+                        <img src="public/Nishant.webp" alt="Nishant Chaturvedi, Founder & CTO" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>NC</span>'; this.parentElement.className='founder-profile-placeholder';">
+                    </div>
+                    <h3 class="founder-name-new">Nishant Chaturvedi</h3>
+                    <p class="founder-role-new">Founder & CTO — Product Architecture & AI/IoT Systems</p>
+                    <p class="founder-bio-new">Nishant has 8+ years of experience building embedded AI systems, real-time analytics, and MLOps workflows. He specializes in designing robust edge↔cloud architectures, smart-hardware integrations, and intelligent automation pipelines, including Smart-Bin prototypes and POS/inventory scanner systems. M.Sc. Business Intelligence, Hochschule Neu-Ulm.</p>
+                    <p class="founder-quote-new">"Intelligent kitchens need intelligent systems. Hardware and AI must work together."</p>
+                    <a href="https://www.linkedin.com/in/nishant-chaturvedi" target="_blank" rel="noopener noreferrer" class="founder-linkedin" aria-label="Nishant Chaturvedi LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+                
+                <!-- Noman Alvi -->
+                <div class="founder-card-new">
+                    <div class="founder-profile-image">
+                        <img src="public/Noman.webp" alt="Noman Alvi, Founder & COO" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>NA</span>'; this.parentElement.className='founder-profile-placeholder';">
+                    </div>
+                    <h3 class="founder-name-new">Noman Alvi</h3>
+                    <p class="founder-role-new">Founder & COO — Operations Intelligence & Finance</p>
+                    <p class="founder-bio-new">Noman is an expert in investor-relations analytics, ESG/SDG reporting, and performance measurement across 100+ blue-chip sustainability and financial reports. He specializes in KPI modelling, operational analytics, financial structuring, and AI/ML-driven monitoring of compliance and process quality. M.Sc., Otto-von-Guericke University Magdeburg.</p>
+                    <p class="founder-quote-new">"If you can measure it, you can improve it — sustainably and profitably."</p>
+                    <a href="https://www.linkedin.com/in/noman-alvi" target="_blank" rel="noopener noreferrer" class="founder-linkedin" aria-label="Noman Alvi LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mission Anchor - Transition Card -->
+            <div class="mission-anchor">
+                <p>Our Mission: To eliminate food waste at the source using AI-driven automation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advisors & Industry Mentors Section -->
+    <section class="advisors-section">
+        <div class="container">
+            <h2>Advisors & Industry Mentors</h2>
+            <p class="subheading">Experienced leaders guiding our product, strategy, and long-term direction.</p>
+            
+            <div class="advisors-grid">
+                <!-- Prof. Robert LoBue -->
+                <div class="advisor-card">
+                    <div class="advisor-image-container">
+                        <img src="public/prof_laboue.webp" alt="Prof. Robert LoBue, Executive Advisor — Technology, Leadership & Strategy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="advisor-image-placeholder" style="display: none;">
+                            <span>RL</span>
+                    </div>
+                </div>
+                    <h3 class="advisor-name">Prof. Robert LoBue</h3>
+                    <p class="advisor-tagline">Executive Advisor — Technology, Leadership & Strategy</p>
+                    <p class="advisor-bio">Prof. Robert LoBue has built successful careers across international technology firms and high-growth start-ups, serving as an executive, board member, and strategic advisor in the computer, software, internet, and IT industries. He has also held major academic leadership roles as a university professor, business school dean, researcher, and author. He actively supports charities, non-profits, and NGOs, dividing his time between Germany and the USA. He enjoys travel, family time, football/soccer, and tennis.</p>
+                    <p class="advisor-read-bio" role="button" tabindex="0" aria-label="Read full biography">Read Bio +</p>
+                    <p class="advisor-quote">"Leadership matters most when complexity is highest."</p>
+                    <!-- Bio Overlay - Hidden full biography at top: 100% -->
+                    <div class="advisor-bio-overlay">
+                        <button class="advisor-bio-close" aria-label="Close biography">×</button>
+                        <div class="advisor-bio-full">Prof. Robert LoBue has built successful careers across international technology firms and high-growth start-ups, serving as an executive, board member, and strategic advisor in the computer, software, internet, and IT industries. He has also held major academic leadership roles as a university professor, business school dean, researcher, and author. He actively supports charities, non-profits, and NGOs, dividing his time between Germany and the USA. He enjoys travel, family time, football/soccer, and tennis.</div>
+                    </div>
+                </div>
+                
+                <!-- Peter Starting -->
+                <div class="advisor-card">
+                    <div class="advisor-image-container">
+                        <img src="public/Peter_Startling.webp" alt="Peter Starting, Startup Coach & SME Advisor — Business Development & Stability" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="advisor-image-placeholder" style="display: none;">
+                            <span>PS</span>
+                    </div>
+                    </div>
+                    <h3 class="advisor-name">Peter Starting</h3>
+                    <p class="advisor-tagline">Startup Coach & SME Advisor — Business Development & Stability</p>
+                    <p class="advisor-bio">Peter is an experienced Startup Coach with Senioren der Wirtschaft, supporting founders and medium-sized companies in securing long-term business stability, business development, and organizational structure. He advises entrepreneurs on strategic direction, risk management, and sustainable growth. He also actively contributes to volunteer and community initiatives, promoting engaged, responsible leadership.</p>
+                    <p class="advisor-read-bio" role="button" tabindex="0" aria-label="Read full biography">Read Bio +</p>
+                    <p class="advisor-quote">"A strong business is built on clarity, stability, and the courage to act."</p>
+                    <!-- Bio Overlay - Hidden full biography at top: 100% -->
+                    <div class="advisor-bio-overlay">
+                        <button class="advisor-bio-close" aria-label="Close biography">×</button>
+                        <div class="advisor-bio-full">Peter is an experienced Startup Coach with Senioren der Wirtschaft, supporting founders and medium-sized companies in securing long-term business stability, business development, and organizational structure. He advises entrepreneurs on strategic direction, risk management, and sustainable growth. He also actively contributes to volunteer and community initiatives, promoting engaged, responsible leadership.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IOMS Brief History Section -->
+    <section class="history-section">
+        <div class="container">
+            <h2>
+                <span class="heading-reveal-wrapper">
+                    <span class="heading-reveal-text">
+                        <span class="brand-i">i</span><span class="brand-oms">OMS - Brief History</span>
+                    </span>
+                </span>
+            </h2>
+            <div class="milestone-timeline">
+                <!-- Central Timeline Thread -->
+                <div class="timeline-thread"></div>
+                
+                <!-- Milestone Cards - Two Column Staggered Grid -->
+                <div class="milestone-card milestone-right" data-phase="experience">
+                    <div class="milestone-date">2023</div>
+                    <div class="milestone-content">Gained first-hand visibility into daily kitchen operations and hidden complexity.</div>
+                </div>
+                
+                <div class="milestone-card milestone-left" data-phase="digital">
+                    <div class="milestone-date">2023</div>
+                    <div class="milestone-content">Restaurant owners asked for digital help: websites, outreach, social presence.</div>
+                </div>
+                
+                <div class="milestone-card milestone-right" data-phase="pattern">
+                    <div class="milestone-date">2024</div>
+                    <div class="milestone-content">Pattern revealed: chaotic operations, undocumented processes, fragmented tools.</div>
+                </div>
+                
+                <div class="milestone-card milestone-left" data-phase="waste">
+                    <div class="milestone-date">2024</div>
+                    <div class="milestone-content">Food waste happening in real time: inaccurate planning, missing compliance.</div>
+                </div>
+                
+                <div class="milestone-card milestone-right" data-phase="inefficiency">
+                    <div class="milestone-date">2024</div>
+                    <div class="milestone-content">Operational inefficiency created waste, costs, staff stress, compliance risks.</div>
+                </div>
+                
+                <div class="milestone-card milestone-left" data-phase="birth">
+                    <div class="milestone-date">2025</div>
+                    <div class="milestone-content">The Birth of IOMS: unified intelligence layer, not just another tool.</div>
+                </div>
+                
+                <div class="milestone-card milestone-right award-milestone" data-phase="award">
+                    <div class="milestone-date">NOVEMBER 2025</div>
+                    <div class="milestone-content">StartUp BW "Move Your Idea" Challenge Award recognition.</div>
+                </div>
+                
+                <div class="milestone-card milestone-left" data-phase="evolution">
+                    <div class="milestone-date">2025</div>
+                    <div class="milestone-content">AI-enabled operating system: modernize kitchens, reduce waste, predictable operations.</div>
+                </div>
+                
+                <div class="milestone-card milestone-right" data-phase="today">
+                    <div class="milestone-date">TODAY</div>
+                    <div class="milestone-content">Collaborating with Stadt Reutlingen: sustainability initiatives, waste reduction goals.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem + Context Section -->
+    <section class="problem-context-section">
+        <div class="container">
+            <h2>Problem + Context</h2>
+            
+            <div class="founder-quote">
+                <p>We didn't read about these problems — we lived them.</p>
+                    </div>
+                    
+            <div class="problem-cards-wrapper">
+                <div class="problem-cards-grid">
+                <div class="problem-card">
+                    <div class="problem-card-header">
+                        <div class="problem-icon">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                        <h3>Manual Data Entry Errors</h3>
+                    </div>
+                    <p>Kitchen staff struggle with time-consuming manual logging, leading to inaccurate waste tracking and incomplete data that prevents effective decision-making.</p>
+                </div>
+                    
+                <div class="problem-card">
+                    <div class="problem-card-header">
+                        <div class="problem-icon">
+                            <i class="fas fa-eye-slash"></i>
+                        </div>
+                        <h3>Lack of Real-Time Visibility</h3>
+                    </div>
+                    <p>Restaurant managers have no real-time insight into waste generation patterns, making it impossible to identify issues before they become costly problems.</p>
+                </div>
+                    
+                <div class="problem-card">
+                    <div class="problem-card-header">
+                        <div class="problem-icon">
+                            <i class="fas fa-unlink"></i>
+                        </div>
+                        <h3>Fragmented Systems</h3>
+                    </div>
+                    <p>Multiple disconnected tools for inventory, POS, and waste tracking create data silos and prevent a unified view of kitchen operations.</p>
+                </div>
+                    
+                <div class="problem-card">
+                    <div class="problem-card-header">
+                        <div class="problem-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Compliance Challenges</h3>
+                    </div>
+                    <p>Emerging sustainability regulations require detailed waste reporting, but most kitchens lack the systems to track and document compliance effectively.</p>
+                </div>
+                    
+                <div class="problem-card">
+                    <div class="problem-card-header">
+                        <div class="problem-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>Operational Inefficiency</h3>
+                    </div>
+                    <p>Chaotic workflows, undocumented processes, and reliance on manual tasks create unnecessary costs, staff stress, and operational risks for business owners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IOMS Philosophy Section -->
+    <section class="philosophy-section">
+        <div class="container">
+            <h2>
+                <span class="heading-reveal-wrapper">
+                    <span class="heading-reveal-text">
+                        <span class="brand-i">i</span><span class="brand-oms">OMS Philosophy: Connect, Standardize, Automate</span>
+                    </span>
+                </span>
+            </h2>
+            
+            <div class="philosophy-pillars">
+                <div class="philosophy-pillar">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-project-diagram"></i>
+                </div>
+                    <h3>Connect</h3>
+                    <p>Unify all kitchen systems—POS, inventory, and waste tracking—into a single integrated platform that provides real-time visibility across operations.</p>
+                </div>
+                    
+                <div class="philosophy-pillar">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-database"></i>
+            </div>
+                    <h3>Standardize</h3>
+                    <p>Establish consistent data structures and workflows that eliminate manual errors and create a reliable foundation for decision-making.</p>
+        </div>
+                    
+                <div class="philosophy-pillar">
+                    <div class="philosophy-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3>Automate</h3>
+                    <p>Leverage AI-driven automation to predict demand, optimize inventory, and reduce waste—transforming reactive operations into proactive intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transforming the Food & Beverage industry through smart waste management technology.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#solution">How it Works</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#">Partnership</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. All rights reserved. | In partnership with Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forms Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <div id="form-container">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Masked Vertical Slide Animation for Advisors Heading
+        function initAdvisorsHeadingReveal() {
+            const advisorsHeading = document.querySelector('.advisors-section h2');
+            if (!advisorsHeading) return;
+            
+            const text = advisorsHeading.textContent;
+            const words = text.split(' ');
+            
+            // Clear the heading content
+            advisorsHeading.innerHTML = '';
+            
+            // Wrap each word in a div with overflow-hidden
+            words.forEach((word, wordIndex) => {
+                const wordWrapper = document.createElement('span');
+                wordWrapper.className = 'heading-word-wrapper';
+                wordWrapper.style.overflow = 'hidden';
+                wordWrapper.style.display = 'inline-block';
+                wordWrapper.style.verticalAlign = 'bottom';
+                
+                const wordSpan = document.createElement('span');
+                wordSpan.className = 'heading-word';
+                wordSpan.textContent = word + (wordIndex < words.length - 1 ? ' ' : '');
+                wordSpan.style.animationDelay = `${wordIndex * 0.1}s`; // Stagger each word by 0.1s
+                
+                wordWrapper.appendChild(wordSpan);
+                advisorsHeading.appendChild(wordWrapper);
+            });
+        }
+        
+        // Scroll-triggered animation for advisors heading
+        function initAdvisorsHeadingAnimation() {
+            const advisorsHeading = document.querySelector('.advisors-section h2');
+            if (!advisorsHeading) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio >= 0.2) {
+                        const wordSpans = entry.target.querySelectorAll('.heading-word');
+                        wordSpans.forEach((word, index) => {
+                            word.classList.add('animate-in');
+                            word.style.animationDelay = `${index * 0.1}s`;
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px'
+            });
+            
+            observer.observe(advisorsHeading);
+        }
+        
+        // Timeline Anchor Animation - Draw dashed line and pulse first dot
+        function initTimelineAnchorAnimation() {
+            const advisorsSection = document.querySelector('.advisors-section');
+            const historySection = document.querySelector('.history-section');
+            const firstTimelineItem = document.querySelector('.history-list li:first-child');
+            
+            if (!advisorsSection || !historySection || !firstTimelineItem) return;
+            
+            // Observer for advisors section - starts drawing first line
+            const advisorsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio >= 0.2) {
+                        entry.target.classList.add('animate-path');
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px'
+            });
+            
+            // Observer for history section - completes line and triggers dot pulse
+            const historyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio >= 0.3) {
+                        // Complete the dashed line drawing to first dot
+                        entry.target.classList.add('animate-path');
+                        
+                        // Trigger dot pulse after line animation completes
+                        setTimeout(() => {
+                            if (firstMilestoneCard) {
+                                firstMilestoneCard.classList.add('anchor-reached');
+                            }
+                        }, 1200); // Wait for line animation (1.2s) to complete
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '0px'
+            });
+            
+            advisorsObserver.observe(advisorsSection);
+            historyObserver.observe(historySection);
+        }
+        
+        // Staggered Content Entrance for History Section with Timeline Fill Animation
+        function initHistoryContentEntrance() {
+            const historySection = document.querySelector('.history-section');
+            const historyHeading = document.querySelector('.history-section h2 .heading-reveal-text');
+            const timelineThread = document.querySelector('.timeline-thread');
+            const milestoneCards = document.querySelectorAll('.milestone-card');
+            const timelineDots = document.querySelectorAll('.milestone-card::before');
+            
+            if (!historySection || !historyHeading) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio >= 0.2) {
+                        // Animate heading first - masked vertical reveal
+                        if (historyHeading) {
+                            historyHeading.classList.add('animate-in');
+                        }
+                        
+                        // Animate timeline thread fill
+                        if (timelineThread) {
+                            setTimeout(() => {
+                                timelineThread.classList.add('animate-fill');
+                            }, 300);
+                        }
+                        
+                        // Staggered "History" Entrance: 150ms delay for timeline dots and milestone cards
+                        setTimeout(() => {
+                            milestoneCards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('animate-in');
+                                }, index * 80); // 80ms stagger between cards
+                            });
+                        }, 950); // 800ms (heading animation) + 150ms delay = 950ms
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px'
+            });
+            
+            observer.observe(historySection);
+        }
+        
+        // Philosophy Heading Animation - Masked Vertical Reveal
+        function initPhilosophyHeadingAnimation() {
+            const philosophySection = document.querySelector('.philosophy-section');
+            const philosophyHeading = document.querySelector('.philosophy-section h2 .heading-reveal-text');
+            
+            if (!philosophySection || !philosophyHeading) return;
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.intersectionRatio >= 0.2) {
+                        // Animate heading - masked vertical reveal
+                        if (philosophyHeading) {
+                            philosophyHeading.classList.add('animate-in');
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.2,
+                rootMargin: '0px'
+            });
+            
+            observer.observe(philosophySection);
+        }
+        
+        // Animate problem cards on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize advisors heading reveal
+            initAdvisorsHeadingReveal();
+            initAdvisorsHeadingAnimation();
+            
+            // Initialize timeline anchor animation
+            initTimelineAnchorAnimation();
+            
+            // Initialize history content entrance animation
+            initHistoryContentEntrance();
+            
+            // Initialize philosophy heading animation
+            initPhilosophyHeadingAnimation();
+            
+            const problemCards = document.querySelectorAll('.problem-card');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            problemCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Animate philosophy pillars on scroll
+            const philosophyPillars = document.querySelectorAll('.philosophy-pillar');
+            
+            philosophyPillars.forEach(pillar => {
+                observer.observe(pillar);
+            });
+            
+            // Animate founder cards on scroll
+            const founderCards = document.querySelectorAll('.founder-card-new');
+            
+            founderCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Animate advisor cards on scroll
+            const advisorCards = document.querySelectorAll('.advisor-card');
+            
+            advisorCards.forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Interactive "Slide-Up" Logic for Mobile - Tap-to-Expand
+            // Check if device is mobile (touch device)
+            const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window;
+            
+            if (isMobile) {
+                advisorCards.forEach(card => {
+                    const readBioBtn = card.querySelector('.advisor-read-bio');
+                    const bioOverlay = card.querySelector('.advisor-bio-overlay');
+                    const closeBtn = bioOverlay ? bioOverlay.querySelector('.advisor-bio-close') : null;
+                    
+                    // Tap-to-Expand: Click on "Read Bio +" to expand
+                    if (readBioBtn) {
+                        readBioBtn.addEventListener('click', function(e) {
+                            e.stopPropagation(); // Prevent card click event
+                            card.classList.add('bio-expanded');
+                            // Prevent body scroll when overlay is open
+                            document.body.style.overflow = 'hidden';
+                        });
+                    }
+                    
+                    // Close overlay when clicking the close button
+                    if (closeBtn) {
+                        closeBtn.addEventListener('click', function(e) {
+                            e.stopPropagation(); // Prevent overlay click event
+                            card.classList.remove('bio-expanded');
+                            document.body.style.overflow = ''; // Restore body scroll
+                        });
+                    }
+                    
+                    // Close overlay when clicking outside (on overlay background, not content)
+                    if (bioOverlay) {
+                        bioOverlay.addEventListener('click', function(e) {
+                            // Only close if clicking directly on overlay background (not on content or close button)
+                            if (e.target === bioOverlay) {
+                                card.classList.remove('bio-expanded');
+                                document.body.style.overflow = ''; // Restore body scroll
+                            }
+                        });
+                    }
+                    
+                    // Close overlay when clicking outside (on card but not on overlay)
+                    card.addEventListener('click', function(e) {
+                        if (card.classList.contains('bio-expanded') && 
+                            !bioOverlay.contains(e.target) && 
+                            e.target !== readBioBtn) {
+                            card.classList.remove('bio-expanded');
+                            document.body.style.overflow = ''; // Restore body scroll
+                        }
+                    });
+                    
+                    // Close on escape key
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && card.classList.contains('bio-expanded')) {
+                            card.classList.remove('bio-expanded');
+                            document.body.style.overflow = ''; // Restore body scroll
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Lebensmittelabfall-Krise in Deutschland & EU: Die kritische Rolle der F&B-Branche | WebMeister360</title>
+    <meta name="description" content="Entdecken Sie die schockierende Realität der Lebensmittelverschwendung in Deutschland und der EU. Erfahren Sie, wie die F&B-Branche zu dieser Krise beiträgt und welche Lösungen verfügbar sind.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Blog-specific styles */
+        .blog-hero {
+            /* Warm neutral gradient background - matches About, Philosophy, and Landing page tones */
+            background: linear-gradient(
+                180deg,
+                #EFECE3 0%,
+                #E8E4D8 35%,
+                #E3DED3 100%
+            );
+            color: #1F5631; /* Brand deep green for text */
+            padding-top: 160px;
+            padding-bottom: 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle grid overlay */
+        .blog-hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><defs><pattern id="dot-grid" width="40" height="40" patternUnits="userSpaceOnUse"><circle cx="20" cy="20" r="1.5" fill="%23000000"/></pattern></defs><rect width="100" height="100" fill="url(%23dot-grid)"/></svg>');
+            background-size: 40px 40px;
+            opacity: 0.1; /* 10% opacity */
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .blog-hero .container {
+            position: relative;
+            z-index: 10; /* Text sits above overlays */
+        }
+        
+        /* Back link styling */
+        .blog-hero .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 16px;
+            color: #4E5A52; /* Soft text color for light background */
+            text-decoration: none;
+            margin-bottom: 16px;
+            transition: color 0.3s ease, transform 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .blog-hero .back-to-home:hover {
+            color: #1F5631; /* Brand green on hover */
+            transform: translateX(-2px);
+        }
+        
+        /* Headline styles */
+        .blog-hero h1 {
+            max-width: 900px;
+            margin: 0 auto 28px;
+            font-size: 44px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #1F5631; /* Brand deep green */
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Category tags */
+        .blog-hero .tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .blog-hero .tag {
+            background: rgba(31, 86, 49, 0.08); /* Light green background */
+            color: #2F4734; /* Dark green text */
+            border: 1px solid rgba(31, 86, 49, 0.15); /* Subtle green border */
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+        }
+        
+        /* Metadata row */
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 2rem;
+            font-size: 14px;
+            color: #4E5A52; /* Soft text color for light background */
+            position: relative;
+            z-index: 10;
+        }
+        
+        .blog-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .blog-meta i {
+            font-size: 15px;
+            color: #1F5631; /* Brand green for icons */
+        }
+        
+        .blog-meta .meta-separator {
+            width: 4px;
+            height: 4px;
+            background: #4E5A52; /* Soft color for separators */
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            line-height: 1.8;
+        }
+        
+        .blog-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1F2937;
+            margin: 3rem 0 1.5rem;
+            border-left: 4px solid #10B981;
+            padding-left: 1rem;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin: 2rem 0 1rem;
+        }
+        
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            color: #4B5563;
+            font-size: 1.125rem;
+        }
+        
+        .stat-highlight {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .stat-highlight .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-highlight .stat-label {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .infographic {
+            background: #F9FAFB;
+            border: 2px solid #E5E7EB;
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .infographic h4 {
+            color: #1F2937;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .infographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .infographic-item {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .infographic-item .icon {
+            font-size: 2rem;
+            color: #10B981;
+            margin-bottom: 0.5rem;
+        }
+        
+        .infographic-item .value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #1F2937;
+            margin-bottom: 0.25rem;
+        }
+        
+        .infographic-item .label {
+            font-size: 0.875rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+        
+        .quote-box {
+            border-left: 4px solid #10B981;
+            background: #F0FDF4;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+        
+        .quote-box p {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: #1F2937;
+            margin: 0;
+        }
+        
+        .quote-box .author {
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #10B981;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #10B981 0%, #3B82F6 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .cta-section h3 {
+            color: white;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2rem;
+        }
+        
+        .back-to-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #10B981;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+        
+        .back-to-home:hover {
+            color: #059669;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tag {
+            background: #E5E7EB;
+            color: #374151;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            .blog-hero {
+                padding-top: 120px; /* Reduced padding-top on mobile */
+                padding-bottom: 80px;
+            }
+            
+            .blog-hero h1 {
+                font-size: 30px; /* Reduced headline size to 30px on mobile */
+            }
+            
+            .blog-meta {
+                flex-direction: column;
+                gap: 4px; /* 4px spacing between stacked elements */
+            }
+            
+            .blog-meta .meta-separator {
+                display: none; /* Hide separators on mobile */
+            }
+            
+            .tags {
+                gap: 8px; /* Slightly reduce gap on mobile */
+            }
+                gap: 0.5rem;
+            }
+            
+            .blog-content {
+                padding: 2rem 1rem;
+            }
+            
+            .infographic-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="public/Logo_Web.webp" alt="WebMeister360 IOMS" class="logo-image">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index-de.html" class="nav-link">Start</a>
+                <a href="index-de.html#solution" class="nav-link">Lösung</a>
+                <a href="index-de.html#features" class="nav-link">Funktionen</a>
+                <a href="about-de.html" class="nav-link">Über uns</a>
+                <a href="blog-de.html" class="nav-link active">Blog</a>
+                <div class="language-switcher">
+                    <a href="blog.html" class="lang-link">EN</a>
+                    <a href="blog-de.html" class="lang-link active">DE</a>
+                </div>
+                <a href="waitlist-de.html" target="_blank" class="cta-button nav-cta" style="text-decoration: none; display: inline-flex; align-items: center;">Warteliste beitreten</a>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <section class="blog-hero">
+        <div class="container">
+            <h1>Die Lebensmittelabfall-Krise in Deutschland & EU: Wie die F&B-Branche zu einem 143-Milliarden-Euro-Problem beiträgt</h1>
+            <div class="tags">
+                <span class="tag">Lebensmittelabfall</span>
+                <span class="tag">Deutschland</span>
+                <span class="tag">EU</span>
+                <span class="tag">F&B-Branche</span>
+                <span class="tag">Nachhaltigkeit</span>
+                <span class="tag">IOMS</span>
+            </div>
+            <div class="blog-meta">
+                <span><i class="fas fa-calendar"></i> 5. September 2024</span>
+                <span class="meta-separator"></span>
+                <span><i class="fas fa-user"></i> WebMeister360 Forschungsteam</span>
+                <span class="meta-separator"></span>
+                <span><i class="fas fa-clock"></i> 8 Min. Lesezeit</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Content -->
+    <article class="blog-content">
+        <p>Jedes Jahr wirft die Europäische Union mehr Lebensmittel weg, als sie importiert. Diese erschütternde Statistik stellt nicht nur eine Umweltkatastrophe dar, sondern auch einen massiven wirtschaftlichen Verlust, der die Gastronomie besonders hart trifft. Allein in Deutschland erreicht die Lebensmittelabfall-Krise beispiellose Ausmaße, wobei der F&B-Sektor einer der Hauptverursacher dieses 143-Milliarden-Euro-Problems ist.</p>
+
+        <div class="stat-highlight">
+            <span class="stat-number">€143 Milliarden</span>
+            <span class="stat-label">Jährliche Kosten der Lebensmittelverschwendung in der EU</span>
+        </div>
+
+        <h2>Das schockierende Ausmaß der Lebensmittelverschwendung in Deutschland</h2>
+        
+        <p>Deutschland, oft als Effizienzführer in Europa gesehen, steht vor einem Paradoxon bei der Lebensmittelverschwendung. Trotz einer der am weitesten entwickelten Volkswirtschaften der EU produziert Deutschland jährlich etwa <strong>11 Millionen Tonnen Lebensmittelabfälle</strong> und ist damit einer der größten Verursacher der europäischen Lebensmittelabfall-Krise.</p>
+
+        <p>Das Bundesministerium für Ernährung und Landwirtschaft berichtet, dass:</p>
+        <ul>
+            <li><strong>52% aller Lebensmittelabfälle</strong> in privaten Haushalten entstehen</li>
+            <li><strong>18% in der Lebensmittelverarbeitung</strong> passieren</li>
+            <li><strong>14% in Restaurants und Gastronomie</strong> auftreten</li>
+            <li><strong>12% im Einzel- und Großhandel</strong> passieren</li>
+            <li><strong>4% in der Primärproduktion</strong> entstehen</li>
+        </ul>
+
+        <div class="infographic">
+            <h4>Verteilung der Lebensmittelverschwendung in Deutschland</h4>
+            <div class="infographic-grid">
+                <div class="infographic-item">
+                    <div class="icon"><i class="fas fa-home"></i></div>
+                    <div class="value">52%</div>
+                    <div class="label">Haushalte</div>
+                </div>
+                <div class="infographic-item">
+                    <div class="icon"><i class="fas fa-industry"></i></div>
+                    <div class="value">18%</div>
+                    <div class="label">Verarbeitung</div>
+                </div>
+                <div class="infographic-item">
+                    <div class="icon"><i class="fas fa-utensils"></i></div>
+                    <div class="value">14%</div>
+                    <div class="label">F&B-Service</div>
+                </div>
+                <div class="infographic-item">
+                    <div class="icon"><i class="fas fa-store"></i></div>
+                    <div class="value">12%</div>
+                    <div class="label">Einzelhandel</div>
+                </div>
+                <div class="infographic-item">
+                    <div class="icon"><i class="fas fa-seedling"></i></div>
+                    <div class="value">4%</div>
+                    <div class="label">Produktion</div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Die Lebensmittelabfall-Herausforderung der EU</h2>
+
+        <p>Die Europäische Union steht vor einer noch größeren Herausforderung. Nach den neuesten Daten der Europäischen Kommission produziert die EU jährlich etwa <strong>88 Millionen Tonnen Lebensmittelabfälle</strong> mit einem geschätzten Wert von <strong>€143 Milliarden</strong>. Dies entspricht etwa 20% aller in der EU produzierten Lebensmittel.</p>
+
+        <p>Besonders besorgniserregend ist, dass die EU sich dem UN-Nachhaltigkeitsziel 12.3 verpflichtet hat, das darauf abzielt, <strong>die Pro-Kopf-Lebensmittelverschwendung bis 2030 zu halbieren</strong>. Aktuelle Trends deuten jedoch darauf hin, dass ohne sofortiges Handeln dieses Ziel deutlich verfehlt wird.</p>
+
+        <div class="quote-box">
+            <p>"Lebensmittelverschwendung ist nicht nur ein moralisches Problem, sondern auch ein wirtschaftliches. Jede Tonne verschwendeter Lebensmittel stellt verlorene Ressourcen, Energie und Wasser dar, die effizienter hätten genutzt werden können."</p>
+            <div class="author">- Europäische Kommission, Farm-to-Fork-Strategie</div>
+        </div>
+
+        <h2>Die kritische Rolle der F&B-Branche</h2>
+
+        <p>Die Gastronomie befindet sich im Zentrum dieser Krise. Während Haushalte den größten Prozentsatz der Lebensmittelverschwendung beitragen, repräsentiert der 14%-Anteil des F&B-Sektors in Deutschland (und ähnliche Prozentsätze in der gesamten EU) eine hochkonzentrierte und vermeidbare Abfallquelle.</p>
+
+        <h3>Warum F&B-Abfall besonders problematisch ist</h3>
+
+        <p><strong>1. Hochwertiger Abfall:</strong> Restaurant- und Gastronomieabfälle enthalten oft hochwertige, zubereitete Lebensmittel, die erhebliche wirtschaftliche Verluste pro Tonne darstellen.</p>
+
+        <p><strong>2. Komplexe Lieferketten:</strong> Die komplexen Lieferketten der Gastronomie schaffen mehrere Punkte, an denen Lebensmittel verloren gehen oder verschwendet werden können, von der Beschaffung über die Zubereitung bis zum Service.</p>
+
+        <p><strong>3. Verbrauchererwartungen:</strong> Die Branche steht unter Druck, hohe Standards für Frische und Vielfalt zu wahren, was oft zu Überbestellungen und Verschwendung führt.</p>
+
+        <p><strong>4. Regulatorische Herausforderungen:</strong> Lebensmittelsicherheitsvorschriften können, obwohl notwendig, manchmal zur Verschwendung beitragen, wenn einwandfreie Lebensmittel aufgrund strenger Verfallsdatenrichtlinien entsorgt werden.</p>
+
+        <div class="stat-highlight">
+            <span class="stat-number">€2,4 Millionen</span>
+            <span class="stat-label">Durchschnittliche jährliche Lebensmittelabfallkosten pro großen Restaurantketten in Deutschland</span>
+        </div>
+
+        <h2>Die Umweltauswirkungen</h2>
+
+        <p>Über die wirtschaftlichen Kosten hinaus hat Lebensmittelverschwendung verheerende Umweltauswirkungen. Die allein in Deutschland produzierte Lebensmittelverschwendung:</p>
+
+        <ul>
+            <li><strong>Produziert 3,3 Millionen Tonnen CO2-Äquivalent</strong> jährlich</li>
+            <li><strong>Verbraucht 2,6 Milliarden Kubikmeter Wasser</strong> (entspricht dem jährlichen Wasserverbrauch von 20 Millionen Menschen)</li>
+            <li><strong>Belegt 1,8 Millionen Hektar landwirtschaftliche Fläche</strong> (größer als das Bundesland Thüringen)</li>
+        </ul>
+
+        <h2>Wirtschaftliche Auswirkungen auf deutsche Unternehmen</h2>
+
+        <p>Für deutsche Gastronomiebetriebe stellt Lebensmittelverschwendung einen direkten Schlag gegen die Rentabilität dar. Studien zeigen, dass:</p>
+
+        <ul>
+            <li><strong>Kleine Restaurants</strong> jährlich durchschnittlich €15.000-25.000 durch Lebensmittelverschwendung verlieren</li>
+            <li><strong>Mittlere Ketten</strong> können €100.000-500.000 pro Jahr verlieren</li>
+            <li><strong>Große Restaurantgruppen</strong> stehen vor Verlusten von über €2 Millionen jährlich</li>
+        </ul>
+
+        <p>Diese Verluste entstehen aus mehreren Quellen: Überbestellungen, schlechtes Warenwirtschaftsmanagement, Zubereitungsabfälle und Tellerreste. Die kumulative Wirkung ist erschütternd, wenn man Deutschlands 200.000+ Restaurants und Gastronomiebetriebe betrachtet.</p>
+
+        <h2>Der Weg nach vorn: Technologie als Lösung</h2>
+
+        <p>Während das Problem immens ist, ist es nicht unüberwindbar. Die Gastronomie wendet sich zunehmend Technologielösungen zu, um Lebensmittelverschwendung systematisch anzugehen. Hier werden Lösungen wie IOMS (Integrated Operations Management System) kritisch.</p>
+
+        <h3>Wie Technologie helfen kann</h3>
+
+        <p><strong>Echtzeitüberwachung:</strong> IoT-Sensoren können Lebensmittelverschwendung in Echtzeit verfolgen und sofortige Einblicke in Abfallmuster und -quellen bieten.</p>
+
+        <p><strong>Prädiktive Analytik:</strong> KI-gestützte Systeme können die Nachfrage genauer vorhersagen und so Überbestellungen und Zubereitungsabfälle reduzieren.</p>
+
+        <p><strong>Warenwirtschaftsoptimierung:</strong> Intelligente Warenwirtschaftssysteme können Verfallsdaten verfolgen und optimale Bestellmengen vorschlagen.</p>
+
+        <p><strong>Datengetriebene Entscheidungen:</strong> Umfassende Analytik hilft Managern, fundierte Entscheidungen über Menüplanung, Portionsgrößen und Beschaffung zu treffen.</p>
+
+        <h2>Regierungsinitiativen und Vorschriften</h2>
+
+        <p>Die deutsche Regierung hat die Schwere der Lebensmittelabfall-Krise erkannt und mehrere Initiativen implementiert:</p>
+
+        <ul>
+            <li><strong>Nationale Strategie zur Reduzierung von Lebensmittelverschwendung:</strong> Ein umfassender Plan zur Reduzierung von Lebensmittelverschwendung um 50% bis 2030</li>
+            <li><strong>Steueranreize:</strong> Finanzielle Anreize für Unternehmen, die Maßnahmen zur Reduzierung von Lebensmittelverschwendung implementieren</li>
+            <li><strong>Bildungsprogramme:</strong> Schulungs- und Sensibilisierungsprogramme für F&B-Fachkräfte</li>
+            <li><strong>Partnerschaften:</strong> Zusammenarbeit mit Branchenverbänden und Technologieanbietern</li>
+        </ul>
+
+        <h2>Das Geschäftsargument für Maßnahmen</h2>
+
+        <p>Für Gastronomiebetriebe geht es bei der Reduzierung von Lebensmittelverschwendung nicht nur um Umweltverantwortung—es geht ums Überleben. Die Restaurants, die erfolgreich Abfallreduzierungsstrategien implementieren, sehen:</p>
+
+        <ul>
+            <li><strong>15-25% Reduzierung der Lebensmittelkosten</strong></li>
+            <li><strong>Verbesserte Gewinnmargen</strong> um 3-5 Prozentpunkte</li>
+            <li><strong>Verbesserter Markenruf</strong> bei nachhaltigkeitsbewussten Verbrauchern</li>
+            <li><strong>Compliance mit Vorschriften</strong> und Zukunftssicherung gegen strengere Anforderungen</li>
+        </ul>
+
+        <h2>Fazit: Die Zeit zum Handeln ist jetzt</h2>
+
+        <p>Die Lebensmittelabfall-Krise in Deutschland und der EU stellt eine der dringendsten Herausforderungen unserer Zeit dar. Mit €143 Milliarden jährlichen Verlusten und verheerenden Umweltauswirkungen hat die Gastronomie sowohl die Verantwortung als auch die Möglichkeit, den Weg zur Lösung dieser Krise zu führen.</p>
+
+        <p>Technologielösungen wie IOMS bieten einen praktischen, skalierbaren Ansatz zur Reduzierung von Lebensmittelverschwendung bei gleichzeitiger Steigerung der Rentabilität. Die Frage ist nicht, ob sich die Gastronomie Investitionen in die Abfallreduzierung leisten kann—sondern ob sie es sich leisten kann, es nicht zu tun.</p>
+
+        <p>Während wir uns auf 2030 und die ehrgeizigen Abfallreduktionsziele der EU zubewegen, werden die Restaurants und Gastronomiebetriebe, die jetzt handeln, nicht nur zur Lösung einer globalen Krise beitragen, sondern sich auch für langfristigen Erfolg in einem zunehmend nachhaltigkeitsorientierten Markt positionieren.</p>
+
+        <div class="tags">
+            <span class="tag">Lebensmittelabfall-Reduzierung</span>
+            <span class="tag">Nachhaltigkeit</span>
+            <span class="tag">Restaurant-Technologie</span>
+            <span class="tag">Umweltauswirkungen</span>
+            <span class="tag">Kosteneinsparungen</span>
+        </div>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <h3>WebMeister360</h3>
+                        <span>IOMS</span>
+                    </div>
+                    <p>Transformation der Gastronomie durch intelligente Abfallmanagement-Technologie.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="index-de.html#features">Funktionen</a></li>
+                        <li><a href="index-de.html#solution">Wie es funktioniert</a></li>
+                        <li><a href="#" onclick="openForm('demo')">Demo</a></li>
+                        <li><a href="#" onclick="openForm('whitepaper')">Whitepaper</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Unternehmen</h4>
+                    <ul>
+                        <li><a href="about-de.html">Über uns</a></li>
+                        <li><a href="#">Partnerschaft</a></li>
+                        <li><a href="#">Karriere</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressourcen</h4>
+                    <ul>
+                        <li><a href="blog-de.html">Blog</a></li>
+                        <li><a href="#">Fallstudien</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="impressum-de.html">Impressum</a></li>
+                        <li><a href="privacy-policy-de.html">Datenschutzerklärung</a></li>
+                        <li><a href="terms-of-use-de.html">Nutzungsbedingungen</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-muted">
+                    <img src="public/Logo_Web.webp" alt="WebMeister360" class="footer-logo-image">
+                </div>
+                <div class="footer-legal">
+                    <p>&copy; 2024 WebMeister360. Alle Rechte vorbehalten. | In Partnerschaft mit der Reutlingen University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Forms Modal -->
+    <div id="form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeForm()">&times;</span>
+            <div id="form-container">
+                <!-- Forms will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
