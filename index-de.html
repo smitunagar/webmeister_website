@@ -249,132 +249,68 @@
         </div>
     </section>
 
-    <!-- Smart Hardware Section -->
-    <section class="hardware-section">
-        <div class="container">
-            <div class="hardware-content">
-                <!-- Column 1: Visual -->
-                <div class="hardware-visual">
-                    <div class="hardware-image-placeholder">
-                        <!-- Hardware product image -->
-                        <img src="public/hardware.webp" alt="IOMS Smart Hardware" class="hardware-image" loading="lazy" fetchpriority="low">
-                        <!-- Image gradient overlay -->
-                        <div class="image-gradient"></div>
-                        <!-- Brand Green radial glow behind -->
-                        <div class="image-glow"></div>
-                        
-                        <!-- Top Right Badge: Status Connected -->
-                        <div class="hardware-badge status-badge">
-                            <div class="status-dot"></div>
-                            <span>Status: Verbunden</span>
-                        </div>
-                        
-                        <!-- Bottom Left Badge: Live Weight -->
-                        <div class="hardware-badge weight-badge">
-                            <span class="weight-label">Live Gewicht</span>
-                            <span class="weight-value">12,4 kg</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Column 2: Content -->
-                <div class="hardware-text">
-                    <div class="hardware-category">HARDWARE</div>
-                    <h2>Intelligente Hardware, intelligentere Erkenntnisse.</h2>
-                    <p class="hardware-description">
-                        Unsere präzisionsgefertigten IoT-Sensoren bieten Echtzeit-Abfallverfolgung mit branchenführender Genauigkeit. 
-                        Jede Messung fließt direkt in Ihr IOMS-Dashboard ein und gibt Ihnen vollständige Transparenz über Ihre Abläufe.
-                    </p>
-                    
-                    <!-- Feature Grid: Micro-Cards -->
-                    <div class="hardware-features-grid">
-                        <div class="hardware-micro-card">
-                            <div class="micro-card-icon">
-                                <i class="fas fa-wifi"></i>
-                            </div>
-                            <span>WLAN-fähig</span>
-                        </div>
-                        <div class="hardware-micro-card">
-                            <div class="micro-card-icon">
-                                <i class="fas fa-battery-full"></i>
-                            </div>
-                            <span>72h Akku</span>
-                        </div>
-                        <div class="hardware-micro-card">
-                            <div class="micro-card-icon">
-                                <i class="fas fa-bullseye"></i>
-                            </div>
-                            <span>0,1g Präzision</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Checkmark List -->
-                    <ul class="hardware-checklist">
-                        <li><i class="fas fa-check"></i> Echtzeit-Datensynchronisation</li>
-                        <li><i class="fas fa-check"></i> Wetterfeste Gehäuse</li>
-                        <li><i class="fas fa-check"></i> Einfache Installation und Einrichtung</li>
-                        <li><i class="fas fa-check"></i> Unternehmensklasse Zuverlässigkeit</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Features Section -->
     <section id="features" class="features-section">
+        <div class="shadow-anchor"></div>
         <div class="container">
             <div class="section-header">
-                <h2>Leistungsstarke Funktionen für moderne Restaurants</h2>
-                <p>Alles, was Sie brauchen, um Abfälle zu verwalten und Abläufe zu optimieren</p>
+                <span class="section-eyebrow"><i class="fas fa-sparkles"></i> Plattform-Funktionen</span>
+                <h2>Gebaut für Küchen, die<br><span class="heading-accent">keine Verschwendung dulden.</span></h2>
+                <p>Sechs Kernpfeiler für intelligentere Abläufe — von KI-Einblicken bis zur Echtzeit-Compliance.</p>
             </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-card-number">01</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
+
+            <div class="features-bento">
+                <!-- Row 1: Featured card + 2 stacked -->
+                <div class="fb-featured">
+                    <div class="fb-featured-badge">Kern-Engine</div>
+                    <div class="fb-featured-icon"><i class="fas fa-brain"></i></div>
                     <h3>KI-gestützte Analytik</h3>
-                    <p>Machine Learning Algorithmen prognostizieren Abfallmuster und schlagen optimale Bestellmengen vor</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-card-number">02</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-mobile-alt"></i>
+                    <p>Machine Learning prognostiziert Abfallmuster, schlägt Bestellmengen vor und deckt Einsparungspotenziale auf — alles in Echtzeit.</p>
+                    <div class="fb-featured-metric">
+                        <span class="fb-metric-value">40%</span>
+                        <span class="fb-metric-label">durchschn. Abfallreduktion</span>
                     </div>
-                    <h3>Mobile App</h3>
-                    <p>Verwalten Sie Ihr Restaurant unterwegs mit unserer intuitiven mobilen Anwendung</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-card-number">03</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-cloud"></i>
+                <div class="fb-stack">
+                    <div class="fb-card">
+                        <div class="fb-card-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="fb-card-text">
+                            <h4>Mobile App</h4>
+                            <p>Volle Küchenkontrolle aus der Hosentasche — Abfälle überwachen, Inventar verfolgen und Bestellungen verwalten.</p>
+                        </div>
                     </div>
-                    <h3>Cloud-basiert</h3>
-                    <p>Greifen Sie überall auf Ihre Daten zu mit sicherer Cloud-Speicherung und Echtzeit-Synchronisation</p>
+                    <div class="fb-card">
+                        <div class="fb-card-icon"><i class="fas fa-cloud"></i></div>
+                        <div class="fb-card-text">
+                            <h4>Cloud-nativ</h4>
+                            <p>Sichere, immer verfügbare Infrastruktur mit Echtzeit-Synchronisation über alle Standorte.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-card-number">04</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+
+                <!-- Row 2: 3 equal cards -->
+                <div class="fb-card fb-card--bottom">
+                    <div class="fb-card-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="fb-card-text">
+                        <h4>Sicher &amp; Konform</h4>
+                        <p>Enterprise-Verschlüsselung mit integrierter HACCP- und Lebensmittelsicherheits-Compliance.</p>
                     </div>
-                    <h3>Sicher & Konform</h3>
-                    <p>Unternehmensklasse Sicherheit mit vollständiger Einhaltung der Lebensmittelsicherheitsvorschriften</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-card-number">05</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-bell"></i>
+                <div class="fb-card fb-card--bottom">
+                    <div class="fb-card-icon"><i class="fas fa-bell"></i></div>
+                    <div class="fb-card-text">
+                        <h4>Intelligente Alerts</h4>
+                        <p>Sofortige Benachrichtigungen bei niedrigen Beständen, Abfallspitzen und Einsparungsmöglichkeiten.</p>
                     </div>
-                    <h3>Intelligente Benachrichtigungen</h3>
-                    <p>Erhalten Sie Warnungen bei niedrigen Lagerbeständen, Abfallspitzen und Optimierungsmöglichkeiten</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-card-number">06</span>
-                    <div class="feature-icon">
-                        <i class="fas fa-chart-line"></i>
+                <div class="fb-card fb-card--bottom">
+                    <div class="fb-card-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="fb-card-text">
+                        <h4>ROI-Verfolgung</h4>
+                        <p>Live-Dashboards zeigen genau, wie viel Sie sparen — aufgeschlüsselt nach Schicht, Artikel oder Standort.</p>
                     </div>
-                    <h3>ROI-Verfolgung</h3>
-                    <p>Überwachen Sie Ihre Einsparungen und Rendite mit detaillierten Finanzberichten</p>
                 </div>
             </div>
         </div>
