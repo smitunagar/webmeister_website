@@ -20,6 +20,7 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#solution" class="nav-link">Solut<span class="brand-i">i</span>on</a>
                 <a href="#features" class="nav-link">Features</a>
+                <a href="#advisors" class="nav-link">Advisors</a>
                 <a href="about.html" class="nav-link">About</a>
                 <a href="blog.html" class="nav-link">Blog</a>
                 <div class="language-switcher">
@@ -107,6 +108,21 @@
 
             <!-- Waste Prevention UI Dashboard -->
             <div class="hero-visual">
+                <div class="wp-glow"></div>
+                <div class="wp-float-badge wp-float-badge--eco">
+                    <span class="wp-float-icon"><i class="fas fa-leaf"></i></span>
+                    <div class="wp-float-text">
+                        <strong>45 kg</strong>
+                        <span>CO₂ saved</span>
+                    </div>
+                </div>
+                <div class="wp-float-badge wp-float-badge--save">
+                    <span class="wp-float-icon"><i class="fas fa-piggy-bank"></i></span>
+                    <div class="wp-float-text">
+                        <strong>€2,840</strong>
+                        <span>saved / month</span>
+                    </div>
+                </div>
                 <div class="wp-dashboard">
 
                     <!-- Top bar -->
@@ -291,8 +307,8 @@
                 </div>
 
                 <div class="problem-bottom-strip">
-                    <span><i class="fas fa-circle-exclamation"></i> Without real-time visibility, waste is invisible until it hits your P&amp;L.</span>
-                    <span><i class="fas fa-arrow-right"></i> IOMS fixes this — automatically.</span>
+                    <span class="pbs-warn"><i class="fas fa-circle-exclamation"></i> Without real-time visibility, waste is invisible until it hits your P&amp;L.</span>
+                    <span class="pbs-fix"><i class="fas fa-arrow-right"></i> IOMS fixes this — automatically.</span>
                 </div>
             </div>
         </div>
@@ -300,125 +316,71 @@
 
     <!-- Solution Overview -->
     <section id="solution" class="solution-section">
+        <div class="container">
+            <div class="solution-header">
+                <h2>Everything you need to <span class="solution-accent">run operations smoothly.</span></h2>
+                <p class="solution-subtitle">Hardware, software, and AI working together out of the box — every module talks to the next, with zero extra admin.</p>
+            </div>
 
-        <!-- Full-height video fills left half, blends into bg -->
-        <div class="solution-vid-bg">
-            <video autoplay muted loop playsinline class="solution-vid-video">
-                <source src="public/Dashborad Laptop.mp4" type="video/mp4">
-            </video>
-            <div class="solution-vid-fade"></div>
-        </div>
-
-        <div class="container solution-container">
-            <!-- Text header + wheel sit on the right -->
-            <div class="solution-right">
-                <div class="solution-header">
-                    <h2>Everything you need to <span class="solution-accent">run operations smoothly.</span></h2>
-                    <p class="solution-subtitle">One unified platform — hardware, software, and AI — working together out of the box.</p>
-                </div>
-
-                <!-- Interactive wheel — HTML cards in a circle, 3D flip on hover -->
-                <div class="wh-wrap" id="whWrap">
-                    <!-- Center hub -->
-                    <div class="wh-hub">
-                        <span class="wh-hub-line1">STREAMLINED</span>
-                        <span class="wh-hub-line2">KITCHEN OPS</span>
-                        <span class="wh-hub-line3">by IOMS</span>
+            <div class="solution-grid">
+                <article class="sol-card" style="--c:#4ADE80">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-cogs"></i></span>
+                        <span class="sol-num">01</span>
                     </div>
+                    <h3>Workflow Automation</h3>
+                    <p>AI-powered automation from order processing to waste tracking — cutting manual tasks across every shift.</p>
+                    <span class="sol-metric"><i class="fas fa-bolt"></i> 3h / day saved per kitchen</span>
+                </article>
 
-                    <!-- Module cards arranged in a ring -->
-                    <div class="wh-card" style="--angle: 0deg; --color: #4ADE80"
-                         data-name="Workflow Automation" data-icon="fa-cogs" data-color="#4ADE80"
-                         data-desc="AI-powered automation from order processing to waste tracking — reducing manual tasks across every shift."
-                         data-metric="3h / day saved per kitchen">
-                        <div class="wh-card-inner">
-                            <div class="wh-card-front">
-                                <i class="fas fa-cogs"></i>
-                                <span>Workflow<br>Automation</span>
-                            </div>
-                            <div class="wh-card-back">
-                                <strong>Workflow Automation</strong>
-                                <p>AI-powered automation from order processing to waste tracking.</p>
-                                <em>3h / day saved</em>
-                            </div>
-                        </div>
+                <article class="sol-card" style="--c:#60A5FA">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-cash-register"></i></span>
+                        <span class="sol-num">02</span>
                     </div>
+                    <h3>Complete POS System</h3>
+                    <p>A modern point of sale with integrated payments, table management and real-time order sync.</p>
+                    <span class="sol-metric"><i class="fas fa-circle-check"></i> 99.9% uptime guarantee</span>
+                </article>
 
-                    <div class="wh-card" style="--angle: 72deg; --color: #60A5FA"
-                         data-name="Complete POS System" data-icon="fa-cash-register" data-color="#60A5FA"
-                         data-desc="Advanced POS with integrated payment processing, table management and real-time order sync."
-                         data-metric="99.9% uptime guarantee">
-                        <div class="wh-card-inner">
-                            <div class="wh-card-front">
-                                <i class="fas fa-cash-register"></i>
-                                <span>POS<br>System</span>
-                            </div>
-                            <div class="wh-card-back">
-                                <strong>Complete POS System</strong>
-                                <p>Integrated payment processing, table management & real-time order sync.</p>
-                                <em>99.9% uptime</em>
-                            </div>
-                        </div>
+                <article class="sol-card" style="--c:#A78BFA">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-boxes-stacked"></i></span>
+                        <span class="sol-num">03</span>
                     </div>
+                    <h3>Smart Inventory</h3>
+                    <p>Real-time stock tracking, predictive reordering and automated alerts keep you fully in control.</p>
+                    <span class="sol-metric"><i class="fas fa-arrow-trend-down"></i> &minus;32% waste on average</span>
+                </article>
 
-                    <div class="wh-card" style="--angle: 144deg; --color: #A78BFA"
-                         data-name="Smart Inventory" data-icon="fa-boxes" data-color="#A78BFA"
-                         data-desc="Real-time stock tracking, predictive reordering, and automated alerts keep you in control."
-                         data-metric="−32% waste reduction avg.">
-                        <div class="wh-card-inner">
-                            <div class="wh-card-front">
-                                <i class="fas fa-boxes-stacked"></i>
-                                <span>Smart<br>Inventory</span>
-                            </div>
-                            <div class="wh-card-back">
-                                <strong>Smart Inventory</strong>
-                                <p>Real-time stock tracking, predictive reordering & automated alerts.</p>
-                                <em>−32% waste</em>
-                            </div>
-                        </div>
+                <article class="sol-card" style="--c:#FB923C">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-microchip"></i></span>
+                        <span class="sol-num">04</span>
                     </div>
+                    <h3>IoT Hardware</h3>
+                    <p>Smart sensors measure waste, temperature and usage with &plusmn;0.1g precision — feeding live data in.</p>
+                    <span class="sol-metric"><i class="fas fa-bullseye"></i> &plusmn;0.1g measurement precision</span>
+                </article>
 
-                    <div class="wh-card" style="--angle: 216deg; --color: #FB923C"
-                         data-name="IoT Hardware" data-icon="fa-microchip" data-color="#FB923C"
-                         data-desc="Smart sensors measure waste, temperature and usage with ±0.1g precision — feeding live data into the platform."
-                         data-metric="±0.1g measurement precision">
-                        <div class="wh-card-inner">
-                            <div class="wh-card-front">
-                                <i class="fas fa-microchip"></i>
-                                <span>IoT<br>Hardware</span>
-                            </div>
-                            <div class="wh-card-back">
-                                <strong>IoT Hardware</strong>
-                                <p>Smart sensors with ±0.1g precision — live data into the platform.</p>
-                                <em>±0.1g precision</em>
-                            </div>
-                        </div>
+                <article class="sol-card" style="--c:#2DD4BF">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-chart-bar"></i></span>
+                        <span class="sol-num">05</span>
                     </div>
+                    <h3>Analytics Dashboard</h3>
+                    <p>Live reporting, trend analysis and actionable insights give managers visibility across every site.</p>
+                    <span class="sol-metric"><i class="fas fa-bolt"></i> Real-time live updates</span>
+                </article>
 
-                    <div class="wh-card" style="--angle: 288deg; --color: #2DD4BF"
-                         data-name="Analytics Dashboard" data-icon="fa-chart-bar" data-color="#2DD4BF"
-                         data-desc="Live reporting, trend analysis and actionable insights give managers full visibility across every location."
-                         data-metric="Live real-time updates">
-                        <div class="wh-card-inner">
-                            <div class="wh-card-front">
-                                <i class="fas fa-chart-bar"></i>
-                                <span>Analytics<br>Dashboard</span>
-                            </div>
-                            <div class="wh-card-back">
-                                <strong>Analytics Dashboard</strong>
-                                <p>Live reporting, trend analysis & actionable insights for every location.</p>
-                                <em>Real-time updates</em>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Connector ring (SVG, decorative only) -->
-                    <svg class="wh-ring-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="250" cy="250" r="170" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1.5" stroke-dasharray="8 6"/>
-                        <circle cx="250" cy="250" r="202" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="10"/>
-                        <circle cx="250" cy="250" r="68" fill="none" stroke="rgba(74,222,128,0.12)" stroke-width="1"/>
-                    </svg>
-                </div>
+                <article class="sol-card sol-card--core">
+                    <span class="sol-core-badge"><i class="fas fa-layer-group"></i> Powered by IOMS</span>
+                    <h3>Five modules. One source of truth.</h3>
+                    <p>Streamlined kitchen operations, end to end — no silos, no double entry.</p>
+                    <button class="sol-core-cta" onclick="window.open('https://www.webmeister360.com', '_blank')">
+                        See it in action <i class="fas fa-arrow-right"></i>
+                    </button>
+                </article>
             </div>
         </div>
     </section>
@@ -427,65 +389,109 @@
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-        <div class="shadow-anchor"></div>
+        <div class="container">
+            <div class="features-panel">
+                <div class="features-layout">
+                    <aside class="features-intro">
+                        <h2>Built for kitchens that <span class="features-accent">refuse to waste.</span></h2>
+                        <p>Six core pillars powering smarter operations — from AI insights to real-time compliance.</p>
+                        <div class="features-highlight">
+                            <span class="features-highlight-value">40%</span>
+                            <div class="features-highlight-meta">
+                                <strong>average waste reduction</strong>
+                                <span>across kitchens running IOMS</span>
+                            </div>
+                        </div>
+                        <button class="features-cta" onclick="openForm('demo')">
+                            <i class="fas fa-calendar-check"></i> Book a 15-min demo
+                        </button>
+                    </aside>
+
+                    <ul class="features-list">
+                        <li class="feature-row" style="--c:#E34234">
+                            <span class="feature-row-ico"><i class="fas fa-brain"></i></span>
+                            <div class="feature-row-text">
+                                <h3>AI-Powered Analytics</h3>
+                                <p>Machine learning predicts waste patterns, suggests ordering quantities and surfaces cost savings — in real time.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#3B82F6">
+                            <span class="feature-row-ico"><i class="fas fa-mobile-screen-button"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Mobile App</h3>
+                                <p>Full kitchen control from your pocket — monitor waste, track inventory and manage orders on any device.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#2DD4BF">
+                            <span class="feature-row-ico"><i class="fas fa-cloud"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Cloud-Native</h3>
+                                <p>Secure, always-on infrastructure with real-time sync across every location you manage.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#16A34A">
+                            <span class="feature-row-ico"><i class="fas fa-shield-halved"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Secure &amp; Compliant</h3>
+                                <p>Enterprise-grade encryption with built-in HACCP and food-safety compliance.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#F59E0B">
+                            <span class="feature-row-ico"><i class="fas fa-bell"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Smart Alerts</h3>
+                                <p>Instant notifications for low stock, waste spikes and cost-saving opportunities.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#8B5CF6">
+                            <span class="feature-row-ico"><i class="fas fa-chart-line"></i></span>
+                            <div class="feature-row-text">
+                                <h3>ROI Tracking</h3>
+                                <p>Live dashboards showing exactly how much you're saving — by shift, item or location.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board Advisors & Mentors -->
+    <section id="advisors" class="advisors-section">
         <div class="container">
             <div class="section-header">
-                <span class="section-eyebrow"><i class="fas fa-sparkles"></i> Platform Capabilities</span>
-                <h2>Built for kitchens that<br><span class="heading-accent">refuse to waste.</span></h2>
-                <p>Six core pillars powering smarter operations — from AI insights to real-time compliance.</p>
+                <h2>Board Advisors <span class="advisors-accent">&amp; Mentors</span></h2>
+                <div class="advisors-underline"></div>
+                <p>A distinguished group of academic leaders, industry experts, and innovators guiding WebMeister360 and iOMS with deep expertise in technology, sustainability, business, and food innovation.</p>
             </div>
-
-            <div class="features-bento">
-                <!-- Row 1: Featured card + 2 stacked -->
-                <div class="fb-featured">
-                    <div class="fb-featured-badge">Core Engine</div>
-                    <div class="fb-featured-icon"><i class="fas fa-brain"></i></div>
-                    <h3>AI-Powered Analytics</h3>
-                    <p>Machine learning predicts waste patterns, suggests ordering quantities, and surfaces cost-saving opportunities — all in real time.</p>
-                    <div class="fb-featured-metric">
-                        <span class="fb-metric-value">40%</span>
-                        <span class="fb-metric-label">avg. waste reduction</span>
-                    </div>
-                </div>
-                <div class="fb-stack">
-                    <div class="fb-card">
-                        <div class="fb-card-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <div class="fb-card-text">
-                            <h4>Mobile App</h4>
-                            <p>Full kitchen control from your pocket — monitor waste, track inventory, and manage orders on any device.</p>
-                        </div>
-                    </div>
-                    <div class="fb-card">
-                        <div class="fb-card-icon"><i class="fas fa-cloud"></i></div>
-                        <div class="fb-card-text">
-                            <h4>Cloud-Native</h4>
-                            <p>Secure, always-on infrastructure with real-time sync across every location you manage.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 2: 3 equal cards -->
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="fb-card-text">
-                        <h4>Secure &amp; Compliant</h4>
-                        <p>Enterprise-grade encryption with built-in HACCP and food safety compliance.</p>
-                    </div>
-                </div>
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-bell"></i></div>
-                    <div class="fb-card-text">
-                        <h4>Smart Alerts</h4>
-                        <p>Instant notifications for low stock, waste spikes, and cost-saving opportunities.</p>
-                    </div>
-                </div>
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="fb-card-text">
-                        <h4>ROI Tracking</h4>
-                        <p>Live dashboards showing exactly how much you're saving — broken down by shift, item, or location.</p>
-                    </div>
-                </div>
+            <div class="advisors-grid">
+                <figure class="advisor-card">
+                    <img src="public/advisor-seiter.png" alt="Prof. Dr. Stephan Seiter — Hochschule Reutlingen, Vizepräsident Forschung und Transfer" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-starting.png" alt="Peter Starting — Senioren der Wirtschaft, B2B SaaS Expert" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-loboue.png" alt="Prof. Dr. LoBoue — Professor Emeritus, SAP & United Nations" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-vogt.png" alt="Wolfgang Vogt — Senioren der Wirtschaft, Founder of AI Xpress" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-hinderer.png" alt="Dr. Sebastian Hinderer — Universität Hohenheim, Food Expert" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-martinez.png" alt="Prof. Dr.-Ing. habil. Natividad Martinez Madrid — Hochschule Reutlingen, wissenschaftliche Mentorin" loading="lazy">
+                </figure>
+                <figure class="advisor-card">
+                    <img src="public/advisor-lowinski.png" alt="Martin Lowinski — Co-Founder, metergrid" loading="lazy">
+                </figure>
             </div>
         </div>
     </section>
@@ -500,18 +506,22 @@
             </div>
             <div class="proof-stats">
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-dumpster"></i></span>
                     <div class="stat-number">88M</div>
                     <div class="stat-label">Tonnes EU Food Waste/Year</div>
                 </div>
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-utensils"></i></span>
                     <div class="stat-number">14%</div>
                     <div class="stat-label">F&amp;B Industry Waste Share</div>
                 </div>
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-arrow-trend-down"></i></span>
                     <div class="stat-number">&euro;15K</div>
                     <div class="stat-label">Avg Annual Loss per Restaurant</div>
                 </div>
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-bullseye"></i></span>
                     <div class="stat-number">2030</div>
                     <div class="stat-label">EU Waste Reduction Target</div>
                 </div>
@@ -545,7 +555,6 @@
             
             <!-- Final Call CTA -->
             <div class="final-cta">
-                <div class="final-cta-eyebrow">Start today — no commitment required</div>
                 <h2>Ready to transform<br><span class="final-cta-accent">waste to wealth?</span></h2>
                 <div class="final-cta-actions">
                     <a href="waitlist.html" class="final-cta-button">

@@ -820,29 +820,46 @@ function initHeroKineticReveal() {
 function initHeadingReveal() {
     // Select all primary headlines EXCEPT hero-title (which has its own kinetic reveal)
     const headings = document.querySelectorAll('.section-header h2, .solution-header h2, .hardware-text h2, .features-section .section-header h2, .social-proof .section-header h2, .final-cta h2');
-    
-    headings.forEach((heading, headingIndex) => {
-        const text = heading.textContent;
-        const words = text.split(' ');
-        
-        // Clear the heading content
+
+    headings.forEach((heading) => {
+        // Guard against double-processing
+        if (heading.dataset.revealed === '1') return;
+        heading.dataset.revealed = '1';
+
+        const sourceNodes = Array.from(heading.childNodes);
         heading.innerHTML = '';
-        
-        // Wrap each word in a div with overflow-hidden
-        words.forEach((word, wordIndex) => {
+        let wordIndex = 0;
+
+        // Wrap a single word in the masked reveal markup, keeping any accent class
+        const appendWord = (word, extraClass) => {
             const wordWrapper = document.createElement('span');
             wordWrapper.className = 'heading-word-wrapper';
             wordWrapper.style.overflow = 'hidden';
             wordWrapper.style.display = 'inline-block';
             wordWrapper.style.verticalAlign = 'bottom';
-            
+
             const wordSpan = document.createElement('span');
-            wordSpan.className = 'heading-word';
-            wordSpan.textContent = word + (wordIndex < words.length - 1 ? ' ' : '');
-            wordSpan.style.animationDelay = `${wordIndex * 0.1}s`; // Stagger each word by 0.1s
-            
+            wordSpan.className = 'heading-word' + (extraClass ? ' ' + extraClass : '');
+            wordSpan.textContent = word + ' '; // trailing space preserves spacing (white-space: pre)
+            wordSpan.style.animationDelay = `${wordIndex * 0.08}s`; // Stagger each word
+            wordIndex++;
+
             wordWrapper.appendChild(wordSpan);
             heading.appendChild(wordWrapper);
+        };
+
+        // Walk the original nodes so <br> line breaks and accent <span>s survive
+        sourceNodes.forEach((node) => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                node.textContent.split(/\s+/).filter(Boolean).forEach((w) => appendWord(w));
+            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                if (node.tagName === 'BR') {
+                    heading.appendChild(document.createElement('br'));
+                } else {
+                    const cls = node.getAttribute('class') || '';
+                    node.textContent.split(/\s+/).filter(Boolean).forEach((w) => appendWord(w, cls));
+                }
+            }
         });
     });
 }

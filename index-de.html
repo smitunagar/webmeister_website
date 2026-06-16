@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>WebMeister360 - IOMS | Intelligentes Abfallmanagement für Lebensmittel & Getränke</title>
-    <meta name="description" content="Transformieren Sie Ihr Lebensmittel- und Getränkeunternehmen mit IOMS - dem integrierten POS- und Inventarsystem mit Echtzeit-Abfallverfolgung. Reduzieren Sie Lebensmittelabfälle um bis zu 40%.">
+    <meta name="description" content="Transformieren Sie Ihr Lebensmittel- und Getränkeunternehmen mit IOMS – dem integrierten Kassen- und Warenwirtschaftssystem mit Echtzeit-Abfallverfolgung. Reduzieren Sie Lebensmittelabfälle um bis zu 40 %.">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -19,7 +19,7 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Start</a>
                 <a href="#solution" class="nav-link">Lösung</a>
-                <a href="#features" class="nav-link">Funktionen</a>
+                <a href="#features" class="nav-link">Funkt<span class="brand-i">i</span>onen</a>
                 <a href="about-de.html" class="nav-link">Über uns</a>
                 <a href="blog-de.html" class="nav-link">Blog</a>
                 <div class="language-switcher">
@@ -37,6 +37,8 @@
                 <span class="bar"></span>
             </div>
         </div>
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-menu-overlay" id="nav-menu-overlay"></div>
     </nav>
 
     <!-- Hero Section -->
@@ -49,39 +51,46 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    Lebensmittelabfälle in messbare Einsparungen verwandeln.
+                    Schluss mit Rätselraten.<br><span class="title-accent">Lebensmittelabfall aktiv vermeiden.</span>
                 </h1>
-                <h2 class="hero-subtitle">
-                    IOMS erfasst Abfälle automatisch mit smarter Hardware, verwandelt sie in Bedarfsprognosen und löst Bestell- und Lagerprozesse aus – so senken Küchen Kosten ohne zusätzlichen Verwaltungsaufwand.
-                </h2>
+                <p class="hero-subtitle">
+                    IOMS erkennt, klassifiziert und prognostiziert Lebensmittelabfälle automatisch mit KI-Hardware – und verwandelt Küchendaten in echte Einsparungen, ganz ohne Mehraufwand.
+                </p>
                 <ul class="hero-value-props">
                     <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Abfälle mit KI-Hardware erfassen und klassifizieren</span>
+                        <span class="hvp-icon"><i class="fas fa-camera"></i></span>
+                        <div class="hvp-text">
+                            <strong>KI-Kamera-Erkennung</strong>
+                            <span>Klassifiziert jeden Abfall in Echtzeit – ganz ohne manuelle Erfassung</span>
+                        </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Bestell- und Lagerprozesse automatisieren</span>
+                        <span class="hvp-icon"><i class="fas fa-chart-line"></i></span>
+                        <div class="hvp-text">
+                            <strong>Bedarfsprognosen</strong>
+                            <span>Verhindern Überbestellungen, bevor Überschuss zu Abfall wird</span>
+                        </div>
                     </li>
                     <li>
-                        <i class="fas fa-check-circle"></i>
-                        <span>Nachhaltigkeits-Insights in Echtzeit generieren</span>
+                        <span class="hvp-icon"><i class="fas fa-file-shield"></i></span>
+                        <div class="hvp-text">
+                            <strong>Automatische Compliance-Berichte</strong>
+                            <span>Nachhaltigkeits- &amp; HACCP-Berichte werden automatisch erstellt</span>
+                        </div>
                     </li>
                 </ul>
                 <div class="hero-stats">
-                    <div class="stat">
+                    <div class="hero-stat-card">
                         <span class="stat-number">40%</span>
-                        <span class="stat-label">Weniger Lebensmittelabfall</span>
+                        <span class="stat-label">Weniger Abfall</span>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
+                    <div class="hero-stat-card">
                         <span class="stat-number">50%</span>
-                        <span class="stat-label">Weniger manuelle Erfassungszeit</span>
+                        <span class="stat-label">Weniger Aufwand</span>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
+                    <div class="hero-stat-card">
                         <span class="stat-number">99%</span>
-                        <span class="stat-label">KI-Klassifizierungsgenauigkeit</span>
+                        <span class="stat-label">KI-Genauigkeit</span>
                     </div>
                 </div>
                 <div class="hero-cta">
@@ -91,37 +100,142 @@
                     </button>
                     <button class="cta-button secondary" onclick="openForm('demo')">
                         <i class="fas fa-calendar-check"></i>
-                        15-Min Demo buchen
+                        15-Min-Demo buchen
                     </button>
-                    <a href="#" class="hero-tertiary-link" onclick="openVideoLightbox(event)">
-                        <i class="fas fa-play-circle"></i>
-                        90-Sek Walkthrough ansehen
-                    </a>
                 </div>
             </div>
+
+            <!-- Waste Prevention UI Dashboard -->
             <div class="hero-visual">
-                <div class="dashboard-mockup">
-                    <div class="dashboard-header">
-                        <div class="dashboard-title">IOMS Dashboard</div>
-                        <div class="dashboard-status">
-                            <span class="status-dot"></span>
-                            Live-Monitoring
+                <div class="wp-glow"></div>
+                <div class="wp-float-badge wp-float-badge--eco">
+                    <span class="wp-float-icon"><i class="fas fa-leaf"></i></span>
+                    <div class="wp-float-text">
+                        <strong>45 kg</strong>
+                        <span>CO₂ gespart</span>
+                    </div>
+                </div>
+                <div class="wp-float-badge wp-float-badge--save">
+                    <span class="wp-float-icon"><i class="fas fa-piggy-bank"></i></span>
+                    <div class="wp-float-text">
+                        <strong>€2.840</strong>
+                        <span>gespart / Monat</span>
+                    </div>
+                </div>
+                <div class="wp-dashboard">
+
+                    <!-- Top bar -->
+                    <div class="wp-topbar">
+                        <div class="wp-topbar-left">
+                            <span class="wp-app-name">IOMS · Abfallvermeidung</span>
+                        </div>
+                        <div class="wp-topbar-right">
+                            <span class="wp-date">Heute, Küche A</span>
                         </div>
                     </div>
-                    <div class="dashboard-content">
-                        <div class="metric-card">
-                            <div class="metric-value">-32%</div>
-                            <div class="metric-label">Abfallreduzierung</div>
+
+                    <!-- KPI Row -->
+                    <div class="wp-kpi-row">
+                        <div class="wp-kpi wp-kpi--green">
+                            <div class="wp-kpi-icon"><i class="fas fa-arrow-trend-down"></i></div>
+                            <div>
+                                <div class="wp-kpi-value">−38%</div>
+                                <div class="wp-kpi-label">Abfall vs. Vorwoche</div>
+                            </div>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-value">€2.450</div>
-                            <div class="metric-label">Monatliche Einsparungen</div>
+                        <div class="wp-kpi wp-kpi--amber">
+                            <div class="wp-kpi-icon"><i class="fas fa-scale-balanced"></i></div>
+                            <div>
+                                <div class="wp-kpi-value">12,4 kg</div>
+                                <div class="wp-kpi-label">Abfall heute</div>
+                            </div>
                         </div>
-                        <div class="metric-card">
-                            <div class="metric-value">98%</div>
-                            <div class="metric-label">Genauigkeit</div>
+                        <div class="wp-kpi wp-kpi--blue">
+                            <div class="wp-kpi-icon"><i class="fas fa-euro-sign"></i></div>
+                            <div>
+                                <div class="wp-kpi-value">€ 2.840</div>
+                                <div class="wp-kpi-label">Diesen Monat gespart</div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Waste by Category -->
+                    <div class="wp-section">
+                        <div class="wp-section-title">
+                            <i class="fas fa-chart-bar"></i> Abfall nach Kategorie
+                            <span class="wp-section-sub">Letzte 7 Tage</span>
+                        </div>
+                        <div class="wp-categories">
+                            <div class="wp-cat-row">
+                                <span class="wp-cat-dot" style="background:#E34234"></span>
+                                <span class="wp-cat-name">Gemüse</span>
+                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:72%;background:#E34234"></div></div>
+                                <span class="wp-cat-val">4,2 kg</span>
+                            </div>
+                            <div class="wp-cat-row">
+                                <span class="wp-cat-dot" style="background:#F59E0B"></span>
+                                <span class="wp-cat-name">Fertiggerichte</span>
+                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:52%;background:#F59E0B"></div></div>
+                                <span class="wp-cat-val">3,1 kg</span>
+                            </div>
+                            <div class="wp-cat-row">
+                                <span class="wp-cat-dot" style="background:#1F5631"></span>
+                                <span class="wp-cat-name">Brot & Backwaren</span>
+                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:38%;background:#1F5631"></div></div>
+                                <span class="wp-cat-val">2,2 kg</span>
+                            </div>
+                            <div class="wp-cat-row">
+                                <span class="wp-cat-dot" style="background:#6B7280"></span>
+                                <span class="wp-cat-name">Milch & Proteine</span>
+                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:22%;background:#6B7280"></div></div>
+                                <span class="wp-cat-val">1,3 kg</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="wp-divider"></div>
+
+                    <!-- AI Scan Feed -->
+                    <div class="wp-section">
+                        <div class="wp-section-title">
+                            <i class="fas fa-microchip"></i> KI-Scan-Feed
+                            <span class="wp-scan-ping"></span>
+                        </div>
+                        <div class="wp-feed">
+                            <div class="wp-feed-item wp-feed-item--new">
+                                <span class="wp-feed-icon" style="background:#FEF3C7;color:#D97706"><i class="fas fa-bread-slice"></i></span>
+                                <div class="wp-feed-info">
+                                    <span class="wp-feed-name">Brötchen — 180 g</span>
+                                    <span class="wp-feed-meta">Tellerabfall · 0,3 kg CO₂</span>
+                                </div>
+                                <span class="wp-feed-time">gerade eben</span>
+                            </div>
+                            <div class="wp-feed-item">
+                                <span class="wp-feed-icon" style="background:#DCFCE7;color:#16A34A"><i class="fas fa-leaf"></i></span>
+                                <div class="wp-feed-info">
+                                    <span class="wp-feed-name">Gemischter Salat — 320 g</span>
+                                    <span class="wp-feed-meta">Zubereitungsabfall · 0,6 kg CO₂</span>
+                                </div>
+                                <span class="wp-feed-time">vor 2 Min</span>
+                            </div>
+                            <div class="wp-feed-item">
+                                <span class="wp-feed-icon" style="background:#FEE2E2;color:#DC2626"><i class="fas fa-drumstick-bite"></i></span>
+                                <div class="wp-feed-info">
+                                    <span class="wp-feed-name">Hähnchenportion — 240 g</span>
+                                    <span class="wp-feed-meta">Überproduktion · 0,8 kg CO₂</span>
+                                </div>
+                                <span class="wp-feed-time">vor 5 Min</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom alert -->
+                    <div class="wp-alert">
+                        <i class="fas fa-triangle-exclamation"></i>
+                        <span>Gemüse-Zubereitungsabfall liegt <strong>22% über Zielwert</strong> — Bestellanpassung empfohlen.</span>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -129,7 +243,7 @@
         <!-- Full-width Trust Strip -->
         <div class="trust-strip">
             <div class="trust-strip-label-col">
-                <span class="trust-logos-label">Unterstützt von</span>
+                <span class="trust-logos-label">Unterstützt &amp; gefördert von</span>
             </div>
             <div class="trust-marquee-wrapper">
                 <div class="trust-marquee-track">
@@ -157,38 +271,43 @@
 
     <!-- Problem Statement -->
     <section class="problem-section">
+        <!-- Right-side image (absolutely positioned) -->
+        <div class="problem-image-panel">
+            <img src="public/hrmV5OOgu_xSZvq7_8zau (1).png" alt="Lebensmittelabfall in einer Großküche" class="problem-image">
+            <div class="problem-image-overlay"></div>
+        </div>
         <div class="container">
-            <div class="section-header">
-                <h2>Die versteckten Kosten der Lebensmittelverschwendung</h2>
-                <p>Lebensmittelverschwendung ist nicht nur ein Umweltproblem—sondern eine massive finanzielle Belastung für Ihr Unternehmen.</p>
-            </div>
-            <div class="problem-stats">
-                <div class="problem-stat">
-                    <div class="stat-icon">
-                        <i class="fas fa-chart-line"></i>
+            <div class="problem-inner">
+                <h2 class="problem-title">Lebensmittelabfall<br><span class="problem-title-accent">schmälert Ihre Marge.</span></h2>
+                <p class="problem-subtitle">Die meisten Küchen verlieren jeden Monat Tausende Euro durch unsichtbaren Abfall – ohne System, das ihn erfasst.</p>
+
+                <div class="problem-stats">
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">4–10<span class="ps-unit">%</span></div>
+                        <div class="problem-stat-right">
+                            <div class="problem-stat-label">der eingekauften Lebensmittel landen pro Restaurant im Abfall</div>
+                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:70%"></div></div>
+                        </div>
                     </div>
-                    <div class="stat-content">
-                        <h3>4-10%</h3>
-                        <p>der eingekauften Lebensmittel landen im Müll</p>
+                    <div class="problem-stat problem-stat--featured">
+                        <div class="problem-stat-number">€143<span class="ps-unit">Mrd.</span></div>
+                        <div class="problem-stat-right">
+                            <div class="problem-stat-label">jährlicher Branchenverlust in der gesamten Gastronomie</div>
+                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:100%"></div></div>
+                        </div>
+                    </div>
+                    <div class="problem-stat">
+                        <div class="problem-stat-number">40<span class="ps-unit">%</span></div>
+                        <div class="problem-stat-right">
+                            <div class="problem-stat-label">aller Lebensmittelabfälle sind vollständig vermeidbar</div>
+                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:40%"></div></div>
+                        </div>
                     </div>
                 </div>
-                <div class="problem-stat">
-                    <div class="stat-icon">
-                        <i class="fas fa-euro-sign"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>€143B</h3>
-                        <p>Jahreskosten für die Gastronomie</p>
-                    </div>
-                </div>
-                <div class="problem-stat">
-                    <div class="stat-icon">
-                        <i class="fas fa-exclamation-triangle"></i>
-                    </div>
-                    <div class="stat-content">
-                        <h3>40%</h3>
-                        <p>der Verschwendung ist durch bessere Kontrolle vermeidbar</p>
-                    </div>
+
+                <div class="problem-bottom-strip">
+                    <span class="pbs-warn"><i class="fas fa-circle-exclamation"></i> Ohne Echtzeit-Transparenz bleibt Abfall unsichtbar – bis er Ihre Bilanz trifft.</span>
+                    <span class="pbs-fix"><i class="fas fa-arrow-right"></i> IOMS löst das – automatisch.</span>
                 </div>
             </div>
         </div>
@@ -198,53 +317,69 @@
     <section id="solution" class="solution-section">
         <div class="container">
             <div class="solution-header">
-                <h2>Alles, was Sie für reibungslose Abläufe benötigen</h2>
+                <h2>Alles, was Sie für <span class="solution-accent">reibungslose Abläufe brauchen.</span></h2>
+                <p class="solution-subtitle">Hardware, Software und KI, die sofort zusammenspielen – jedes Modul greift ins nächste, ganz ohne Mehraufwand.</p>
             </div>
-            <div class="bento-grid">
-                <!-- Featured Card: Workflow Automation (spans 2 columns) -->
-                <div class="bento-card featured-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-cogs"></i>
+
+            <div class="solution-grid">
+                <article class="sol-card" style="--c:#4ADE80">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-cogs"></i></span>
+                        <span class="sol-num">01</span>
                     </div>
                     <h3>Workflow-Automatisierung</h3>
-                    <p>KI-gestützte Automatisierung, die Ihren gesamten Betrieb optimiert, von der Bestellabwicklung bis zur Abfallverfolgung, und manuelle Aufgaben sowie menschliche Fehler reduziert</p>
-                </div>
-                
-                <!-- POS System -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-cash-register"></i>
+                    <p>KI-gestützte Automatisierung von der Bestellabwicklung bis zur Abfallerfassung – weniger manuelle Aufgaben in jeder Schicht.</p>
+                    <span class="sol-metric"><i class="fas fa-bolt"></i> 3 Std./Tag pro Küche gespart</span>
+                </article>
+
+                <article class="sol-card" style="--c:#60A5FA">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-cash-register"></i></span>
+                        <span class="sol-num">02</span>
                     </div>
                     <h3>Komplettes Kassensystem</h3>
-                    <p>Unsere eigene moderne Kassensoftware mit integrierter Zahlungsabwicklung und Bestellverwaltung</p>
-                </div>
-                
-                <!-- Smart Inventory -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-boxes"></i>
+                    <p>Ein modernes Kassensystem mit integrierter Zahlungsabwicklung, Tischverwaltung und Echtzeit-Bestellsynchronisation.</p>
+                    <span class="sol-metric"><i class="fas fa-circle-check"></i> 99,9% Verfügbarkeit garantiert</span>
+                </article>
+
+                <article class="sol-card" style="--c:#A78BFA">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-boxes-stacked"></i></span>
+                        <span class="sol-num">03</span>
                     </div>
                     <h3>Intelligente Warenwirtschaft</h3>
-                    <p>Echtzeitverfolgung, Vorhersageanalysen und automatische Benachrichtigungen für optimale Bestandskontrolle</p>
-                </div>
-                
-                <!-- IoT Sensors -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-microchip"></i>
+                    <p>Echtzeit-Bestandsverfolgung, vorausschauende Nachbestellung und automatische Alerts behalten alles im Griff.</p>
+                    <span class="sol-metric"><i class="fas fa-arrow-trend-down"></i> Ø &minus;32% weniger Abfall</span>
+                </article>
+
+                <article class="sol-card" style="--c:#FB923C">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-microchip"></i></span>
+                        <span class="sol-num">04</span>
                     </div>
-                    <h3>IoT-Sensor-Integration</h3>
-                    <p>Intelligente Sensoren für präzise Abfallmessung und Umweltüberwachung</p>
-                </div>
-                
-                <!-- Analytics Dashboard -->
-                <div class="bento-card">
-                    <div class="bento-icon">
-                        <i class="fas fa-chart-bar"></i>
+                    <h3>IoT-Hardware</h3>
+                    <p>Smarte Sensoren messen Abfall, Temperatur und Verbrauch mit &plusmn;0,1 g Präzision – Live-Daten direkt in die Plattform.</p>
+                    <span class="sol-metric"><i class="fas fa-bullseye"></i> &plusmn;0,1 g Messpräzision</span>
+                </article>
+
+                <article class="sol-card" style="--c:#2DD4BF">
+                    <div class="sol-card-top">
+                        <span class="sol-ico"><i class="fas fa-chart-bar"></i></span>
+                        <span class="sol-num">05</span>
                     </div>
-                    <h3>Analytics-Dashboard</h3>
-                    <p>Praktische Erkenntnisse und umfassende Berichte für datenbasierte Entscheidungen</p>
-                </div>
+                    <h3>Analyse-Dashboard</h3>
+                    <p>Live-Reporting, Trendanalysen und umsetzbare Insights geben Managern volle Transparenz über alle Standorte.</p>
+                    <span class="sol-metric"><i class="fas fa-bolt"></i> Live-Updates in Echtzeit</span>
+                </article>
+
+                <article class="sol-card sol-card--core">
+                    <span class="sol-core-badge"><i class="fas fa-layer-group"></i> Powered by IOMS</span>
+                    <h3>Fünf Module. Eine Datenbasis.</h3>
+                    <p>Optimierte Küchenabläufe von A bis Z – keine Silos, keine Doppelerfassung.</p>
+                    <button class="sol-core-cta" onclick="window.open('https://www.webmeister360.com', '_blank')">
+                        Live ansehen <i class="fas fa-arrow-right"></i>
+                    </button>
+                </article>
             </div>
         </div>
     </section>
@@ -253,64 +388,74 @@
 
     <!-- Features Section -->
     <section id="features" class="features-section">
-        <div class="shadow-anchor"></div>
         <div class="container">
-            <div class="section-header">
-                <span class="section-eyebrow"><i class="fas fa-sparkles"></i> Plattform-Funktionen</span>
-                <h2>Gebaut für Küchen, die<br><span class="heading-accent">keine Verschwendung dulden.</span></h2>
-                <p>Sechs Kernpfeiler für intelligentere Abläufe — von KI-Einblicken bis zur Echtzeit-Compliance.</p>
-            </div>
-
-            <div class="features-bento">
-                <!-- Row 1: Featured card + 2 stacked -->
-                <div class="fb-featured">
-                    <div class="fb-featured-badge">Kern-Engine</div>
-                    <div class="fb-featured-icon"><i class="fas fa-brain"></i></div>
-                    <h3>KI-gestützte Analytik</h3>
-                    <p>Machine Learning prognostiziert Abfallmuster, schlägt Bestellmengen vor und deckt Einsparungspotenziale auf — alles in Echtzeit.</p>
-                    <div class="fb-featured-metric">
-                        <span class="fb-metric-value">40%</span>
-                        <span class="fb-metric-label">durchschn. Abfallreduktion</span>
-                    </div>
-                </div>
-                <div class="fb-stack">
-                    <div class="fb-card">
-                        <div class="fb-card-icon"><i class="fas fa-mobile-alt"></i></div>
-                        <div class="fb-card-text">
-                            <h4>Mobile App</h4>
-                            <p>Volle Küchenkontrolle aus der Hosentasche — Abfälle überwachen, Inventar verfolgen und Bestellungen verwalten.</p>
+            <div class="features-panel">
+                <div class="features-layout">
+                    <aside class="features-intro">
+                        <h2>Gebaut für Küchen, die <span class="features-accent">keine Verschwendung dulden.</span></h2>
+                        <p>Sechs Kernpfeiler für intelligentere Abläufe — von KI-Einblicken bis zur Echtzeit-Compliance.</p>
+                        <div class="features-highlight">
+                            <span class="features-highlight-value">40%</span>
+                            <div class="features-highlight-meta">
+                                <strong>durchschn. Abfallreduktion</strong>
+                                <span>in Küchen mit IOMS</span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="fb-card">
-                        <div class="fb-card-icon"><i class="fas fa-cloud"></i></div>
-                        <div class="fb-card-text">
-                            <h4>Cloud-nativ</h4>
-                            <p>Sichere, immer verfügbare Infrastruktur mit Echtzeit-Synchronisation über alle Standorte.</p>
-                        </div>
-                    </div>
-                </div>
+                        <button class="features-cta" onclick="openForm('demo')">
+                            <i class="fas fa-calendar-check"></i> 15-Min-Demo buchen
+                        </button>
+                    </aside>
 
-                <!-- Row 2: 3 equal cards -->
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-shield-alt"></i></div>
-                    <div class="fb-card-text">
-                        <h4>Sicher &amp; Konform</h4>
-                        <p>Enterprise-Verschlüsselung mit integrierter HACCP- und Lebensmittelsicherheits-Compliance.</p>
-                    </div>
-                </div>
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-bell"></i></div>
-                    <div class="fb-card-text">
-                        <h4>Intelligente Alerts</h4>
-                        <p>Sofortige Benachrichtigungen bei niedrigen Beständen, Abfallspitzen und Einsparungsmöglichkeiten.</p>
-                    </div>
-                </div>
-                <div class="fb-card fb-card--bottom">
-                    <div class="fb-card-icon"><i class="fas fa-chart-line"></i></div>
-                    <div class="fb-card-text">
-                        <h4>ROI-Verfolgung</h4>
-                        <p>Live-Dashboards zeigen genau, wie viel Sie sparen — aufgeschlüsselt nach Schicht, Artikel oder Standort.</p>
-                    </div>
+                    <ul class="features-list">
+                        <li class="feature-row" style="--c:#E34234">
+                            <span class="feature-row-ico"><i class="fas fa-brain"></i></span>
+                            <div class="feature-row-text">
+                                <h3>KI-gestützte Analytik</h3>
+                                <p>Machine Learning prognostiziert Abfallmuster, schlägt Bestellmengen vor und deckt Einsparungspotenziale auf — in Echtzeit.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#3B82F6">
+                            <span class="feature-row-ico"><i class="fas fa-mobile-screen-button"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Mobile App</h3>
+                                <p>Volle Küchenkontrolle aus der Hosentasche — Abfälle überwachen, Inventar verfolgen und Bestellungen verwalten.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#2DD4BF">
+                            <span class="feature-row-ico"><i class="fas fa-cloud"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Cloud-nativ</h3>
+                                <p>Sichere, immer verfügbare Infrastruktur mit Echtzeit-Synchronisation über alle Standorte.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#16A34A">
+                            <span class="feature-row-ico"><i class="fas fa-shield-halved"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Sicher &amp; Konform</h3>
+                                <p>Enterprise-Verschlüsselung mit integrierter HACCP- und Lebensmittelsicherheits-Compliance.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#F59E0B">
+                            <span class="feature-row-ico"><i class="fas fa-bell"></i></span>
+                            <div class="feature-row-text">
+                                <h3>Intelligente Alerts</h3>
+                                <p>Sofortige Benachrichtigungen bei niedrigen Beständen, Abfallspitzen und Einsparungsmöglichkeiten.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                        <li class="feature-row" style="--c:#8B5CF6">
+                            <span class="feature-row-ico"><i class="fas fa-chart-line"></i></span>
+                            <div class="feature-row-text">
+                                <h3>ROI-Verfolgung</h3>
+                                <p>Live-Dashboards zeigen genau, wie viel Sie sparen — nach Schicht, Artikel oder Standort.</p>
+                            </div>
+                            <i class="fas fa-arrow-right feature-row-arrow"></i>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -318,65 +463,77 @@
 
     <!-- Social Proof -->
     <section class="social-proof">
+        <div class="horizon-shadow"></div>
         <div class="container">
             <div class="section-header">
-                <h2>Werden Sie Teil der Bewegung gegen Lebensmittelverschwendung</h2>
-                <p>Verstehen Sie das Ausmaß des Problems und unsere innovative Lösung</p>
+                <h2>Werden Sie Teil der Bewegung<br><span class="sp-accent">gegen Lebensmittelabfall.</span></h2>
+                <p>Das Ausmaß des Problems verstehen — und unsere Antwort darauf</p>
             </div>
             <div class="proof-stats">
                 <div class="proof-stat">
-                    <div class="stat-number">88M</div>
+                    <span class="proof-stat-ico"><i class="fas fa-dumpster"></i></span>
+                    <div class="stat-number">88 Mio.</div>
                     <div class="stat-label">Tonnen EU-Lebensmittelabfall/Jahr</div>
                 </div>
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-utensils"></i></span>
                     <div class="stat-number">14%</div>
-                    <div class="stat-label">F&B-Branchenabfallanteil</div>
+                    <div class="stat-label">Abfallanteil der F&amp;B-Branche</div>
                 </div>
                 <div class="proof-stat">
-                    <div class="stat-number">€15K</div>
-                    <div class="stat-label">Durchschnittlicher Jahresverlust pro Restaurant</div>
+                    <span class="proof-stat-ico"><i class="fas fa-arrow-trend-down"></i></span>
+                    <div class="stat-number">&euro;15K</div>
+                    <div class="stat-label">Ø Jahresverlust pro Restaurant</div>
                 </div>
                 <div class="proof-stat">
+                    <span class="proof-stat-ico"><i class="fas fa-bullseye"></i></span>
                     <div class="stat-number">2030</div>
                     <div class="stat-label">EU-Abfallreduktionsziel</div>
                 </div>
             </div>
             <div class="industry-insights">
                 <div class="insight-card">
-                    <div class="insight-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
+                    <div class="insight-number">01</div>
+                    <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
                     <div class="insight-content">
-                        <h4>Branchenherausforderung</h4>
-                        <p>Restaurants verschwenden 4-10% der eingekauften Lebensmittel und kosten die Branche jährlich Milliarden</p>
+                        <h4>Branchen­herausforderung</h4>
+                        <p>Restaurants verschwenden 4–10 % der eingekauften Lebensmittel und kosten die Branche jährlich Milliarden</p>
                     </div>
                 </div>
-                <div class="insight-card">
-                    <div class="insight-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
+                <div class="insight-card insight-card--featured">
+                    <div class="insight-number">02</div>
+                    <div class="insight-icon"><i class="fas fa-lightbulb"></i></div>
                     <div class="insight-content">
                         <h4>Unsere Lösung</h4>
-                        <p>IOMS bietet komplettes Kassensystem und Warenwirtschaftssystem mit integrierten IoT-Sensoren und KI-Analytik zur Bekämpfung von Abfällen an der Quelle</p>
+                        <p>IOMS bietet komplette Kassen- und Warenwirtschaftssoftware mit integrierten IoT-Sensoren und KI-Analytik, um Abfall an der Quelle zu bekämpfen</p>
                     </div>
                 </div>
                 <div class="insight-card">
-                    <div class="insight-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
+                    <div class="insight-number">03</div>
+                    <div class="insight-icon"><i class="fas fa-university"></i></div>
                     <div class="insight-content">
-                        <h4>Forschungsunterstützt</h4>
-                        <p>Entwickelt in Partnerschaft mit der Reutlingen University basierend auf neuesten Forschungsergebnissen</p>
+                        <h4>Forschungsbasiert</h4>
+                        <p>Entwickelt in Partnerschaft mit der Hochschule Reutlingen auf Basis modernster Forschung</p>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Final Call CTA -->
             <div class="final-cta">
-                <h2>Bereit, Abfall in Wohlstand zu verwandeln?</h2>
-                <a href="waitlist-de.html" class="final-cta-button">
-                    Jetzt starten
-                </a>
+                <h2>Bereit, Abfall in<br><span class="final-cta-accent">Wohlstand zu verwandeln?</span></h2>
+                <div class="final-cta-actions">
+                    <a href="waitlist-de.html" class="final-cta-button">
+                        <i class="fas fa-rocket"></i> Jetzt loslegen
+                    </a>
+                    <button class="final-cta-secondary" onclick="openForm('demo')">
+                        <i class="fas fa-calendar-check"></i> Demo buchen
+                    </button>
+                </div>
+                <div class="final-cta-trust">
+                    <span><i class="fas fa-lock"></i> Keine Kreditkarte nötig</span>
+                    <span><i class="fas fa-check-circle"></i> Einrichtung in 24 Std.</span>
+                    <span><i class="fas fa-undo"></i> Jederzeit kündbar</span>
+                </div>
             </div>
         </div>
     </section>
@@ -390,7 +547,7 @@
                         <h3>WebMeister360</h3>
                         <span>IOMS</span>
                     </div>
-                    <p>Transformation der Gastronomie durch intelligente Abfallmanagement-Technologie.</p>
+                    <p>Wir transformieren die Gastronomie durch intelligente Abfallmanagement-Technologie.</p>
                     <div class="social-links">
                         <a href="https://www.instagram.com/webmeister360" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.linkedin.com/company/105503927/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
@@ -430,7 +587,7 @@
                     <img src="public/logo_web.webp" alt="WebMeister360" class="footer-logo-image">
                 </div>
                 <div class="footer-legal">
-                    <p>&copy; 2024 WebMeister360. Alle Rechte vorbehalten. | In Partnerschaft mit der Reutlingen University</p>
+                    <p>&copy; 2024 WebMeister360. Alle Rechte vorbehalten. | In Partnerschaft mit der Hochschule Reutlingen</p>
                 </div>
             </div>
         </div>
@@ -444,6 +601,14 @@
                 <!-- Forms will be dynamically loaded here -->
             </div>
         </div>
+    </div>
+
+    <!-- Mobile Sticky Footer CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="waitlist-de.html" target="_blank" class="cta-button primary" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-rocket"></i>
+            Auf die Warteliste
+        </a>
     </div>
 
     <script src="script.js"></script>
