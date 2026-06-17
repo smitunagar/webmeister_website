@@ -5743,6 +5743,7 @@ p {
     width: auto;
     image-rendering: -webkit-optimize-contrast; /* Sharp logo */
     opacity: 1;
+    filter: brightness(0) invert(1); /* Render footer logo in white */
 }
 
 /* Legal Strip - Fine print styling */
