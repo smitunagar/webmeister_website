@@ -118,6 +118,7 @@ function getCurrentLanguage() {
 // Form handling
 function initForms() {
     const currentLang = getCurrentLanguage();
+    const formEndpoint = (window.FORM_SUBMIT_URL || '').trim();
     
     // Form templates with translations
     const forms = {
@@ -453,7 +454,7 @@ function initForms() {
                 });
                 html += `</select>`;
             } else if (field.type === 'textarea') {
-                html += `<textarea name="${field.name}" id="${field.name}" ${field.required ? 'required' : ''}></textarea>`;
+                html += `<textarea name="${field.name}" id="${field.name}" ${field.placeholder ? `placeholder="${field.placeholder}"` : ''} ${field.required ? 'required' : ''}></textarea>`;
             } else if (field.type === 'range') {
                 html += `
                     <div class="range-container">
@@ -469,7 +470,7 @@ function initForms() {
                     </div>
                 `;
             } else {
-                html += `<input type="${field.type}" name="${field.name}" id="${field.name}" ${field.required ? 'required' : ''}>`;
+                html += `<input type="${field.type}" name="${field.name}" id="${field.name}" ${field.placeholder ? `placeholder="${field.placeholder}"` : ''} ${field.required ? 'required' : ''}>`;
             }
         }
         
@@ -484,7 +485,7 @@ function initForms() {
     };
 
     // Handle form submission
-    window.handleFormSubmit = function(event, formType) {
+    window.handleFormSubmit = async function(event, formType) {
         event.preventDefault();
         
         const form = event.target;
@@ -498,31 +499,54 @@ function initForms() {
         // Show loading state
         const submitBtn = form.querySelector('.form-submit');
         const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+        const submittingText = currentLang === 'de' ? 'Wird gesendet...' : 'Submitting...';
+        submitBtn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> ${submittingText}`;
         submitBtn.disabled = true;
-        
-        // Simulate form submission (replace with actual API call)
-        setTimeout(() => {
-            console.log('Form submitted:', data);
-            
+
+        try {
+            if (formEndpoint) {
+                const response = await fetch(formEndpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Form submission failed with status ${response.status}`);
+                }
+            } else {
+                // No endpoint configured: keep UX responsive and log payload locally.
+                await new Promise(resolve => setTimeout(resolve, 800));
+                console.log('Form submitted locally (no endpoint configured):', data);
+            }
+
             // Show success message
             formContainer.innerHTML = `
                 <div class="form-success">
                     <div class="success-icon">
                         <i class="fas fa-check-circle"></i>
                     </div>
-                    <h2>Thank You!</h2>
-                    <p>Your submission has been received. We'll get back to you within 24 hours.</p>
+                    <h2>${currentLang === 'de' ? 'Vielen Dank!' : 'Thank You!'}</h2>
+                    <p>${currentLang === 'de' ? 'Ihre Anfrage wurde erfolgreich übermittelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.' : "Your submission has been received. We'll get back to you within 24 hours."}</p>
                     <button class="cta-button primary" onclick="closeForm()">
                         <i class="fas fa-times"></i>
-                        Close
+                        ${currentLang === 'de' ? 'Schließen' : 'Close'}
                     </button>
                 </div>
             `;
-            
-            // Reset form
+
             form.reset();
-        }, 2000);
+        } catch (error) {
+            console.error('Form submission error:', error);
+            const errorMessage = currentLang === 'de'
+                ? 'Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.'
+                : 'Submission failed. Please try again or contact us directly.';
+            alert(errorMessage);
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     };
 }
 
@@ -545,6 +569,22 @@ function initAnimations() {
     // Observe elements for animation
     const animateElements = document.querySelectorAll('.feature-card, .problem-stat, .step, .testimonial, .benefit-item');
     animateElements.forEach(el => observer.observe(el));
+
+    // Journey: scroll-reveal — each card scales up as it enters the viewport
+    const journeySteps = document.querySelectorAll('.jstep, .journey-end');
+    if (journeySteps.length) {
+        // Gate the hidden initial state on JS being active (graceful fallback)
+        document.body.classList.add('journey-anim');
+        const journeyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('jrise');
+                    journeyObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+        journeySteps.forEach(el => journeyObserver.observe(el));
+    }
 
     // Counter animation for stats
     function animateCounters() {
@@ -993,9 +1033,17 @@ function openVideoLightbox(event) {
     const videoModal = document.getElementById('video-lightbox');
     if (!videoModal) return;
 
-    // Replace with your actual video URL (YouTube, Vimeo, etc.)
-    // For now using a placeholder - you'll need to replace with actual video embed URL
-    const videoUrl = 'https://www.youtube.com/embed/dQw4w9WgXcQ'; // Replace with your actual video URL
+    const trigger = event.currentTarget;
+    const configuredUrl = trigger?.dataset?.videoUrl || window.WM_VIDEO_URL || '';
+    if (!configuredUrl) return;
+
+    let videoUrl = configuredUrl.trim();
+    if (videoUrl.includes('youtube.com/watch?v=')) {
+        videoUrl = videoUrl.replace('watch?v=', 'embed/');
+    }
+    if (videoUrl.includes('youtu.be/')) {
+        videoUrl = videoUrl.replace('youtu.be/', 'youtube.com/embed/');
+    }
     
     const iframe = videoModal.querySelector('#video-iframe');
     iframe.src = videoUrl + '?autoplay=1';

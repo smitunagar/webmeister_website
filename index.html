@@ -109,134 +109,55 @@
             <!-- Waste Prevention UI Dashboard -->
             <div class="hero-visual">
                 <div class="wp-glow"></div>
-                <div class="wp-float-badge wp-float-badge--eco">
-                    <span class="wp-float-icon"><i class="fas fa-leaf"></i></span>
-                    <div class="wp-float-text">
-                        <strong>45 kg</strong>
-                        <span>CO₂ saved</span>
+                <!-- AI Vision — the camera's live view of the waste bin -->
+                <div class="aiv">
+                    <div class="aiv-top">
+                        <span class="aiv-live"><span class="aiv-dot"></span> LIVE</span>
+                        <span class="aiv-title">IOMS · AI Vision — Bin Cam 01</span>
+                        <span class="aiv-rec"><i class="fas fa-circle"></i> REC</span>
                     </div>
-                </div>
-                <div class="wp-float-badge wp-float-badge--save">
-                    <span class="wp-float-icon"><i class="fas fa-piggy-bank"></i></span>
-                    <div class="wp-float-text">
-                        <strong>€2,840</strong>
-                        <span>saved / month</span>
-                    </div>
-                </div>
-                <div class="wp-dashboard">
+                    <div class="aiv-view">
+                        <img class="aiv-photo" src="public/kitchen-tray-cam.jpg" alt="AI camera view of food trays being identified and weighed">
+                        <div class="aiv-vignette"></div>
+                        <div class="aiv-scan"></div>
+                        <span class="aiv-bracket aiv-bracket--tl"></span>
+                        <span class="aiv-bracket aiv-bracket--tr"></span>
+                        <span class="aiv-bracket aiv-bracket--bl"></span>
+                        <span class="aiv-bracket aiv-bracket--br"></span>
 
-                    <!-- Top bar -->
-                    <div class="wp-topbar">
-                        <div class="wp-topbar-left">
-                            <span class="wp-app-name">IOMS · Waste Prevention</span>
+                        <!-- detection boxes snapping onto each item -->
+                        <div class="aiv-box aiv-box--a">
+                            <span class="aiv-tag">Avocado · 70&nbsp;g <em>97%</em></span>
                         </div>
-                        <div class="wp-topbar-right">
-                            <span class="wp-date">Today, Kitchen A</span>
+                        <div class="aiv-box aiv-box--b">
+                            <span class="aiv-tag">Veg curry · 150&nbsp;g <em>95%</em></span>
                         </div>
-                    </div>
+                        <div class="aiv-box aiv-box--c">
+                            <span class="aiv-tag">Rice · 160&nbsp;g <em>98%</em></span>
+                        </div>
+                        <div class="aiv-box aiv-box--d">
+                            <span class="aiv-tag">Chickpeas · 90&nbsp;g <em>96%</em></span>
+                        </div>
 
-                    <!-- KPI Row -->
-                    <div class="wp-kpi-row">
-                        <div class="wp-kpi wp-kpi--green">
-                            <div class="wp-kpi-icon"><i class="fas fa-arrow-trend-down"></i></div>
-                            <div>
-                                <div class="wp-kpi-value">−38%</div>
-                                <div class="wp-kpi-label">Waste vs. last week</div>
-                            </div>
-                        </div>
-                        <div class="wp-kpi wp-kpi--amber">
-                            <div class="wp-kpi-icon"><i class="fas fa-scale-balanced"></i></div>
-                            <div>
-                                <div class="wp-kpi-value">12.4 kg</div>
-                                <div class="wp-kpi-label">Waste today</div>
-                            </div>
-                        </div>
-                        <div class="wp-kpi wp-kpi--blue">
-                            <div class="wp-kpi-icon"><i class="fas fa-euro-sign"></i></div>
-                            <div>
-                                <div class="wp-kpi-value">€ 2,840</div>
-                                <div class="wp-kpi-label">Saved this month</div>
-                            </div>
+                        <!-- floating capture caption -->
+                        <div class="aiv-caption">
+                            <i class="fas fa-bolt"></i> Throw &amp; go — weighed &amp; logged automatically
                         </div>
                     </div>
-
-                    <!-- Waste by Category -->
-                    <div class="wp-section">
-                        <div class="wp-section-title">
-                            <i class="fas fa-chart-bar"></i> Waste by Category
-                            <span class="wp-section-sub">Last 7 days</span>
+                    <div class="aiv-readout">
+                        <div class="aiv-stat">
+                            <span class="aiv-k">This scan</span>
+                            <span class="aiv-v">Σ 470 g</span>
                         </div>
-                        <div class="wp-categories">
-                            <div class="wp-cat-row">
-                                <span class="wp-cat-dot" style="background:#E34234"></span>
-                                <span class="wp-cat-name">Vegetables</span>
-                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:72%;background:#E34234"></div></div>
-                                <span class="wp-cat-val">4.2 kg</span>
-                            </div>
-                            <div class="wp-cat-row">
-                                <span class="wp-cat-dot" style="background:#F59E0B"></span>
-                                <span class="wp-cat-name">Prepared meals</span>
-                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:52%;background:#F59E0B"></div></div>
-                                <span class="wp-cat-val">3.1 kg</span>
-                            </div>
-                            <div class="wp-cat-row">
-                                <span class="wp-cat-dot" style="background:#1F5631"></span>
-                                <span class="wp-cat-name">Bread & Bakery</span>
-                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:38%;background:#1F5631"></div></div>
-                                <span class="wp-cat-val">2.2 kg</span>
-                            </div>
-                            <div class="wp-cat-row">
-                                <span class="wp-cat-dot" style="background:#6B7280"></span>
-                                <span class="wp-cat-name">Dairy & Proteins</span>
-                                <div class="wp-bar-track"><div class="wp-bar-fill" style="width:22%;background:#6B7280"></div></div>
-                                <span class="wp-cat-val">1.3 kg</span>
-                            </div>
+                        <div class="aiv-stat aiv-stat--mid">
+                            <span class="aiv-k">Items classified</span>
+                            <span class="aiv-v">1,240 today</span>
+                        </div>
+                        <div class="aiv-stat">
+                            <span class="aiv-k">Waste vs. baseline</span>
+                            <span class="aiv-v aiv-v--green"><i class="fas fa-arrow-trend-down"></i> −41%</span>
                         </div>
                     </div>
-
-                    <!-- Divider -->
-                    <div class="wp-divider"></div>
-
-                    <!-- AI Scan Feed -->
-                    <div class="wp-section">
-                        <div class="wp-section-title">
-                            <i class="fas fa-microchip"></i> AI Scan Feed
-                            <span class="wp-scan-ping"></span>
-                        </div>
-                        <div class="wp-feed">
-                            <div class="wp-feed-item wp-feed-item--new">
-                                <span class="wp-feed-icon" style="background:#FEF3C7;color:#D97706"><i class="fas fa-bread-slice"></i></span>
-                                <div class="wp-feed-info">
-                                    <span class="wp-feed-name">Bread roll — 180g</span>
-                                    <span class="wp-feed-meta">Plate waste · 0.3 kg CO₂</span>
-                                </div>
-                                <span class="wp-feed-time">just now</span>
-                            </div>
-                            <div class="wp-feed-item">
-                                <span class="wp-feed-icon" style="background:#DCFCE7;color:#16A34A"><i class="fas fa-leaf"></i></span>
-                                <div class="wp-feed-info">
-                                    <span class="wp-feed-name">Mixed salad — 320g</span>
-                                    <span class="wp-feed-meta">Prep waste · 0.6 kg CO₂</span>
-                                </div>
-                                <span class="wp-feed-time">2 min ago</span>
-                            </div>
-                            <div class="wp-feed-item">
-                                <span class="wp-feed-icon" style="background:#FEE2E2;color:#DC2626"><i class="fas fa-drumstick-bite"></i></span>
-                                <div class="wp-feed-info">
-                                    <span class="wp-feed-name">Chicken portion — 240g</span>
-                                    <span class="wp-feed-meta">Over-production · 0.8 kg CO₂</span>
-                                </div>
-                                <span class="wp-feed-time">5 min ago</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bottom alert -->
-                    <div class="wp-alert">
-                        <i class="fas fa-triangle-exclamation"></i>
-                        <span>Vegetable prep waste is <strong>22% above target</strong> — order adjustment recommended.</span>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -248,139 +169,250 @@
             </div>
             <div class="trust-marquee-wrapper">
                 <div class="trust-marquee-track">
-                    <img src="public/stadt_reutlingen.webp" alt="Stadt Reutlingen" class="trust-logo">
-                    <img src="public/ai_express.webp" alt="AI Express" class="trust-logo">
-                    <img src="public/hs_reutlingen_logo.webp" alt="HS Reutlingen" class="trust-logo">
-                    <img src="public/cfe logo.png" alt="CFE" class="trust-logo">
-                    <img src="public/download.png" alt="Partner" class="trust-logo">
-                    <img src="public/image (1).png" alt="Partner" class="trust-logo">
-                    <img src="public/image.png" alt="Partner" class="trust-logo">
-                    <img src="public/Logo-Horizontal-Studierendenwerk-Tübingen-Hohenheim (1) (1).webp" alt="Studierendenwerk Tübingen-Hohenheim" class="trust-logo">
+                    <img src="public/trust-logo-normalized-01.png" alt="Stadt Reutlingen" class="trust-logo">
+                    <img src="public/trust-logo-normalized-02.png" alt="AI Express" class="trust-logo">
+                    <img src="public/trust-logo-normalized-03.png" alt="HS Reutlingen" class="trust-logo">
+                    <img src="public/trust-logo-normalized-04.png" alt="CFE" class="trust-logo">
+                    <img src="public/trust-logo-normalized-05.png" alt="Partner" class="trust-logo">
+                    <img src="public/trust-logo-normalized-06.png" alt="Partner" class="trust-logo">
+                    <img src="public/trust-logo-normalized-07.png" alt="Partner" class="trust-logo">
+                    <img src="public/trust-logo-normalized-08.png" alt="Studierendenwerk Tübingen-Hohenheim" class="trust-logo">
+                    <img src="public/trust-logo-normalized-09.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-10.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-11.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-12.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-13.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-14.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-15.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-16.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-17.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-18.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-19.png" alt="Partner logo" class="trust-logo">
+                    <img src="public/trust-logo-normalized-20.png" alt="Partner logo" class="trust-logo">
                     <!-- duplicate for seamless loop -->
-                    <img src="public/stadt_reutlingen.webp" alt="Stadt Reutlingen" class="trust-logo" aria-hidden="true">
-                    <img src="public/ai_express.webp" alt="AI Express" class="trust-logo" aria-hidden="true">
-                    <img src="public/hs_reutlingen_logo.webp" alt="HS Reutlingen" class="trust-logo" aria-hidden="true">
-                    <img src="public/cfe logo.png" alt="CFE" class="trust-logo" aria-hidden="true">
-                    <img src="public/download.png" alt="Partner" class="trust-logo" aria-hidden="true">
-                    <img src="public/image (1).png" alt="Partner" class="trust-logo" aria-hidden="true">
-                    <img src="public/image.png" alt="Partner" class="trust-logo" aria-hidden="true">
-                    <img src="public/Logo-Horizontal-Studierendenwerk-Tübingen-Hohenheim (1) (1).webp" alt="Studierendenwerk Tübingen-Hohenheim" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-01.png" alt="Stadt Reutlingen" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-02.png" alt="AI Express" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-03.png" alt="HS Reutlingen" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-04.png" alt="CFE" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-05.png" alt="Partner" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-06.png" alt="Partner" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-07.png" alt="Partner" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-08.png" alt="Studierendenwerk Tübingen-Hohenheim" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-09.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-10.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-11.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-12.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-13.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-14.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-15.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-16.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-17.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-18.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-19.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
+                    <img src="public/trust-logo-normalized-20.png" alt="Partner logo" class="trust-logo" aria-hidden="true">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Statement -->
-    <section class="problem-section">
-        <!-- Right-side image (absolutely positioned) -->
-        <div class="problem-image-panel">
-            <img src="public/hrmV5OOgu_xSZvq7_8zau (1).png" alt="Food waste in commercial kitchen" class="problem-image">
-            <div class="problem-image-overlay"></div>
-        </div>
-        <div class="container">
-            <div class="problem-inner">
-                <h2 class="problem-title">Food waste is<br><span class="problem-title-accent">draining your margins.</span></h2>
-                <p class="problem-subtitle">Most kitchens lose thousands every month to invisible waste — with no system to catch it.</p>
-
-                <div class="problem-stats">
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">4–10<span class="ps-unit">%</span></div>
-                        <div class="problem-stat-right">
-                            <div class="problem-stat-label">of purchased food wasted per restaurant</div>
-                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:70%"></div></div>
-                        </div>
-                    </div>
-                    <div class="problem-stat problem-stat--featured">
-                        <div class="problem-stat-number">€143<span class="ps-unit">B</span></div>
-                        <div class="problem-stat-right">
-                            <div class="problem-stat-label">annual industry loss across food service</div>
-                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:100%"></div></div>
-                        </div>
-                    </div>
-                    <div class="problem-stat">
-                        <div class="problem-stat-number">40<span class="ps-unit">%</span></div>
-                        <div class="problem-stat-right">
-                            <div class="problem-stat-label">of all food waste is entirely preventable</div>
-                            <div class="problem-stat-bar"><div class="problem-stat-bar-fill" style="width:40%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="problem-bottom-strip">
-                    <span class="pbs-warn"><i class="fas fa-circle-exclamation"></i> Without real-time visibility, waste is invisible until it hits your P&amp;L.</span>
-                    <span class="pbs-fix"><i class="fas fa-arrow-right"></i> IOMS fixes this — automatically.</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Solution Overview -->
+    <!-- Solution Overview — The IOMS Journey -->
     <section id="solution" class="solution-section">
+        <!-- subject-grounded backdrop: technical grid + waste-to-savings curve -->
+        <div class="sol-bg" aria-hidden="true">
+            <div class="sol-grid"></div>
+            <div class="sol-orb sol-orb--1"></div>
+            <div class="sol-orb sol-orb--2"></div>
+            <svg class="sol-curve" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="wcurve" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0" stop-color="#10B981" stop-opacity="0.12"/>
+                        <stop offset="1" stop-color="#10B981" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <path d="M0,60 C320,60 420,180 720,220 C1020,260 1180,292 1440,296 L1440,320 L0,320 Z" fill="url(#wcurve)"/>
+                <path d="M0,60 C320,60 420,180 720,220 C1020,260 1180,292 1440,296" fill="none" stroke="#10B981" stroke-opacity="0.22" stroke-width="2"/>
+            </svg>
+        </div>
+
         <div class="container">
             <div class="solution-header">
-                <h2>Everything you need to <span class="solution-accent">run operations smoothly.</span></h2>
-                <p class="solution-subtitle">Hardware, software, and AI working together out of the box — every module talks to the next, with zero extra admin.</p>
+                <h2>One platform. <span class="solution-accent">From plate to profit.</span></h2>
+                <p class="solution-subtitle">Follow your kitchen data as it moves through IOMS — captured at the source, automated, predicted, and turned into savings. Every stage talks to the next, with zero extra admin.</p>
             </div>
 
-            <div class="solution-grid">
-                <article class="sol-card" style="--c:#4ADE80">
-                    <div class="sol-card-top">
-                        <span class="sol-ico"><i class="fas fa-cogs"></i></span>
-                        <span class="sol-num">01</span>
+            <div class="journey">
+                <div class="journey-spine"><span class="journey-spark"></span></div>
+
+                <!-- 01 Capture -->
+                <article class="jstep jstep--left">
+                    <div class="jnode" data-step="01"><i class="fas fa-camera-retro"></i></div>
+                    <div class="jcard">
+                        <span class="jstage">Capture</span>
+                        <h3>AI Vision &amp; IoT Sensors</h3>
+                        <p>Smart cameras and scales measure every gram of waste, temperature and usage at the source — with no manual logging.</p>
+                        <div class="jcard-foot">
+                            <span class="jmetric"><i class="fas fa-bullseye"></i> &plusmn;0.1g precision</span>
+                            <span class="jmetric"><i class="fas fa-wand-magic-sparkles"></i> 99% AI accuracy</span>
+                        </div>
                     </div>
-                    <h3>Workflow Automation</h3>
-                    <p>AI-powered automation from order processing to waste tracking — cutting manual tasks across every shift.</p>
-                    <span class="sol-metric"><i class="fas fa-bolt"></i> 3h / day saved per kitchen</span>
+                    <div class="jviz" aria-hidden="true">
+                        <svg viewBox="0 0 264 176">
+                            <rect class="vp" x="4" y="4" width="256" height="168" rx="16"/>
+                            <circle cx="24" cy="24" r="3.2" fill="#34D399"/><circle cx="36" cy="24" r="3.2" fill="#A7F3D0"/><circle cx="48" cy="24" r="3.2" fill="#D1FAE5"/>
+                            <text x="66" y="28" class="vt">AI Vision · live</text>
+                            <g stroke="#10B981" stroke-width="2" fill="none" stroke-linecap="round">
+                                <path d="M48 62 h-14 v14"/><path d="M216 62 h14 v14"/><path d="M48 156 h-14 v-14"/><path d="M216 156 h14 v-14"/>
+                            </g>
+                            <ellipse cx="132" cy="112" rx="56" ry="38" fill="#ECFDF5" stroke="#A7F3D0"/>
+                            <ellipse cx="132" cy="112" rx="32" ry="20" fill="#D1FAE5"/>
+                            <rect x="98" y="90" width="78" height="46" rx="6" fill="none" stroke="#059669" stroke-width="2" stroke-dasharray="5 3"/>
+                            <rect x="98" y="74" width="92" height="16" rx="5" fill="#059669"/>
+                            <text x="105" y="86" class="vchip">Salad · 0.3 kg</text>
+                        </svg>
+                    </div>
                 </article>
 
-                <article class="sol-card" style="--c:#60A5FA">
-                    <div class="sol-card-top">
-                        <span class="sol-ico"><i class="fas fa-cash-register"></i></span>
-                        <span class="sol-num">02</span>
+                <!-- 02 Automate -->
+                <article class="jstep jstep--right">
+                    <div class="jnode" data-step="02"><i class="fas fa-cogs"></i></div>
+                    <div class="jcard">
+                        <span class="jstage">Automate</span>
+                        <h3>Workflow Automation</h3>
+                        <p>From order processing to waste tracking, AI handles the repetitive busywork across every shift — so your team doesn't have to.</p>
+                        <div class="jcard-foot">
+                            <span class="jmetric"><i class="fas fa-bolt"></i> 3h / day saved per kitchen</span>
+                        </div>
                     </div>
-                    <h3>Complete POS System</h3>
-                    <p>A modern point of sale with integrated payments, table management and real-time order sync.</p>
-                    <span class="sol-metric"><i class="fas fa-circle-check"></i> 99.9% uptime guarantee</span>
+                    <div class="jviz" aria-hidden="true">
+                        <svg viewBox="0 0 264 176">
+                            <rect class="vp" x="4" y="4" width="256" height="168" rx="16"/>
+                            <circle cx="24" cy="24" r="3.2" fill="#34D399"/><circle cx="36" cy="24" r="3.2" fill="#A7F3D0"/><circle cx="48" cy="24" r="3.2" fill="#D1FAE5"/>
+                            <text x="66" y="28" class="vt">Auto tasks</text>
+                            <g>
+                                <rect x="20" y="48" width="224" height="32" rx="9" fill="#F0FAF5"/>
+                                <circle cx="40" cy="64" r="9" fill="#10B981"/><path d="M36 64 l3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <rect x="58" y="60" width="120" height="8" rx="4" fill="#CBE9DC"/>
+                                <rect x="62" y="92" width="224" height="0" /><rect x="20" y="88" width="224" height="32" rx="9" fill="#F0FAF5"/>
+                                <circle cx="40" cy="104" r="9" fill="#10B981"/><path d="M36 104 l3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                <rect x="58" y="100" width="150" height="8" rx="4" fill="#CBE9DC"/>
+                                <rect x="20" y="128" width="224" height="32" rx="9" fill="#ECFDF5" stroke="#A7F3D0"/>
+                                <circle cx="40" cy="144" r="9" fill="none" stroke="#10B981" stroke-width="2" stroke-dasharray="3 3"/>
+                                <rect x="58" y="140" width="96" height="8" rx="4" fill="#A7F3D0"/>
+                            </g>
+                        </svg>
+                    </div>
                 </article>
 
-                <article class="sol-card" style="--c:#A78BFA">
-                    <div class="sol-card-top">
-                        <span class="sol-ico"><i class="fas fa-boxes-stacked"></i></span>
-                        <span class="sol-num">03</span>
+                <!-- 03 Transact -->
+                <article class="jstep jstep--left">
+                    <div class="jnode" data-step="03"><i class="fas fa-cash-register"></i></div>
+                    <div class="jcard">
+                        <span class="jstage">Transact</span>
+                        <h3>Complete POS System</h3>
+                        <p>A modern point of sale with integrated payments, table management and real-time order sync — all feeding the same data core.</p>
+                        <div class="jcard-foot">
+                            <span class="jmetric"><i class="fas fa-circle-check"></i> 99.9% uptime guarantee</span>
+                        </div>
                     </div>
-                    <h3>Smart Inventory</h3>
-                    <p>Real-time stock tracking, predictive reordering and automated alerts keep you fully in control.</p>
-                    <span class="sol-metric"><i class="fas fa-arrow-trend-down"></i> &minus;32% waste on average</span>
+                    <div class="jviz" aria-hidden="true">
+                        <svg viewBox="0 0 264 176">
+                            <rect class="vp" x="4" y="4" width="256" height="168" rx="16"/>
+                            <circle cx="24" cy="24" r="3.2" fill="#34D399"/><circle cx="36" cy="24" r="3.2" fill="#A7F3D0"/><circle cx="48" cy="24" r="3.2" fill="#D1FAE5"/>
+                            <text x="66" y="28" class="vt">Order · Table 7</text>
+                            <rect x="156" y="50" width="80" height="46" rx="9" fill="#059669"/>
+                            <rect x="166" y="62" width="30" height="8" rx="2" fill="#A7F3D0"/>
+                            <rect x="166" y="78" width="54" height="6" rx="3" fill="#D1FAE5"/>
+                            <g>
+                                <rect x="24" y="58" width="104" height="7" rx="3.5" fill="#D8EEE3"/>
+                                <rect x="24" y="76" width="120" height="7" rx="3.5" fill="#D8EEE3"/>
+                                <rect x="24" y="94" width="86" height="7" rx="3.5" fill="#D8EEE3"/>
+                                <line x1="24" y1="116" x2="236" y2="116" stroke="#A7F3D0" stroke-width="1.5" stroke-dasharray="4 3"/>
+                                <text x="24" y="140" class="vt">Total</text>
+                                <text x="236" y="140" class="vnum" text-anchor="end">€ 48.20</text>
+                            </g>
+                        </svg>
+                    </div>
                 </article>
 
-                <article class="sol-card" style="--c:#FB923C">
-                    <div class="sol-card-top">
-                        <span class="sol-ico"><i class="fas fa-microchip"></i></span>
-                        <span class="sol-num">04</span>
+                <!-- 04 Predict -->
+                <article class="jstep jstep--right">
+                    <div class="jnode" data-step="04"><i class="fas fa-boxes-stacked"></i></div>
+                    <div class="jcard">
+                        <span class="jstage">Predict</span>
+                        <h3>Smart Inventory</h3>
+                        <p>Predictive reordering and automated alerts stop over-ordering before excess stock ever becomes waste.</p>
+                        <div class="jcard-foot">
+                            <span class="jmetric"><i class="fas fa-arrow-trend-down"></i> &minus;32% waste on average</span>
+                        </div>
                     </div>
-                    <h3>IoT Hardware</h3>
-                    <p>Smart sensors measure waste, temperature and usage with &plusmn;0.1g precision — feeding live data in.</p>
-                    <span class="sol-metric"><i class="fas fa-bullseye"></i> &plusmn;0.1g measurement precision</span>
+                    <div class="jviz" aria-hidden="true">
+                        <svg viewBox="0 0 264 176">
+                            <rect class="vp" x="4" y="4" width="256" height="168" rx="16"/>
+                            <circle cx="24" cy="24" r="3.2" fill="#34D399"/><circle cx="36" cy="24" r="3.2" fill="#A7F3D0"/><circle cx="48" cy="24" r="3.2" fill="#D1FAE5"/>
+                            <text x="66" y="28" class="vt">Forecast · stock</text>
+                            <line x1="28" y1="150" x2="240" y2="150" stroke="#D8EEE3" stroke-width="1.5"/>
+                            <g fill="#CBE9DC">
+                                <rect x="40" y="96" width="20" height="54" rx="3"/>
+                                <rect x="78" y="80" width="20" height="70" rx="3"/>
+                                <rect x="116" y="104" width="20" height="46" rx="3"/>
+                            </g>
+                            <g fill="#10B981">
+                                <rect x="154" y="118" width="20" height="32" rx="3"/>
+                                <rect x="192" y="130" width="20" height="20" rx="3"/>
+                            </g>
+                            <path d="M50 92 C100 80 140 120 202 134" fill="none" stroke="#059669" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+                            <circle cx="202" cy="134" r="4" fill="#059669"/>
+                        </svg>
+                    </div>
                 </article>
 
-                <article class="sol-card" style="--c:#2DD4BF">
-                    <div class="sol-card-top">
-                        <span class="sol-ico"><i class="fas fa-chart-bar"></i></span>
-                        <span class="sol-num">05</span>
+                <!-- 05 Decide -->
+                <article class="jstep jstep--left">
+                    <div class="jnode" data-step="05"><i class="fas fa-chart-line"></i></div>
+                    <div class="jcard">
+                        <span class="jstage">Decide</span>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Live reporting, trend analysis and actionable insights give managers full visibility — by shift, item or location.</p>
+                        <div class="jcard-foot">
+                            <span class="jmetric"><i class="fas fa-tower-broadcast"></i> Real-time across every site</span>
+                        </div>
                     </div>
-                    <h3>Analytics Dashboard</h3>
-                    <p>Live reporting, trend analysis and actionable insights give managers visibility across every site.</p>
-                    <span class="sol-metric"><i class="fas fa-bolt"></i> Real-time live updates</span>
+                    <div class="jviz" aria-hidden="true">
+                        <svg viewBox="0 0 264 176">
+                            <rect class="vp" x="4" y="4" width="256" height="168" rx="16"/>
+                            <circle cx="24" cy="24" r="3.2" fill="#34D399"/><circle cx="36" cy="24" r="3.2" fill="#A7F3D0"/><circle cx="48" cy="24" r="3.2" fill="#D1FAE5"/>
+                            <text x="66" y="28" class="vt">Waste this week</text>
+                            <rect x="20" y="44" width="104" height="44" rx="9" fill="#ECFDF5"/>
+                            <text x="34" y="68" class="vnum vbig">−38%</text>
+                            <text x="34" y="82" class="vsm">vs. last week</text>
+                            <polyline points="138,52 158,62 178,56 198,70 218,66 238,80" fill="none" stroke="#059669" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="238" cy="80" r="3.5" fill="#059669"/>
+                            <g fill="#10B981">
+                                <rect x="24" y="120" width="26" height="34" rx="3"/>
+                                <rect x="62" y="106" width="26" height="48" rx="3"/>
+                                <rect x="100" y="130" width="26" height="24" rx="3"/>
+                            </g>
+                            <g fill="#CBE9DC">
+                                <rect x="150" y="116" width="26" height="38" rx="3"/>
+                                <rect x="188" y="124" width="26" height="30" rx="3"/>
+                                <rect x="226" y="110" width="14" height="44" rx="3"/>
+                            </g>
+                        </svg>
+                    </div>
                 </article>
 
-                <article class="sol-card sol-card--core">
-                    <span class="sol-core-badge"><i class="fas fa-layer-group"></i> Powered by IOMS</span>
-                    <h3>Five modules. One source of truth.</h3>
-                    <p>Streamlined kitchen operations, end to end — no silos, no double entry.</p>
-                    <button class="sol-core-cta" onclick="window.open('https://www.webmeister360.com', '_blank')">
+                <!-- Destination -->
+                <div class="journey-end">
+                    <div class="jend-core">
+                        <span class="jend-ring"></span>
+                        <span class="jend-mark">IOMS</span>
+                    </div>
+                    <h3>Five modules. One connected system.</h3>
+                    <p>No silos. No double entry. Just one operating system turning waste into wealth — automatically.</p>
+                    <button class="jend-cta" onclick="window.open('https://www.webmeister360.com', '_blank')">
                         See it in action <i class="fas fa-arrow-right"></i>
                     </button>
-                </article>
+                </div>
             </div>
         </div>
     </section>
@@ -646,6 +678,6 @@
         </a>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2"></script>
 </body>
 </html>
